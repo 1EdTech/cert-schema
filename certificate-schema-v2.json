@@ -1,115 +1,12 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://github.com/ml-learning/digital-certificates-schema/certificate-schema-v2.json",
   "title": "Certificate schema V2",
   "type": "object",
   "properties": {
-    "assertion": {
+    "certificate": {
       "type": "object",
       "properties": {
-        "issuedOn": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Date the the certificate JSON was created."
-        },
-        "image:signature": {
-          "type": "string",
-          "description": "A based-64 encoded png image of the issuer's signature.",
-          "pattern": "data:image\/png;base64,"
-        },
-        "evidence": {
-          "type": "string",
-          "description": "Text, uri, etc. that shows evidence of the recipient's learning that the certificate represents. Can be left as an empty string if not used."
-        },
-        "uid": {
-          "type": "string",
-          "description": "Unique identifier. By default it is created using the string of a BSON ObjectId(), yielding an identifier 24 characters long."
-        },
-        "id": {
-          "type": "string",
-          "format": "uri",
-          "description": "URI that links to the certificate on the viewer. Default is the <domain>/<uid>"
-        }
-      },
-      "required": [
-        "issuedOn",
-        "image:signature",
-        "evidence",
-        "uid",
-        "id"
-      ]
-    },
-    "recipient": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "Type of value in the identity field. Default is 'email'."
-        },
-        "hashed": {
-          "type": "boolean",
-          "description": "Describes if the value in the identity field is hashed or not. Default is false, indicating that the identity is not hashed."
-        },
-        "familyName": {
-          "type": "string",
-          "description": "Family name of the recipient."
-        },
-        "givenName": {
-          "type": "string",
-          "description": "Given name of the recipient"
-        },
-        "pubkey": {
-          "type": "string",
-          "description": "Bitcoin address (compressed public key, usually 24 characters) of the recipient."
-        },
-        "identity": {
-          "type": "string",
-          "description": "String that represents a recipient's identity. By default, it is an email address."
-        }
-      },
-      "required": [
-        "type",
-        "hashed",
-        "familyName",
-        "givenName",
-        "pubkey",
-        "identity"
-      ]
-    },
-    "certficiate": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string",
-          "description": "Title of the certificate"
-        },
-        "subtitle": {
-          "type": "object",
-          "description": "Subtitle of the certificate",
-          "properties": {
-            "content": {
-              "type": "string",
-              "description": "Content of the subtitle"
-            },
-            "display": {
-              "type": "boolean",
-              "description": "Boolean that indicates whether to show or hide the subtitle in the viewer."
-            }
-          },
-          "required": [
-            "content",
-            "display"
-          ]
-        },
-        "description": {
-          "type": "string",
-          "description": "Description of what the certificate represents. Usually one - three sentences long."
-        },
-        "language": {
-          "type": "string",
-          "description": "Represents the ieft language and ieft country codes. Format is <ieft_language>-<IEFT_COUNTRY>.",
-          "pattern": "[a-z]{2}-[A-Z]{2}"
-        },
         "id": {
           "type": "string",
           "format": "uri",
@@ -120,10 +17,49 @@
           "description": "A based-64 encoded png image of the certificate's image.",
           "pattern": "data:image\/png;base64,"
         },
+        "language": {
+          "type": "string",
+          "description": "Represents the ieft language and ieft country codes. Format is <ieft_language>-<IEFT_COUNTRY>.",
+          "pattern": "[a-z]{2}-[A-Z]{2}"
+        },
+        "subtitle": {
+          "type": "object",
+          "description": "Subtitle of the certificate.",
+          "properties": {
+            "content": {
+              "type": "string",
+              "description": "Content of the subtitle."
+            },
+            "display": {
+              "type": "boolean",
+              "description": "Boolean that indicates whether to show or hide the subtitle in the viewer."
+            }
+          },
+          "additionalProperties": false
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the certificate."
+        },
         "issuer": {
           "type": "object",
           "description": "Details about the issuer of the certificate.",
           "properties": {
+            "image": {
+              "type": "string",
+              "description": "A based-64 encoded png image of the issuer's logo.",
+              "pattern": "data:image\/png;base64,"
+            },
+            "id": {
+              "type": "string",
+              "format": "uri",
+              "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain>/issuer/<org_abbr>-issuer.json."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "URI of the issuer's homepage"
+            },
             "name": {
               "type": "string",
               "description": "Name of the issuer."
@@ -132,81 +68,122 @@
               "type": "string",
               "format": "email",
               "description": "Email address of the issuer."
-            },
-            "image": {
-              "type": "string",
-              "description": "A based-64 encoded png image of the issuer's logo.",
-              "pattern": "data:image\/png;base64,"
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "URI of the issuer's homepage"
-            },
-            "id": {
-              "type": "string",
-              "format": "uri",
-              "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain>/issuer/<org_abbr>-issuer.json."
-            },
-            "required": [
-              "name",
-              "email",
-              "image",
-              "url",
-              "id"
-            ]
-          }
+            }
+          },
+          "additionalProperties": false
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of what the certificate represents. Usually one - three sentences long."
         }
       },
+      "additionalProperties": false,
       "required": [
-        "title",
-        "subtitle",
-        "description",
-        "language",
         "id",
         "image",
-        "issuer"
+        "language",
+        "subtitle",
+        "title",
+        "issuer",
+        "description"
       ]
+    },
+    "assertion": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "string",
+          "description": "Text, uri, etc. that shows evidence of the recipient's learning that the certificate represents. Can be left as an empty string if not used."
+        },
+        "uid": {
+          "type": "string",
+          "description": "Unique identifier. By default it is created using the string of a BSON ObjectId(), yielding an identifier 24 characters long."
+        },
+        "issuedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date the the certificate JSON was created."
+        },
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI that links to the certificate on the viewer. Default is https://<domain>/<uid>"
+        },
+        "image:signature": {
+          "type": "string",
+          "description": "A based-64 encoded png image of the issuer's signature.",
+          "pattern": "data:image\/png;base64,"
+        }
+      },
+      "additionalProperties": false
+    },
+    "signature": {
+      "type": "string"
     },
     "verify": {
       "type": "object",
       "properties": {
-        "signer": {
-          "type": "string",
-          "format": "uri",
-          "description": "URI where issuer's public key is presented. Default is https://<domain>/keys/<org-abbr>-certs-public-key.asc"
-        },
         "attribute-signed": {
           "type": "string",
-          "description": "Name of the attribute in the json that is signed by the issuer's private key. Default is 'uid', referring to the uid attribute"
+          "description": "Name of the attribute in the json that is signed by the issuer's private key. Default is 'uid', referring to the uid attribute."
         },
         "type": {
           "type": "string",
           "description": "Name of the signing method. Default is 'ECDSA(secp256k1)', referring to the Bitcoin method of signing messages with the issuer's private key."
+        },
+        "signer": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI where issuer's public key is presented. Default is https://<domain>/keys/<org-abbr>-certs-public-key.asc."
         }
       },
-      "required": [
-        "signer",
-        "attribute-signed",
-        "type"
-      ]
+      "additionalProperties": false
     },
-    "extension": {
+    "recipient": {
       "type": "object",
-      "description": "Extension object that can hold extra fields to add to the assertion, certificate, recipient, and verify objects.",
       "properties": {
-        
-      }
-    },
-    "signature": {
-      "type": "text",
-      "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
+        "familyName": {
+          "type": "string",
+          "description": "Family name of the recipient."
+        },
+        "identity": {
+          "type": "string",
+          "description": "String that represents a recipient's identity. By default, it is an email address."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of value in the identity field. Default is 'email'."
+        },
+        "hashed": {
+          "type": "boolean",
+          "description": "Describes if the value in the identity field is hashed or not. Default is false, indicating that the identity is not hashed."
+        },
+        "pubkey": {
+          "type": "string",
+          "description": "Bitcoin address (compressed public key, usually 24 characters) of the recipient."
+        },
+        "givenName": {
+          "type": "string",
+          "description": "Given name of the recipient"
+        }
+      },
+      "additionalProperties": false
     }
   },
+  "extension": {
+    "type": "object",
+    "description": "Extension object that can hold extra fields to add to the assertion, certificate, recipient, and verify objects."
+  },
+  "signature": {
+    "type": "text",
+    "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
+  },
+  "additionalProperties": false,
   "required": [
-    "assertion",
-    "verify",
     "certificate",
+    "assertion",
+    "signature",
+    "verify",
     "recipient"
   ]
 }
