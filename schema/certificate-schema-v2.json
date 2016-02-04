@@ -10,7 +10,7 @@
         "id": {
           "type": "string",
           "format": "uri",
-          "description": "URI link to a JSON that describes the type of certificate. Default format is https://<domain>/criteria/<year>/<month>/<certificate_title>.json."
+          "description": "URI link to a JSON that describes the type of certificate. Default format is https://<domain]/criteria/<year]/<month]/<certificate_title].json."
         },
         "image": {
           "type": "string",
@@ -19,7 +19,7 @@
         },
         "language": {
           "type": "string",
-          "description": "Represents the ieft language and ieft country codes. Format is <ieft_language>-<IEFT_COUNTRY>.",
+          "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-<IEFT_COUNTRY].",
           "pattern": "[a-z]{2}-[A-Z]{2}"
         },
         "subtitle": {
@@ -35,6 +35,10 @@
               "description": "Boolean that indicates whether to show or hide the subtitle in the viewer."
             }
           },
+          "required": [
+            "content",
+            "display"
+          ],
           "additionalProperties": false
         },
         "title": {
@@ -53,7 +57,7 @@
             "id": {
               "type": "string",
               "format": "uri",
-              "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain>/issuer/<org_abbr>-issuer.json."
+              "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain]/issuer/<org_abbr]-issuer.json."
             },
             "url": {
               "type": "string",
@@ -70,6 +74,13 @@
               "description": "Email address of the issuer."
             }
           },
+          "required": [
+            "image",
+            "id",
+            "url",
+            "name",
+            "email"
+          ],
           "additionalProperties": false
         },
         "description": {
@@ -107,7 +118,7 @@
         "id": {
           "type": "string",
           "format": "uri",
-          "description": "URI that links to the certificate on the viewer. Default is https://<domain>/<uid>"
+          "description": "URI that links to the certificate on the viewer. Default is https://<domain]/<uid]"
         },
         "image:signature": {
           "type": "string",
@@ -115,6 +126,13 @@
           "pattern": "data:image\/png;base64,"
         }
       },
+      "required": [
+        "evidence",
+        "uid",
+        "issuedOn",
+        "id",
+        "image:signature"
+      ],
       "additionalProperties": false
     },
     "signature": {
@@ -134,9 +152,14 @@
         "signer": {
           "type": "string",
           "format": "uri",
-          "description": "URI where issuer's public key is presented. Default is https://<domain>/keys/<org-abbr>-certs-public-key.asc."
+          "description": "URI where issuer's public key is presented. Default is https://<domain]/keys/<org-abbr]-certs-public-key.asc."
         }
       },
+      "required": [
+        "attribute-signed",
+        "type",
+        "signer"
+      ],
       "additionalProperties": false
     },
     "recipient": {
@@ -167,6 +190,14 @@
           "description": "Given name of the recipient"
         }
       },
+      "required": [
+        "familyName",
+        "identity",
+        "type",
+        "hashed",
+        "pubkey",
+        "givenName"
+      ],
       "additionalProperties": false
     }
   },

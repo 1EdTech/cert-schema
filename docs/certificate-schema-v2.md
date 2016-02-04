@@ -8,7 +8,7 @@ Properties of the `certificate` object:
 
 ### `id` (string, required)
 
-URI link to a JSON that describes the type of certificate. Default format is https://<domain>/criteria/<year>/<month>/<certificate_title>.json.
+URI link to a JSON that describes the type of certificate. Default format is https://<domain]/criteria/<year]/<month]/<certificate_title].json.
 
 ### `image` (string, required)
 
@@ -20,7 +20,7 @@ Additional restrictions:
 
 ### `language` (string, required)
 
-Represents the ieft language and ieft country codes. Format is <ieft_language>-<IEFT_COUNTRY>.
+Represents the ieft language and ieft country codes. Format is [ieft_language]-<IEFT_COUNTRY].
 
 Additional restrictions:
 
@@ -32,11 +32,11 @@ Subtitle of the certificate.
 
 Properties of the `subtitle` object:
 
-#### `content` (string)
+#### `content` (string, required)
 
 Content of the subtitle.
 
-#### `display` (boolean)
+#### `display` (boolean, required)
 
 Boolean that indicates whether to show or hide the subtitle in the viewer.
 
@@ -50,7 +50,7 @@ Details about the issuer of the certificate.
 
 Properties of the `issuer` object:
 
-#### `image` (string)
+#### `image` (string, required)
 
 A based-64 encoded png image of the issuer's logo.
 
@@ -58,19 +58,19 @@ Additional restrictions:
 
 * Regex pattern: `data:image/png;base64,`
 
-#### `id` (string)
+#### `id` (string, required)
 
-Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain>/issuer/<org_abbr>-issuer.json.
+Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain]/issuer/<org_abbr]-issuer.json.
 
-#### `url` (string)
+#### `url` (string, required)
 
 URI of the issuer's homepage
 
-#### `name` (string)
+#### `name` (string, required)
 
 Name of the issuer.
 
-#### `email` (string)
+#### `email` (string, required)
 
 Email address of the issuer.
 
@@ -82,23 +82,23 @@ Description of what the certificate represents. Usually one - three sentences lo
 
 Properties of the `assertion` object:
 
-### `evidence` (string)
+### `evidence` (string, required)
 
 Text, uri, etc. that shows evidence of the recipient's learning that the certificate represents. Can be left as an empty string if not used.
 
-### `uid` (string)
+### `uid` (string, required)
 
 Unique identifier. By default it is created using the string of a BSON ObjectId(), yielding an identifier 24 characters long.
 
-### `issuedOn` (string)
+### `issuedOn` (string, required)
 
 Date the the certificate JSON was created.
 
-### `id` (string)
+### `id` (string, required)
 
-URI that links to the certificate on the viewer. Default is https://<domain>/<uid>
+URI that links to the certificate on the viewer. Default is https://<domain]/<uid]
 
-### `image:signature` (string)
+### `image:signature` (string, required)
 
 A based-64 encoded png image of the issuer's signature.
 
@@ -112,42 +112,42 @@ Additional restrictions:
 
 Properties of the `verify` object:
 
-### `attribute-signed` (string)
+### `attribute-signed` (string, required)
 
 Name of the attribute in the json that is signed by the issuer's private key. Default is 'uid', referring to the uid attribute.
 
-### `type` (string)
+### `type` (string, required)
 
 Name of the signing method. Default is 'ECDSA(secp256k1)', referring to the Bitcoin method of signing messages with the issuer's private key.
 
-### `signer` (string)
+### `signer` (string, required)
 
-URI where issuer's public key is presented. Default is https://<domain>/keys/<org-abbr>-certs-public-key.asc.
+URI where issuer's public key is presented. Default is https://<domain]/keys/<org-abbr]-certs-public-key.asc.
 
 ## `recipient` (object, required)
 
 Properties of the `recipient` object:
 
-### `familyName` (string)
+### `familyName` (string, required)
 
 Family name of the recipient.
 
-### `identity` (string)
+### `identity` (string, required)
 
 String that represents a recipient's identity. By default, it is an email address.
 
-### `type` (string)
+### `type` (string, required)
 
 Type of value in the identity field. Default is 'email'.
 
-### `hashed` (boolean)
+### `hashed` (boolean, required)
 
 Describes if the value in the identity field is hashed or not. Default is false, indicating that the identity is not hashed.
 
-### `pubkey` (string)
+### `pubkey` (string, required)
 
 Bitcoin address (compressed public key, usually 24 characters) of the recipient.
 
-### `givenName` (string)
+### `givenName` (string, required)
 
 Given name of the recipient
