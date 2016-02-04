@@ -106,32 +106,6 @@ Additional restrictions:
 
 * Regex pattern: `data:image/png;base64,`
 
-## `signature` (string)
-
-String of signature created when the Bitcoin private key signs the value in the attribute-signed field.
-
-## `extension` (object)
-
-Extension object that includes extra fields not in the standard.
-
-Properties of the `extension` object:
-
-### `assertion` (object)
-
-Properties of the `assertion` object:
-
-### `verify` (object)
-
-Properties of the `verify` object:
-
-### `certificate` (object)
-
-Properties of the `certificate` object:
-
-### `recipient` (object)
-
-Properties of the `recipient` object:
-
 ## `verify` (object, required)
 
 Properties of the `verify` object:
@@ -175,3 +149,29 @@ Bitcoin address (compressed public key, usually 24 characters) of the recipient.
 ### `givenName` (string, required)
 
 Given name of the recipient
+
+## `signature` (string)
+
+String of signature created when the Bitcoin private key signs the value in the attribute-signed field.
+
+## `extension` (object)
+
+Extension object that includes extra fields not in the standard.
+
+Properties of the `extension` object:
+
+### `assertion` (object)
+
+Properties of the `assertion` object:
+
+### `verify` (object)
+
+Properties of the `verify` object:
+
+### `certificate` (object)
+
+Properties of the `certificate` object:
+
+### `recipient` (object)
+
+Properties of the `recipient` object:

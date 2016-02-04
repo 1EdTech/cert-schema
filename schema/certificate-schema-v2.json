@@ -135,32 +135,6 @@
       ],
       "additionalProperties": false
     },
-    "signature": {
-      "type": "string",
-      "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
-    },
-    "extension": {
-      "type": "object",
-      "description": "Extension object that includes extra fields not in the standard.",
-      "properties": {
-        "assertion": {
-          "type": "object",
-          "properties": {}
-          },
-        "verify": {
-          "type": "object",
-          "properties": {}
-          },
-        "certificate": {
-          "type": "object",
-          "properties": {}
-          },
-        "recipient": {
-          "type": "object",
-          "properties": {}
-        }
-      }
-    },
     "verify": {
       "type": "object",
       "properties": {
@@ -222,6 +196,32 @@
         "givenName"
       ],
       "additionalProperties": false
+    },
+    "signature": {
+      "type": "string",
+      "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
+    },
+    "extension": {
+      "type": "object",
+      "description": "Extension object that includes extra fields not in the standard.",
+      "properties": {
+        "assertion": {
+          "type": "object",
+          "properties": {}
+          },
+        "verify": {
+          "type": "object",
+          "properties": {}
+          },
+        "certificate": {
+          "type": "object",
+          "properties": {}
+          },
+        "recipient": {
+          "type": "object",
+          "properties": {}
+        }
+      }
     }
   },
   "required": [
