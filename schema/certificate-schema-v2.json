@@ -201,14 +201,13 @@
       "additionalProperties": false
     }
   },
-  "extension": {
-    "type": "string",
-    "description": "Extension object that can hold extra fields to add to the assertion, certificate, recipient, and verify objects."
-  },
   "signature": {
     "type": "text",
     "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
   },
+  "extension": {
+    "type": "object"
+    },
   "required": [
     "certificate",
     "assertion",
