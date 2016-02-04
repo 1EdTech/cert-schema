@@ -60,7 +60,7 @@ Additional restrictions:
 
 #### `id` (string, required)
 
-Link to a JSON that details the issuer's issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json.
+Link to a JSON that details the issuer's issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json. Included for (near) backward compatibility with open badges specification 1.1
 
 #### `url` (string, required)
 
@@ -120,7 +120,7 @@ Name of the signing method. Default is 'ECDSA(secp256k1)', referring to the Bitc
 
 ### `signer` (string, required)
 
-URI where issuer's public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc.
+URI where issuer's public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc. Compatible with open badges specification v1.1. Ideally, we would change this to point to a JSON instead, so we could retire keys (similar to the way we handle the issuer ID), but for now we're sticking with the OBS 1.1.
 
 ## `recipient` (object, required)
 
