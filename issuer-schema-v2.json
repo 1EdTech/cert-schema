@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "https://github.com/ml-learning/digital-certificates-schema/issuer-schema-v2.json",
+  "title": "Issuer schema V2",
+  "type": "object",
+  "properties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "issuedOn": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date time ISO-8601 format of the date that the keys were issued."
+          },
+          "issuer_address": {
+            "type": "string",
+            "description": "Bitcoin address (compressed public key, usually 24 characters) that the issuer uses to issue the certificates."
+          },
+          "revocation_address": {
+            "type": "string",
+            "description": "Bitcoin address (compressed public key, usually 24 characters) that the issuer uses to revoke the certificates."
+          }
+        }
+      }
+  }
+}
