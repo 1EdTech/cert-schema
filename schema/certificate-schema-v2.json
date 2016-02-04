@@ -10,7 +10,7 @@
         "id": {
           "type": "string",
           "format": "uri",
-          "description": "URI link to a JSON that describes the type of certificate. Default format is https://<domain]/criteria/<year]/<month]/<certificate_title].json."
+          "description": "URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json."
         },
         "image": {
           "type": "string",
@@ -19,7 +19,7 @@
         },
         "language": {
           "type": "string",
-          "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-<IEFT_COUNTRY].",
+          "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY].",
           "pattern": "[a-z]{2}-[A-Z]{2}"
         },
         "subtitle": {
@@ -57,7 +57,7 @@
             "id": {
               "type": "string",
               "format": "uri",
-              "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain]/issuer/<org_abbr]-issuer.json."
+              "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json."
             },
             "url": {
               "type": "string",
@@ -118,7 +118,7 @@
         "id": {
           "type": "string",
           "format": "uri",
-          "description": "URI that links to the certificate on the viewer. Default is https://<domain]/<uid]"
+          "description": "URI that links to the certificate on the viewer. Default is https://[domain]/[uid]"
         },
         "image:signature": {
           "type": "string",
@@ -136,7 +136,30 @@
       "additionalProperties": false
     },
     "signature": {
-      "type": "string"
+      "type": "string",
+      "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
+    },
+    "extension": {
+      "type": "object",
+      "description": "Extension object that includes extra fields not in the standard.",
+      "properties": {
+        "assertion": {
+          "type": "object",
+          "properties": {}
+          },
+        "verify": {
+          "type": "object",
+          "properties": {}
+          },
+        "certificate": {
+          "type": "object",
+          "properties": {}
+          },
+        "recipient": {
+          "type": "object",
+          "properties": {}
+        }
+      }
     },
     "verify": {
       "type": "object",
@@ -152,7 +175,7 @@
         "signer": {
           "type": "string",
           "format": "uri",
-          "description": "URI where issuer's public key is presented. Default is https://<domain]/keys/<org-abbr]-certs-public-key.asc."
+          "description": "URI where issuer's public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc."
         }
       },
       "required": [
@@ -201,14 +224,6 @@
       "additionalProperties": false
     }
   },
-  "signature": {
-    "type": "text",
-    "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
-  },
-  "extension": {
-    "type": "object",
-    "description": ""
-    },
   "required": [
     "certificate",
     "assertion",
