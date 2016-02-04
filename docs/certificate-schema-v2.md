@@ -106,7 +106,7 @@ Additional restrictions:
 
 * Regex pattern: `data:image/png;base64,`
 
-## `signature` (string, required)
+## `signature` (string)
 
 ## `verify` (object, required)
 
