@@ -206,12 +206,14 @@
     "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
   },
   "extension": {
-    "type": "object"
+    "type": "object",
+    "description": ""
     },
   "required": [
     "certificate",
     "assertion",
     "verify",
     "recipient"
-  ]
+  ],
+  "additionalProperties": false
 }
