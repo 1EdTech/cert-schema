@@ -8,7 +8,7 @@ Properties of the `certificate` object:
 
 ### `id` (string, required)
 
-URI link to a JSON that describes the type of certificate. Default format is https://<domain>/criteria/<year>/<month>/<certificate_title>.json.
+URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json.
 
 ### `image` (string, required)
 
@@ -20,7 +20,7 @@ Additional restrictions:
 
 ### `language` (string, required)
 
-Represents the ieft language and ieft country codes. Format is <ieft_language>-<IEFT_COUNTRY>.
+Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY].
 
 Additional restrictions:
 
@@ -60,7 +60,7 @@ Additional restrictions:
 
 #### `id` (string)
 
-Link to a JSON that details the issuer's issuing and recovation keys. Default is https://<domain>/issuer/<org_abbr>-issuer.json.
+Link to a JSON that details the issuer's issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json.
 
 #### `url` (string)
 
@@ -96,7 +96,7 @@ Date the the certificate JSON was created.
 
 ### `id` (string)
 
-URI that links to the certificate on the viewer. Default is https://<domain>/<uid>
+URI that links to the certificate on the viewer. Default is https://[domain]/[uid]
 
 ### `image:signature` (string)
 
@@ -122,7 +122,7 @@ Name of the signing method. Default is 'ECDSA(secp256k1)', referring to the Bitc
 
 ### `signer` (string)
 
-URI where issuer's public key is presented. Default is https://<domain>/keys/<org-abbr>-certs-public-key.asc.
+URI where issuer's public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc.
 
 ## `recipient` (object, required)
 
