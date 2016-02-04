@@ -202,27 +202,8 @@
     }
   },
   "extension": {
-    "type": "object",
-    "description": "Extension object that can hold extra fields to add to the assertion, certificate, recipient, and verify objects.",
-    "properties": {
-      "assertion": {
-        "type": "object",
-        "properties": {}
-        },
-      "certificate": {
-        "type": "object",
-        "properties": {}
-        },
-      "verify": {
-        "type": "object",
-        "properties": {}
-        },
-      "recipient": {
-        "type": "object",
-        "properties": {}
-      }
-    },
-    "additionalProperties": false
+    "type": "string",
+    "description": "Extension object that can hold extra fields to add to the assertion, certificate, recipient, and verify objects."
   },
   "signature": {
     "type": "text",
