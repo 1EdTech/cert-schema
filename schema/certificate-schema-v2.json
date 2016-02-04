@@ -201,6 +201,10 @@
       "additionalProperties": false
     }
   },
+  "signature": {
+    "type": "text",
+    "description": "String of signature created when the Bitcoin private key signs the value in the attribute-signed field."
+  },
   "extension": {
     "type": "object",
     "description": ""
