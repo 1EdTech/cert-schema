@@ -12,7 +12,7 @@ URI link to a JSON that describes the type of certificate. Default format is htt
 
 ### `image` (string, required)
 
-A based-64 encoded png image of the certificate's image.
+A base-64 encoded png image of the certificate's image.
 
 Additional restrictions:
 
@@ -38,7 +38,7 @@ Content of the subtitle.
 
 #### `display` (boolean, required)
 
-Boolean that indicates whether to show or hide the subtitle in the viewer.
+Flag that indicates whether to show or hide the subtitle in the viewer.
 
 ### `title` (string, required)
 
@@ -52,7 +52,7 @@ Properties of the `issuer` object:
 
 #### `image` (string, required)
 
-A based-64 encoded png image of the issuer's logo.
+A base-64 encoded png image of the issuer's logo.
 
 Additional restrictions:
 
@@ -100,7 +100,7 @@ URI that links to the certificate on the viewer. Default is https://[domain]/[ui
 
 ### `image:signature` (string, required)
 
-A based-64 encoded png image of the issuer's signature.
+A base-64 encoded png image of the issuer's signature.
 
 Additional restrictions:
 

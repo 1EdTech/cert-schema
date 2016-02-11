@@ -9,10 +9,10 @@ function writeMarkdownToFile(filename, markdown){
 	}); 
 }
 
-var certschema = require('../schema/certificate-schema-v2.json')
+var certschema = require('../schema/certificate-schema-v1-1.json')
 var certmarkdown = parse(certschema)
-writeMarkdownToFile('../docs/certificate-schema-v2.md', certmarkdown)
+writeMarkdownToFile('../docs/certificate-schema-v1-1.md', certmarkdown)
 
-var issuerschema = require('../schema/issuer-schema-v2.json')
+var issuerschema = require('../schema/issuer-schema-v1-1.json')
 var issuermarkdown = parse(issuerschema)
-writeMarkdownToFile('../docs/issuer-schema-v2.md', issuermarkdown)
+writeMarkdownToFile('../docs/issuer-schema-v1-1.md', issuermarkdown)

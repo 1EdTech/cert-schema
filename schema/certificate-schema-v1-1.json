@@ -14,7 +14,7 @@
         },
         "image": {
           "type": "string",
-          "description": "A based-64 encoded png image of the certificate's image.",
+          "description": "A base-64 encoded png image of the certificate's image.",
           "pattern": "data:image\/png;base64,"
         },
         "language": {
@@ -32,7 +32,7 @@
             },
             "display": {
               "type": "boolean",
-              "description": "Boolean that indicates whether to show or hide the subtitle in the viewer."
+              "description": "Flag that indicates whether to show or hide the subtitle in the viewer."
             }
           },
           "required": [
@@ -51,7 +51,7 @@
           "properties": {
             "image": {
               "type": "string",
-              "description": "A based-64 encoded png image of the issuer's logo.",
+              "description": "A base-64 encoded png image of the issuer's logo.",
               "pattern": "data:image\/png;base64,"
             },
             "id": {
@@ -122,7 +122,7 @@
         },
         "image:signature": {
           "type": "string",
-          "description": "A based-64 encoded png image of the issuer's signature.",
+          "description": "A base-64 encoded png image of the issuer's signature.",
           "pattern": "data:image\/png;base64,"
         }
       },
