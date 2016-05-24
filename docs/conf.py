@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # schema documentation build configuration file, created by
-# sphinx-quickstart on Tue May 24 10:17:44 2016.
+# sphinx-quickstart on Tue May 24 12:22:51 2016.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -33,6 +33,8 @@ from recommonmark.parser import CommonMarkParser
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.imgmath',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
 ]
@@ -119,7 +121,7 @@ todo_include_todos = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'alabaster'
+html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -235,7 +237,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'schema.tex', 'Schema Documentation',
+    (master_doc, 'schema.tex', 'schema Documentation',
      'MIT Media Lab Digital Certificates', 'manual'),
 ]
 
@@ -279,7 +281,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'schema', 'Schema Documentation',
+    (master_doc, 'schema', 'schema Documentation',
      author, 'schema', 'One line description of project.',
      'Miscellaneous'),
 ]

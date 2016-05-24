@@ -1,10 +1,10 @@
-.. digital-certificates-schema documentation master file, created by
-   sphinx-quickstart on Tue May 24 10:17:44 2016.
+.. schema documentation master file, created by
+   sphinx-quickstart on Tue May 24 12:22:51 2016.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the Digital Certificate Schema documentation!
-========================================================
+Welcome to Digital Certificates' Schema Documentation!
+======================================================
 
 Contents:
 
@@ -13,8 +13,6 @@ Contents:
 
    certificate-schema-v1-1
    issuer-schema-v1-1
-
-
 
 Indices and tables
 ==================
