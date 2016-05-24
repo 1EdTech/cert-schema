@@ -1,4 +1,4 @@
-# Certificate schema V2
+# Certificate Schema V1
 
 The schema defines the following properties:
 

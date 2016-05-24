@@ -1,3 +1,5 @@
+# Issuer Schema V1
+
 The schema defines the following properties:
 
 # `issuer_key` (array, required)
