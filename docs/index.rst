@@ -6,8 +6,6 @@
 Welcome to Digital Certificates' Schema Documentation!
 ======================================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
