@@ -1,36 +1,36 @@
 Digital Certificates Schema Project
 ===================================
 
-About
------
-
-The Schema project is part of the MIT Media Lab Digital Certificates incubation project. We're looking for feedback,
-contributions, and general discussion. This is not currently intended for production release, but we are improving
-our approach for future releases. Read more about the Digital Certificates Project at
-[http://certificates.media.mit.edu/](http://certificates.media.mit.edu/).
+The schema project describes how to make a digital certificate. A digital certificate is essentially a JSON file with
+the necessary fields needed for our issuer code to place it on the blockchain. We tried to keep the schema as close to
+ the [Mozilla Open Badges](http://openbadges.org/) specifications as possible.
 
 Contents
 --------
 
-###Documentation
+###docs
 
-- Documentation of the digital certificate json
-- Documentation of the issuer json
+- [Digital Certificate format](/docs/certificate-schema-v1-1.md)
+- [Issuer format](/docs/certificate-schema-v1-1.md)
 
-###Schema
-- Schema for the digital certificate json
-- Schema for the issuer json
+###schema
+- [Digital certificate json schema](/schema/certificate-schema-v1-1.json)
+- [Issuer json schema](/schema/certificate-schema-v1-1.json)
 
-###Scripts
+###scripts
 - Used to compile docs from schema
 
 
-
-Schema Documentation
---------------------
+Documentation
+-------------
 
 [http://schema.readthedocs.io/](http://schema.readthedocs.io/)
 
+Disclaimer
+--------------------------
+
+[MIT Media Lab Digital Certificates](http://certificates.media.mit.edu/) is an incubation project. We're looking for feedback, contributions, and general
+discussion. This is not currently intended for production release, but we are improving our approach for future releases.
 
 Contact
 -------
