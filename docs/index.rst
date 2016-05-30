@@ -6,9 +6,9 @@
 Welcome to Schema's Documentation!
 ==================================
 
-The Schema project is part of the MIT Media Lab Digital Certificates incubation project. We're looking for feedback,
-contributions, and general discussion. This is not currently intended for production release, but we are improving
-our approach for future releases. Read more about the Digital Certificates Project at http://certificates.media.mit.edu/.
+The schema project describes how to make a digital certificate. A digital certificate is essentially a JSON file with
+the necessary fields needed for our issuer code to place it on the blockchain. We tried to keep the schema as close to
+the `Mozilla Open Badges <http://openbadges.org/>`_ specifications as possible.
 
 Get the code: https://github.com/digital-certificates/schema
 
