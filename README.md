@@ -1,7 +1,7 @@
-Digital Certificates Schema Project
-===================================
+Digital Certificates cert-schema project
+========================================
 
-The schema project describes how to make a digital certificate. A digital certificate is essentially a JSON file with
+The cert-schema project describes how to make a digital certificate. A digital certificate is essentially a JSON file with
 the necessary fields needed for our issuer code to place it on the blockchain. We tried to keep the schema as close to
  the [Mozilla Open Badges](http://openbadges.org/) specifications as possible.
 
@@ -17,6 +17,9 @@ Contents
 - [Digital certificate json schema](/schema/certificate-schema-v1-1.json)
 - [Issuer json schema](/schema/certificate-schema-v1-1.json)
 
+###examples
+- [Example certificates](/docs/examples.md)
+
 ###scripts
 - Used to compile docs from schema
 
@@ -24,7 +27,7 @@ Contents
 Documentation
 -------------
 
-[http://schema.readthedocs.io/](http://schema.readthedocs.io/)
+[http://cert-schema.readthedocs.io/](http://cert-schema.readthedocs.io/)
 
 Disclaimer
 --------------------------
