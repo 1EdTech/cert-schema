@@ -5,29 +5,26 @@ The cert-schema project describes how to make a digital certificate. A digital c
 the necessary fields needed for our issuer code to place it on the blockchain. We tried to keep the schema as close to
  the [Mozilla Open Badges](http://openbadges.org/) specifications as possible.
 
-Contents
---------
 
-###docs
+###Certificate schema
 
-- [Digital Certificate format](/docs/certificate-schema-v1-1.md)
-- [Issuer format](/docs/certificate-schema-v1-1.md)
+- [Certificate Schema V1](/docs/certificate-schema-v1-1.md)
+- [Issuer Schema V1](/docs/certificate-schema-v1-1.md)
 
-###schema
-- [Digital certificate json schema](/schema/certificate-schema-v1-1.json)
-- [Issuer json schema](/schema/certificate-schema-v1-1.json)
+###JSON schema
+- [Certificate JSON Schema V1](/schema/certificate-schema-v1-1.json)
+- [Issuer JSON Schema V1](/schema/certificate-schema-v1-1.json)
 
-###examples
+###Examples
 - [Example certificates](/docs/examples.md)
 
-###scripts
-- Used to compile docs from schema
 
+###Compile markdown from schema
+`scripts/generate_markdown.js` builds the markdown-formatted schemas from json
 
-Documentation
+Read The Docs
 -------------
-
-[http://cert-schema.readthedocs.io/](http://cert-schema.readthedocs.io/)
+Cert-schema's [Read The Docs](http://cert-schema.readthedocs.io/) documentation -- a nicer display of the content here.
 
 Disclaimer
 --------------------------
