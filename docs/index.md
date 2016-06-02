@@ -7,7 +7,7 @@ the [Mozilla Open Badges](http://openbadges.org/) specifications as possible.
 ###Certificate format
 
 - [Certificate Schema V1](certificate-schema-v1-1.md)
-- [Issuer Schema V1](certificate-schema-v1-1.md)
+- [Issuer Schema V1](issuer-schema-v1-1.md)
 
 
 ###Examples
