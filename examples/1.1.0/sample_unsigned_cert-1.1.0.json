@@ -1,0 +1,39 @@
+{
+  "verify": {
+    "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
+    "attribute-signed": "uid",
+    "type": "ECDSA(secp256k1)"
+  },
+  "recipient": {
+    "type": "email",
+    "familyName": "RecipientLastName",
+    "hashed": false,
+    "givenName": "RecipientFirstName",
+    "pubkey": "n1EduLzKsTL1pM8Roz9vEV16AQnBdg9JCx",
+    "identity": "recipient@domain.com"
+  },
+  "assertion": {
+    "issuedOn": "2016-05-26T12:00:00.000000",
+    "image:signature": "data:image/png;base64,",
+    "id": "http://www.theissuer.edu/68656c6c6f636f6d7077ffff",
+    "uid": "68656c6c6f636f6d7077ffff",
+    "evidence": ""
+  },
+  "certificate": {
+    "subtitle": {
+      "content": "2016",
+      "display": "FALSE"
+    },
+    "description": "Certificate description",
+    "title": "Certificate title",
+    "image": "data:image/png;base64,",
+    "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
+    "issuer": {
+      "url": "http://www.theissuer.edu",
+      "image": "data:image/png;base64,",
+      "email": "issuer@theissuer.edu",
+      "name": "Issuing Institution",
+      "id": "https://www.theissuer.edu/issuer/the-issuer.json"
+    }
+  }
+}

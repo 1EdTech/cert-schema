@@ -4,3 +4,7 @@ docs/_build/*
 
 venv/*
 site/*
+
+dist
+build
+cert_schema.egg-info

@@ -1,0 +1,143 @@
+{
+  "@context": [
+    {
+      "dc": "context.json#",
+      "obi": "https://w3id.org/openbadges#",
+      "extensions": "https://w3id.org/openbadges/extensions#",
+      "validation": "obi:validation",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "schema": "http://schema.org/",
+      "sec": "https://w3id.org/security#",
+      "Assertion": "dc:Assertion",
+      "Certificate": "dc:Certificate",
+      "Issuer": "dc:Issuer",
+      "DigitalCertificate": "dc:DigitalCertificate",
+      "VerificationObject": "dc:VerificationObject",
+      "Recipient": "dc:Recipient",
+      "issuer": {
+        "@id": "dc:issuer",
+        "@type": "@id"
+      },
+      "recipient": {
+        "@id": "dc:recipient",
+        "@type": "@id"
+      },
+      "certificate": {
+        "@id": "dc:certificate",
+        "@type": "@id"
+      },
+      "digitalcertificate": {
+        "@id": "dc:digitalcertificate",
+        "@type": "@id"
+      },
+      "assertion": {
+        "@id": "dc:assertion",
+        "@type": "@id"
+      },
+      "verify": {
+        "@id": "dc:verificationobject",
+        "@type": "@id"
+      },
+      "recipient": {
+        "@id": "dc:recipient",
+        "@type": "@id"
+      },
+      "pubkey": {
+        "@id": "dc:pubkey",
+        "@type": "schema:text"
+      },
+      "type": {
+        "@id": "dc:type",
+        "@type": "schema:text"
+      },
+      "image:certificate": {
+        "@id": "dc:image:certificate",
+        "@type": "schema:text"
+      },
+      "image:signature": {
+        "@id": "dc:image:signature",
+        "@type": "schema:text"
+      },
+      "image:logo": {
+        "@id": "dc:image:logo",
+        "@type": "schema:text"
+      },
+      "familyName": {
+        "@id": "schema:Person#familyName",
+        "@type": "schema:text"
+      },
+      "givenName": {
+        "@id": "schema:Person#givenName",
+        "@type": "schema:text"
+      },
+      "signer": {
+        "@id": "dc:signer",
+        "@type": "@id"
+      },
+      "attribute-signed": {
+        "@id": "dc:attribute-signed",
+        "@type": "schema:text"
+      },
+      "ECDSA(secp256k1)": "dc:dcSignedBadge",
+      "name": {
+        "@id": "schema:name",
+        "@type": "schema:text"
+      },
+      "id": {
+        "@id": "dc:id",
+        "@type": "@id"
+      },
+      "uid": {
+        "@id": "dc:uid",
+        "@type": "schema:text"
+      },
+      "subtitle": {
+        "@id": "dc:subtitle",
+        "@type": "schema:text"
+      },
+      "description": {
+        "@id": "schema:description",
+        "@type": "schema:text"
+      },
+      "url": {
+        "@id": "schema:url",
+        "@type": "@id"
+      },
+      "email": "schema:email",
+      "hashed": "obi:hashed",
+      "salt": "obi:salt",
+      "identity": "obi:identity",
+      "issuedOn": "obi:issuedOn",
+      "expires": "obi:expires",
+      "evidence": "obi:evidence",
+      "criteria": "obi:criteria",
+      "tags": "obi:tags",
+      "alignment": "obi:alignment",
+      "revocationList": "obi:revocationList",
+      "TypeValidation": "obi:TypeValidation",
+      "FrameValidation": "obi:FrameValidation"
+    }
+  ],
+  "validation": [
+    {
+      "type": "TypeValidation",
+      "validatesType": "Assertion",
+      "validationSchema": "assertion-1.2.0.json"
+    },
+    {
+      "type": "TypeValidation",
+      "validatesType": "Certificate",
+      "validationSchema": "certificate-1.2.0.json"
+    },
+    {
+      "type": "TypeValidation",
+      "validatesType": "Issuer",
+      "validationSchema": "issuer-1.2.0.json"
+    },
+    {
+      "type": "TypeValidation",
+      "validatesType": "DigitalCertificate",
+      "validationSchema": "digital-certificate-1.2.0.json"
+    }
+  ]
+}

@@ -19,7 +19,7 @@
         },
         "language": {
           "type": "string",
-          "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY].",
+          "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY]. Backcompatible change to make this field not required.",
           "pattern": "[a-z]{2}-[A-Z]{2}"
         },
         "subtitle": {
@@ -31,8 +31,15 @@
               "description": "Content of the subtitle."
             },
             "display": {
-              "type": "boolean",
-              "description": "Flag that indicates whether to show or hide the subtitle in the viewer."
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+               {
+                 "type": "boolean"
+                }
+              ],
+              "description": "Flag that indicates whether to show or hide the subtitle in the viewer. Backcompatible change to allow 2 types that occurred in the wild before proper validation."
             }
           },
           "required": [
@@ -92,7 +99,6 @@
       "required": [
         "id",
         "image",
-        "language",
         "subtitle",
         "title",
         "issuer",
@@ -175,8 +181,15 @@
           "description": "Type of value in the identity field. Default is 'email'."
         },
         "hashed": {
-          "type": "boolean",
-          "description": "Describes if the value in the identity field is hashed or not. Default is false, indicating that the identity is not hashed."
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "description": "Describes if the value in the identity field is hashed or not. Default is false, indicating that the identity is not hashed. Backcompatible change to allow 2 types that occurred in the wild before proper validation."
         },
         "pubkey": {
           "type": "string",
