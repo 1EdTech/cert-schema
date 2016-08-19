@@ -23,6 +23,6 @@ setup(
     author_email='certs@media.mit.edu',
     long_description=long_description,
     packages=find_packages(),
-    package_data={"cert_schema": ["schema/certificate/1.1.0/*.json"]},
+    package_data={"cert_schema": ["schema/certificate/1.1.0/*.json", "schema/certificate/1.2.0/*.json"]},
     install_requires=reqs
 )
