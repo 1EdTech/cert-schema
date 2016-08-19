@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Digital Certificates Certificate Schema, Version 1.2.0",
+  "id": "certificate-1.2.0.json",
+  "description": "Digital Certificates Certificate Schema, Version 1.2.0: extends the Open Badges Issuer Schema for digital certificates on the blockchain",
+  "type": "object",
+  "definitions": {
+    "JsonLdContext": {
+      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Digital certificates contexts extend Open Badges contexts, and may also define JSON-schema to validate digital certificates against.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "JsonLdType": {
+      "description": "A type or an array of types that the digital-certificates object represents. The first or only item should be 'issuer', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'certificate'",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "Issuer": {
+      "$ref": "issuer-1.2.0.json"
+    }
+  },
+  "properties": {
+    "@context": {
+      "$ref": "#/definitions/JsonLdContext"
+    },
+    "type": {
+      "$ref": "#/definitions/JsonLdType"
+    },
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json."
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image:certificate": {
+      "type": "string",
+      "pattern": "data:image/png;base64,",
+      "description": "A base-64 encoded png image of the certificate's image. 1.2.0 changes: field renamed to avoid clashing with OBI fields"
+    },
+    "criteria": {
+      "type": "string",
+      "format": "uri"
+    },
+    "alignment": {
+      "$ref": "https://openbadgespec.org/v1/schema/badgeclass.json#/definitions/AlignmentArray"
+    },
+    "tags": {
+      "$ref": "https://openbadgespec.org/v1/schema/badgeclass.json#/definitions/TagsArray"
+    },
+    "issuer": {
+      "$ref": "#/definitions/Issuer"
+    },
+    "language": {
+      "type": "string",
+      "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY]. 1.2.0 changes: this field is optional",
+      "pattern": "[a-z]{2}-[A-Z]{2}"
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "Subtitle of the certificate. 1.2.0 changes: this type is now string, and this field is optional"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the certificate. Note: this is called 'name' in the OBI schema"
+    }
+  },
+  "required": [
+    "@type",
+    "id",
+    "image:certificate",
+    "title",
+    "issuer",
+    "description"
+  ],
+  "additionalProperties": true
+}

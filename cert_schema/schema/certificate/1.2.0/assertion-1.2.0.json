@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Digital Certificates Assertion Schema, Version 1.2.0",
+  "id": "assertion-1.2.0.json",
+  "description": "Digital Certificates Assertion Schema, Version 1.2.0: extends the Open Badges Assertion Schema for digital certificates on the blockchain",
+  "type": "object",
+  "definitions": {
+    "JsonLdContext": {
+      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Digital certificates contexts extend Open Badges contexts, and may also define JSON-schema to validate digital certificates against.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "JsonLdType": {
+      "description": "A type or an array of types that the digital-certificates object represents. The first or only item should be 'issuer', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'assertion'",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "ImageBase64": {
+      "type": "string",
+      "description": "A base-64 encoded png image of the issuer's logo.",
+      "pattern": "data:image/png;base64,"
+    }
+  },
+  "properties": {
+    "@context": {
+      "$ref": "#/definitions/JsonLdContext"
+    },
+    "@type": {
+      "$ref": "#/definitions/JsonLdType"
+    },
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI that links to the certificate on the viewer. Default is https://[domain]/[uid]"
+    },
+    "uid": {
+      "type": "string",
+      "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "description": "Unique identifier, in GUID format. 1.2.0 changes: string pattern changed to guid"
+    },
+    "issuedOn": {
+      "$ref": "https://openbadgespec.org/v1/schema/assertion.json#/definitions/DateTime",
+      "description": "Date the the certificate JSON was created."
+    },
+    "evidence": {
+      "type": "string",
+      "format": "uri",
+      "description": "Text, uri, etc. that shows evidence of the recipient's learning that the certificate represents. Can be left as an empty string if not used."
+    },
+    "expires": {
+      "$ref": "https://openbadgespec.org/v1/schema/assertion.json#/definitions/DateTime",
+      "description": "Date the the certificate JSON expires."
+    },
+    "image:signature": {
+      "$ref": "#/definitions/ImageBase64",
+      "description": "A base-64 encoded png image of the issuer's signature."
+    }
+  },
+  "required": [
+    "@type",
+    "uid",
+    "issuedOn",
+    "id"
+  ],
+  "additionalProperties": true
+}
+
+

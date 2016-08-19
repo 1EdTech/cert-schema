@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Digital Certificates Version 1.2.0 Schema",
+  "id": "digital-certificate-1.2.0.json",
+  "description": "Digital Certificates Version 1.2.0 Schema: a schema for representing digital certificates on the blockchain",
+  "type": "object",
+  "definitions": {
+    "JsonLdContext": {
+      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Digital certificates contexts extend Open Badges contexts, and also define JSON-schema to validate digital certificates against.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "JsonLdType": {
+      "description": "A type or an array of types that the digital-certificates object represents. The first or only item should be 'issuer', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'digital-certificate'",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "Certificate": {
+      "$ref": "certificate-1.2.0.json"
+    },
+    "Assertion": {
+      "$ref": "assertion-1.2.0.json"
+    },
+    "Issuer": {
+      "$ref": "issuer-1.2.0.json"
+    },
+    "VerificationObject": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "VerificationType",
+          "type": "string",
+          "enum": [
+            "hosted",
+            "signed",
+            "ECDSA(secp256k1)"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "Recipient": {
+      "type": "object",
+      "properties": {
+        "familyName": {
+          "type": "string",
+          "description": "Family name of the recipient. http://schema.org/Person#familyName"
+        },
+        "identity": {
+          "type": "string",
+          "description": "String that represents a recipient's identity. By default, it is an email address."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of value in the identity field. Default is 'email'."
+        },
+        "hashed": {
+          "type": "boolean",
+          "description": "Describes if the value in the identity field is hashed or not. We strongly recommend that the issuer hash the identy to protect the recipient. Backcompatible change to allow 2 types that occurred in the wild before proper validation."
+        },
+        "pubkey": {
+          "type": "string",
+          "description": "Bitcoin address (compressed public key, usually 24 characters) of the recipient."
+        },
+        "givenName": {
+          "type": "string",
+          "description": "Given name of the recipient. http://schema.org/Person#givenName"
+        }
+      },
+      "required": [
+        "familyName",
+        "identity",
+        "type",
+        "hashed",
+        "pubkey",
+        "givenName"
+      ],
+      "additionalProperties": true
+    }
+
+  },
+  "properties": {
+    "@context": {
+      "$ref": "#/definitions/JsonLdContext"
+    },
+    "type": {
+      "$ref": "#/definitions/JsonLdType"
+    },
+    "certificate": {
+      "$ref": "#/definitions/Certificate"
+    },
+    "assertion": {
+      "$ref": "#/definitions/Assertion"
+    },
+    "verify": {
+      "$ref": "#/definitions/VerificationObject"
+    },
+    "recipient": {
+      "$ref": "#/definitions/Recipient"
+    }
+  },
+  "required": [
+    "@context",
+    "@type",
+    "certificate",
+    "assertion",
+    "verify",
+    "recipient"
+  ],
+  "additionalProperties": true
+}
