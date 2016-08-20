@@ -1,8 +1,9 @@
 {
   "@context": [
     {
-      "dc": "context.json#",
+      "dc": "https://raw.githubusercontent.com/digital-certificates/cert-schema/kh_receipt/cert_schema/schema/certificate/1.2.0/context.json#",
       "obi": "https://w3id.org/openbadges#",
+      "cp": "https://www.chainpoint.org/contexts/chainpoint-v2.jsonld#",
       "extensions": "https://w3id.org/openbadges/extensions#",
       "validation": "obi:validation",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -14,6 +15,7 @@
       "DigitalCertificate": "dc:DigitalCertificate",
       "VerificationObject": "dc:VerificationObject",
       "Recipient": "dc:Recipient",
+      "BlockchainReceipt": "dc:BlockchainReceipt",
       "issuer": {
         "@id": "dc:issuer",
         "@type": "@id"
@@ -42,12 +44,12 @@
         "@id": "dc:recipient",
         "@type": "@id"
       },
+      "blockchainreceipt": {
+        "@id": "dc:blockchainreceipt",
+        "@type": "@id"
+      },
       "pubkey": {
         "@id": "dc:pubkey",
-        "@type": "schema:text"
-      },
-      "type": {
-        "@id": "dc:type",
         "@type": "schema:text"
       },
       "image:certificate": {
@@ -99,6 +101,10 @@
         "@id": "schema:description",
         "@type": "schema:text"
       },
+      "type": {
+        "@id": "dc:type",
+        "@type": "schema:text"
+      },
       "url": {
         "@id": "schema:url",
         "@type": "@id"
@@ -115,29 +121,53 @@
       "alignment": "obi:alignment",
       "revocationList": "obi:revocationList",
       "TypeValidation": "obi:TypeValidation",
-      "FrameValidation": "obi:FrameValidation"
+      "FrameValidation": "obi:FrameValidation",
+
+      "ChainpointSHA224v2": "cp:ChainpointSHA224v2",
+      "ChainpointSHA256v2": "cp:ChainpointSHA256v2",
+      "ChainpointSHA384v2": "cp:ChainpointSHA384v2",
+      "ChainpointSHA512v2": "cp:ChainpointSHA512v2",
+      "ChainpointSHA3-224v2": "cp:ChainpointSHA3-224v2",
+      "ChainpointSHA3-256v2": "cp:ChainpointSHA3-256v2",
+      "ChainpointSHA3-384v2": "cp:ChainpointSHA3-384v2",
+      "ChainpointSHA3-512v2": "cp:ChainpointSHA3-512v2",
+
+      "BTCOpReturn": "cp:BTCOpReturn",
+      "targetHash": "cp:targetHash",
+      "merkleRoot": "cp:merkleRoot",
+      "proof": "cp:proof",
+      "anchors":  "cp:anchors",
+
+      "sourceId": "cp:sourceId",
+      "right": "cp:right",
+      "left": "cp:left"
     }
   ],
   "validation": [
     {
       "type": "TypeValidation",
       "validatesType": "Assertion",
-      "validationSchema": "assertion-1.2.0.json"
+      "validationSchema": "https://github.com/digital-certificates/cert-schema/blob/kh_receipt/cert_schema/schema/certificate/1.2.0/assertion-1.2.0.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Certificate",
-      "validationSchema": "certificate-1.2.0.json"
+      "validationSchema": "https://github.com/digital-certificates/cert-schema/blob/kh_receipt/cert_schema/schema/certificate/1.2.0/certificate-1.2.0.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Issuer",
-      "validationSchema": "issuer-1.2.0.json"
+      "validationSchema": "https://github.com/digital-certificates/cert-schema/blob/kh_receipt/cert_schema/schema/certificate/1.2.0/issuer-1.2.0.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "DigitalCertificate",
-      "validationSchema": "digital-certificate-1.2.0.json"
+      "validationSchema": "https://github.com/digital-certificates/cert-schema/blob/kh_receipt/cert_schema/schema/certificate/1.2.0/digital-certificate-1.2.0.json"
+    },
+    {
+      "type": "TypeValidation",
+      "validatesType": "BlockchainReceipt",
+      "validationSchema": "https://github.com/digital-certificates/cert-schema/blob/kh_receipt/cert_schema/schema/certificate/1.2.0/blockchain-receipt-1.2.0.json"
     }
   ]
 }
