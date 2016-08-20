@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Digital Certificates Version 1.2.0 Schema",
-  "id": "digital-certificate-1.2.0.json",
+  "id": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/digital-certificate-1.2.0.json",
   "description": "Digital Certificates Version 1.2.0 Schema: a schema for representing digital certificates on the blockchain",
   "type": "object",
   "definitions": {
@@ -44,13 +44,16 @@
       ]
     },
     "Certificate": {
-      "$ref": "certificate-1.2.0.json"
+      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/certificate-1.2.0.json"
     },
     "Assertion": {
-      "$ref": "assertion-1.2.0.json"
+      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/assertion-1.2.0.json"
     },
     "Issuer": {
-      "$ref": "issuer-1.2.0.json"
+      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/issuer-1.2.0.json"
+    },
+    "BlockchainReceipt": {
+      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/blockchain-receipt-1.2.0.json"
     },
     "VerificationObject": {
       "type": "object",
@@ -73,6 +76,9 @@
     "Recipient": {
       "type": "object",
       "properties": {
+        "@type": {
+          "$ref": "#/definitions/JsonLdType"
+        },
         "familyName": {
           "type": "string",
           "description": "Family name of the recipient. http://schema.org/Person#familyName"
@@ -99,6 +105,7 @@
         }
       },
       "required": [
+        "@type",
         "familyName",
         "identity",
         "type",
@@ -111,10 +118,7 @@
 
   },
   "properties": {
-    "@context": {
-      "$ref": "#/definitions/JsonLdContext"
-    },
-    "type": {
+    "@type": {
       "$ref": "#/definitions/JsonLdType"
     },
     "certificate": {
@@ -128,6 +132,9 @@
     },
     "recipient": {
       "$ref": "#/definitions/Recipient"
+    },
+    "blockchainreceipt": {
+      "$ref": "#/definitions/BlockchainReceipt"
     }
   },
   "required": [

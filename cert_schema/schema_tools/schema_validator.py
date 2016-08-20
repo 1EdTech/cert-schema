@@ -55,16 +55,14 @@ def validate(data_file, schema_file):
 
 def parse_jsonld():
     # context or @context
-    v1_2_file = '../../examples/1.2.0/sample_unsigned_cert-1.2.0.json'
+    v1_2_file = '../../examples/1.2.0/sample_signed_cert-1.2.0.json'
     context = '../schema/certificate/1.2.0/context.json'
-    obi = '../../obi.json'
-    with open(v1_2_file) as data_f, open(context) as context_f, open(obi) as obi_f:
+    with open(v1_2_file) as data_f, open(context) as context_f:
         data = json.load(data_f)
         cnt = json.load(context_f)
-        ob = json.load(obi_f)
 
         compacted = jsonld.compact(data, cnt)
-        expanded = jsonld.expand(compacted, options={"expandContext": ob})
+        expanded = jsonld.expand(compacted)
 
         normalized = jsonld.normalize(
             data, {'algorithm': 'URDNA2015', 'format': 'application/nquads'})
@@ -80,11 +78,11 @@ if __name__ == '__main__':
     #                 '../schema/certificate/1.1.0/certificate-schema-v1-1.json')
     #print('certificate is valid? ' + str(valid))
 
-    valid = validate('../../examples/1.2.0/sample_unsigned_cert-1.2.0.json',
+    valid = validate('../../examples/1.2.0/sample_signed_cert-1.2.0.json',
                      '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
     print('certificate is valid? ' + str(valid))
 
-    # parse_jsonld()
+    parse_jsonld()
 
 
 

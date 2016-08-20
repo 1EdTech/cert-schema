@@ -1,5 +1,5 @@
 {
-  "@context": "https://raw.githubusercontent.com/digital-certificates/cert-schema/kh_rev_schema/cert_schema/schema/certificate/1.2.0/context.json#",
+  "@context": "https://raw.githubusercontent.com/digital-certificates/cert-schema/kh_receipt/cert_schema/schema/certificate/1.2.0/context.json#",
   "@type": "DigitalCertificate",
   "verify": {
     "@type": "VerificationObject",
@@ -36,7 +36,7 @@
     "@type": "Assertion",
     "issuedOn": "2016-05-26T12:00:00Z",
     "image:signature": "data:image/png;base64,",
-    "id": "http://www.theissuer.edu/68656c6c6f636f6d7077ffff",
+    "id": "http://www.theissuer.edu/fb9e6259-f3ee-438a-b98f-a24f54187af8",
     "uid": "fb9e6259-f3ee-438a-b98f-a24f54187af8",
     "evidence": "https://www.theissuer.edu/issuer/the-issuer.json"
   }
