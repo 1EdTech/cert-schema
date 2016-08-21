@@ -3,7 +3,13 @@
 import json
 
 
-def convert(old_file, new_file):
+def update(old_file, new_file):
+    """
+    update old_file (1.1) to new_file (1.2.0)
+    :param old_file:
+    :param new_file:
+    :return:
+    """
     with open(old_file) as v_old:
         data = json.load(v_old)
 
@@ -39,7 +45,7 @@ def convert(old_file, new_file):
                 # this field is optional now
                 del data['certificate']['subtitle']
 
-        with open(new_file, 'wb') as v_new:
+        with open(new_file, 'w') as v_new:
             json.dump(data, v_new)
 
 
