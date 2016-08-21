@@ -44,23 +44,23 @@
   "blockchainreceipt": {
     "@type": "BlockchainReceipt",
     "type": "ChainpointSHA256v2",
-    "targetHash": "5301ebaf1bf0ad076f76e43dd5eff8742e8855fa912cfa2be102ff35eeb83e87",
-    "merkleRoot": "2f5f05d5a00c848eb0eb5baf410d741f3dce80c9a56ba1b715283622feb47ca4",
+    "targetHash": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+    "merkleRoot": "d71f8983ad4ee170f8129f1ebcdd7440be7798d8e1c80420bf11f1eced610dba",
     "proof": [
       {
-        "right": "72de6fe5c8f3505b58436c86b87d2cdf7fca3a2edb485f6642e18249cedf2d68"
+        "left": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
       },
       {
-        "right": "09096dbc49b7909917e13b795ebf289ace50b870440f10424af8845fb7761ea5"
+        "right": "bffe0b34dba16bc6fac17c08bac55d676cded5a4ade41fe2c9924a5dde8f3e5b"
       },
       {
-        "left": "283d2558a4a3b7c56136984f9211de42637b58c41576ed8d9627bf5423c7966c"
+        "right": "3f79bb7b435b05321651daefd374cdc681dc06faa65e374e38337b88ca046dea"
       }
     ],
     "anchors": [
       {
         "type": "BTCOpReturn",
-        "sourceId": "ee0df617d253f12be5ab59b4b723c35aa88075df33ad0c46d8231c9df8de3d35"
+        "sourceId": "b84a92f28cc9dbdc4cd51834f6595cf97f018b925167c299097754780d7dea09"
       }
     ]
   }
