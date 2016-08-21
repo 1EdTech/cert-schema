@@ -70,13 +70,17 @@ def parse_jsonld():
 
 
 if __name__ == '__main__':
-    #valid = validate('../../examples/1.1.0/sample_unsigned_cert-1.1.0.json',
-    #                 '../schema/certificate/1.1.0/certificate-schema-v1-1.json')
-    #print('certificate is valid? ' + str(valid))
+    valid = validate('../../examples/1.1.0/sample_unsigned_cert-1.1.0.json',
+                     '../schema/certificate/1.1.0/certificate-schema-v1-1.json')
+    print('certificate is valid? ' + str(valid))
 
-    #valid = validate('../../examples/1.1.0/sample_signed_cert-1.1.0.json',
-    #                 '../schema/certificate/1.1.0/certificate-schema-v1-1.json')
-    #print('certificate is valid? ' + str(valid))
+    valid = validate('../../examples/1.1.0/sample_signed_cert-1.1.0.json',
+                     '../schema/certificate/1.1.0/certificate-schema-v1-1.json')
+    print('certificate is valid? ' + str(valid))
+
+    valid = validate('../../examples/1.2.0/sample_unsigned_cert-1.2.0.json',
+                     '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
+    print('certificate is valid? ' + str(valid))
 
     valid = validate('../../examples/1.2.0/sample_signed_cert-1.2.0.json',
                      '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
