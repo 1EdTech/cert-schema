@@ -29,12 +29,12 @@
     "targetHash": {
       "type": "string",
       "pattern": "[A-Fa-f0-9]{64}",
-      "description": "hash of item being verified. Currently the only supported hash type is SHA256, and targetHash is validated accordingly."
+      "description": "hash of item being verified. Currently the only supported hash type is SHA256, and the targetHash format is validated accordingly."
     },
     "merkleRoot": {
       "type": "string",
       "pattern": "[A-Fa-f0-9]{64}",
-      "description": "Merkle root value -- this is anchored to the blockchain. Currently the only supported hash type is SHA256, and targetHash is validated accordingly."
+      "description": "Merkle root value -- this is anchored to the blockchain. Currently the only supported hash type is SHA256, and merkleRoot format is validated accordingly."
     },
     "proof": {
       "type": "array",
@@ -45,12 +45,12 @@
           "left": {
             "type": "string",
             "pattern": "[A-Fa-f0-9]{64}",
-            "description": "value of left neighbor to combine into parent hash. Currently the only supported hash type is SHA256, and this value is validated accordingly."
+            "description": "value of left neighbor to combine into parent hash. Currently the only supported hash type is SHA256, and this value format is validated accordingly."
           },
           "right": {
             "type": "string",
             "pattern": "[A-Fa-f0-9]{64}",
-            "description": "value of right neighbor to combine into parent hash. Currently the only supported hash type is SHA256, and this value is validated accordingly."
+            "description": "value of right neighbor to combine into parent hash. Currently the only supported hash type is SHA256, and this value format is validated accordingly."
 
           }
         }
@@ -64,11 +64,13 @@
         "properties": {
           "type": {
             "type": "string",
-            "description": "type of anchor, e.g. BTCOpReturn"
+            "pattern": "BTCOpReturn",
+            "description": "type of anchor, e.g. BTCOpReturn. Currently the only supported value is BTCOpReturn."
           },
           "sourceId": {
             "type": "string",
-            "description": "where to locate proof, e.g. transaction id"
+            "pattern": "[A-Fa-f0-9]{64}",
+            "description": "How to lookup the proof on the blockchain. Currently this is expected to be the (value of the) Bitcoin transaction id, and this value format is validated accordingly"
 
           }
         },

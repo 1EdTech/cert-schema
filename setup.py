@@ -14,7 +14,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='1.2.10',
+    version='1.2.11',
     description='tools for working with digital certificates',
     author='MIT Media Lab Digital Certificates',
     tests_require=['tox'],

@@ -86,7 +86,7 @@ if __name__ == '__main__':
                      '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
     print('certificate is valid? ' + str(valid))
 
-    parse_jsonld()
+    #parse_jsonld()
 
 
 
