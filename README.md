@@ -22,6 +22,9 @@ the necessary fields needed for our issuer code to place it on the blockchain. W
 ###Compile markdown from schema
 `scripts/generate_markdown.js` builds the markdown-formatted schemas from json
 
+### Publishing package to pypi
+- http://peterdowns.com/posts/first-time-with-pypi.html
+
 Read The Docs
 -------------
 Cert-schema's [Read The Docs](http://cert-schema.readthedocs.io/) documentation -- a nicer display of the content here.
