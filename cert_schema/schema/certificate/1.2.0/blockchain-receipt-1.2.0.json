@@ -22,15 +22,19 @@
   },
   "properties": {
     "type": {
-      "type": "string"
+      "type": "string",
+      "pattern": "ChainpointSHA256v2",
+      "description": "type of hash. Currently the only supported hash type is SHA256, with chainpoint type ChainpointSHA256v2."
     },
     "targetHash": {
       "type": "string",
-      "description": "hash of item being verified"
+      "pattern": "[A-Fa-f0-9]{64}",
+      "description": "hash of item being verified. Currently the only supported hash type is SHA256, and targetHash is validated accordingly."
     },
     "merkleRoot": {
       "type": "string",
-      "description": "Merkle root value -- this is anchored to the blockchain"
+      "pattern": "[A-Fa-f0-9]{64}",
+      "description": "Merkle root value -- this is anchored to the blockchain. Currently the only supported hash type is SHA256, and targetHash is validated accordingly."
     },
     "proof": {
       "type": "array",
@@ -40,11 +44,13 @@
         "properties": {
           "left": {
             "type": "string",
-            "description": "value of left neighbor to combine into parent hash"
+            "pattern": "[A-Fa-f0-9]{64}",
+            "description": "value of left neighbor to combine into parent hash. Currently the only supported hash type is SHA256, and this value is validated accordingly."
           },
           "right": {
             "type": "string",
-            "description": "value of right neighbor to combine into parent hash"
+            "pattern": "[A-Fa-f0-9]{64}",
+            "description": "value of right neighbor to combine into parent hash. Currently the only supported hash type is SHA256, and this value is validated accordingly."
 
           }
         }
