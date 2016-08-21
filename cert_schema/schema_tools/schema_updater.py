@@ -14,16 +14,13 @@ def update(old_file, new_file):
         data = json.load(v_old)
 
         data['@context'] = 'https://raw.githubusercontent.com/digital-certificates#'
-        data['type'] = 'DigitalCertificate'
+        data['@type'] = 'DigitalCertificate'
 
-        data['certificate']['@context'] = 'https://raw.githubusercontent.com/digital-certificates#'
-        data['certificate']['type'] = 'Certificate'
-
-        data['certificate']['issuer']['@context'] = 'https://raw.githubusercontent.com/digital-certificates#'
-        data['certificate']['issuer']['type'] = 'Issuer'
-
-        data['assertion']['@context'] = 'https://raw.githubusercontent.com/digital-certificates#'
-        data['assertion']['type'] = 'Assertion'
+        data['verify']['@type'] = 'VerificationObject',
+        data['recipient']['@type'] = 'Recipient',
+        data['certificate']['@type'] = 'Certificate'
+        data['certificate']['issuer']['@type'] = 'Issuer'
+        data['assertion']['@type'] = 'Assertion'
 
         # fix images
         if 'image' in data['certificate']:
@@ -50,4 +47,4 @@ def update(old_file, new_file):
 
 
 if __name__ == '__main__':
-    convert('../examples/1.1.0/sample_unsigned_cert.json', 'v2_sample_unsigned_cert.json')
+    update('../../examples/1.1.0/sample_unsigned_cert-1.1.0.json', 'v2_sample_unsigned_cert.json')
