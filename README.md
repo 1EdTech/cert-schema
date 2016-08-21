@@ -23,7 +23,8 @@ the necessary fields needed for our issuer code to place it on the blockchain. W
 `scripts/generate_markdown.js` builds the markdown-formatted schemas from json
 
 ### Publishing package to pypi
-- http://peterdowns.com/posts/first-time-with-pypi.html
+- [First time info](http://peterdowns.com/posts/first-time-with-pypi.html)
+- Publish script: `./release_package.sh`
 
 Read The Docs
 -------------
