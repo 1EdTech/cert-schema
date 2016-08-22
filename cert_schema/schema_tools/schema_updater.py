@@ -22,6 +22,12 @@ def update(old_file, new_file):
         data['certificate']['issuer']['@type'] = 'Issuer'
         data['assertion']['@type'] = 'Assertion'
 
+        hashed = data['recipient']['hashed']
+        if str(hashed).lower() == 'true':
+            data['recipient']['hashed'] = True
+        else:
+            data['recipient']['hashed'] = False
+
         # fix images
         if 'image' in data['certificate']:
             data['certificate']['image:certificate'] = data['certificate']['image']
