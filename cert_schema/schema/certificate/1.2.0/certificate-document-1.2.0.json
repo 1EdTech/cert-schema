@@ -1,36 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Digital Certificates Version 1.2.0 Schema",
-  "id": "http://www.blockcerts.org/schema/1.2.0/blockchain-certificate-1.2.0.json",
-  "description": "Digital Certificates Version 1.2.0 Schema: a schema for representing digital certificates on the blockchain",
+  "title": "Certificate Document Version 1.2.0 Schema",
+  "id": "http://www.blockcerts.org/schema/1.2.0/certificate-document-1.2.0.json",
+  "description": "The complete certificate document, including the assertion, certificate, and issuer. Doesn't include the blockchain receipt. This part is hashed and placed on the blockchain",
   "type": "object",
   "definitions": {
-    "JsonLdContext": {
-      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Digital certificates contexts extend Open Badges contexts, and also define JSON-schema to validate digital certificates against.",
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object"
-              },
-              {
-                "type": "array"
-              }
-            ]
-          }
-        }
-      ]
-    },
     "JsonLdType": {
-      "description": "A type or an array of types that the digital-certificates object represents. The first or only item should be 'issuer', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'digital-certificate'",
+      "description": "A type or an array of types that the document object represents. The first or only item should be 'CertificateDocument', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'CertificateDocument'",
       "oneOf": [
         {
           "type": "string"
@@ -119,9 +95,6 @@
 
   },
   "properties": {
-    "@context": {
-      "$ref": "#/definitions/JsonLdContext"
-    },
     "@type": {
       "$ref": "#/definitions/JsonLdType"
     },

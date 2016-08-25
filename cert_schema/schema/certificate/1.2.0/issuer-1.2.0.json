@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Digital Certificates Issuer Schema, Version 1.2.0",
+  "title": "Blockchain Certificates Issuer Schema, Version 1.2.0",
   "id": "http://www.blockcerts.org/schema/1.2.0/issuer-1.2.0.json",
-  "description": "Digital Certificates Issuer Schema, Version 1.2.0: extends the Open Badges Issuer Schema for digital certificates on the blockchain",
+  "description": "Extends the Open Badges Issuer Schema for certificates on the blockchain",
   "type": "object",
   "definitions": {
     "JsonLdType": {
-      "description": "A type or an array of types that the digital-certificates object represents. The first or only item should be 'issuer', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'issuer'",
+      "description": "A type or an array of types that the issuer object represents. The first or only item should be 'Issuer', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'Issuer'",
       "oneOf": [
         {
           "type": "string"
