@@ -13,8 +13,8 @@ def update(old_file, new_file):
     with open(old_file) as v_old:
         data = json.load(v_old)
 
-        data['@context'] = 'https://w3id.org/blockcerts#'
-        data['@type'] = 'DigitalCertificate'
+        data['@context'] = 'https://w3id.org/blockcerts/context#'
+        data['@type'] = 'CertificateDocument'
 
         data['verify']['@type'] = 'VerificationObject',
         data['recipient']['@type'] = 'Recipient',

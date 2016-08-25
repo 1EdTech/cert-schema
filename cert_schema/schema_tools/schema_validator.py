@@ -9,7 +9,8 @@ from pyld import jsonld
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 SCHEMA_FILE_V1_1_0 = os.path.join(BASE_DIR, 'schema/certificate/1.1.0/certificate-schema-v1-1.json')
-SCHEMA_FILE_V1_2_0 = os.path.join(BASE_DIR, 'schema/certificate/1.2.0/digital-certificate-1.2.0.json')
+SCHEMA_FILE_V1_2_0 = os.path.join(BASE_DIR, 'schema/certificate/1.2.0/blockchain-certificate-1.2.0.json')
+SCHEMA_UNSIGNED_FILE_V1_2_0 = os.path.join(BASE_DIR, 'schema/certificate/1.2.0/certificate-document-1.2.0.json')
 JSON_LD_CONTEXT_V1_2_0 = os.path.join(BASE_DIR, 'schema/certificate/1.2.0/context.json')
 
 
@@ -41,6 +42,24 @@ def validate_v1_2_0(certificate_json):
             return False
 
         return validate_json(certificate_json, schema_json)
+
+def validate_unsigned_v1_2_0(certificate_json):
+    """
+    throws jsonschema.exceptions.ValidationError on failure
+    :param certificate_json:
+    :return:
+    """
+
+    with open(SCHEMA_UNSIGNED_FILE_V1_2_0) as schema_f:
+        schema_json = json.load(schema_f)
+        # first a conditional check not done in the json schema
+        if certificate_json['hashed'] and not certificate_json['salt']:
+            # TODO: error reporting
+            print('certificate is hashed but has no salt!')
+            return False
+
+        return validate_json(certificate_json, schema_json)
+
 
 
 def validate_json(certificate_json, schema_json):
@@ -88,12 +107,12 @@ if __name__ == '__main__':
                      '../schema/certificate/1.1.0/certificate-schema-v1-1.json')
     print('certificate is valid? ' + str(valid))
 
-    valid = validate('../../examples/1.2.0/sample_unsigned_cert-1.2.0.json',
-                     '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
-    print('certificate is valid? ' + str(valid))
+    #valid = validate('../../examples/1.2.0/sample_unsigned_cert-1.2.0.json',
+    #                 '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
+    #print('certificate is valid? ' + str(valid))
 
     valid = validate('../../examples/1.2.0/sample_signed_cert-1.2.0.json',
-                     '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
+                     '../schema/certificate/1.2.0/blockchain-certificate-1.2.0.json')
     print('certificate is valid? ' + str(valid))
 
     _parse_json_ld('../../examples/1.2.0/sample_signed_cert-1.2.0.json')
