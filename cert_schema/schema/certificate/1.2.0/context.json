@@ -34,7 +34,7 @@
         "@type": "@id"
       },
       "document": {
-        "@id": "bc:certificatedocument",
+        "@id": "bc:document",
         "@type": "@id"
       },
       "assertion": {
