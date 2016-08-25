@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Digital Certificates Version 1.2.0 Schema",
-  "id": "http://www.blockcerts.org/schema/1.2.0/digital-certificate-1.2.0.json",
+  "id": "http://www.blockcerts.org/schema/1.2.0/blockchain-certificate-1.2.0.json",
   "description": "Digital Certificates Version 1.2.0 Schema: a schema for representing digital certificates on the blockchain",
   "type": "object",
   "definitions": {
@@ -51,9 +51,6 @@
     },
     "Issuer": {
       "$ref": "http://www.blockcerts.org/schema/1.2.0/issuer-1.2.0.json"
-    },
-    "BlockchainReceipt": {
-      "$ref": "http://www.blockcerts.org/schema/1.2.0/blockchain-receipt-1.2.0.json"
     },
     "VerificationObject": {
       "type": "object",
@@ -122,6 +119,9 @@
 
   },
   "properties": {
+    "@context": {
+      "$ref": "#/definitions/JsonLdContext"
+    },
     "@type": {
       "$ref": "#/definitions/JsonLdType"
     },
@@ -136,13 +136,9 @@
     },
     "recipient": {
       "$ref": "#/definitions/Recipient"
-    },
-    "blockchainreceipt": {
-      "$ref": "#/definitions/BlockchainReceipt"
     }
   },
   "required": [
-    "@context",
     "@type",
     "certificate",
     "assertion",

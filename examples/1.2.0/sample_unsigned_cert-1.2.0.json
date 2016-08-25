@@ -1,5 +1,5 @@
 {
-  "@context": "https://w3id.org/blockcerts#",
+  "@context": "https://w3id.org/blockcerts/context#",
   "@type": "DigitalCertificate",
   "verify": {
     "@type": "VerificationObject",

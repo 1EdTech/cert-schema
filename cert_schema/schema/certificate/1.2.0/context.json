@@ -12,7 +12,8 @@
       "Assertion": "bc:Assertion",
       "Certificate": "bc:Certificate",
       "Issuer": "bc:Issuer",
-      "DigitalCertificate": "bc:DigitalCertificate",
+      "BlockchainCertificate": "bc:BlockchainCertificate",
+      "CertificateDocument": "bc:CertificateDocument",
       "VerificationObject": "bc:VerificationObject",
       "Recipient": "bc:Recipient",
       "BlockchainReceipt": "bc:BlockchainReceipt",
@@ -24,12 +25,16 @@
         "@id": "bc:recipient",
         "@type": "@id"
       },
+      "blockchaincertificate": {
+        "@id": "bc:blockchaincertificate",
+        "@type": "@id"
+      },
       "certificate": {
         "@id": "bc:certificate",
         "@type": "@id"
       },
-      "digitalcertificate": {
-        "@id": "bc:digitalcertificate",
+      "document": {
+        "@id": "bc:certificatedocument",
         "@type": "@id"
       },
       "assertion": {
@@ -44,8 +49,8 @@
         "@id": "bc:recipient",
         "@type": "@id"
       },
-      "blockchainreceipt": {
-        "@id": "bc:blockchainreceipt",
+      "receipt": {
+        "@id": "bc:receipt",
         "@type": "@id"
       },
       "pubkey": {
@@ -149,8 +154,13 @@
     },
     {
       "type": "TypeValidation",
-      "validatesType": "DigitalCertificate",
-      "validationSchema": "http://www.blockcerts.org/schema/1.2.0/digital-certificate-1.2.0.json"
+      "validatesType": "CertificateDocument",
+      "validationSchema": "http://www.blockcerts.org/schema/1.2.0/certificate-document-1.2.0.json"
+    },
+    {
+      "type": "TypeValidation",
+      "validatesType": "BlockchainCertificate",
+      "validationSchema": "http://www.blockcerts.org/schema/1.2.0/blockchain-certificate-1.2.0.json"
     },
     {
       "type": "TypeValidation",
