@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Digital Certificates Blockchain Receipt Schema, Version 1.2.0",
-  "id": "issuer-1.2.0.json",
+  "id": "http://www.blockcerts.org/schema/1.2.0/blockchain-receipt-1.2.0.json",
   "description": "Digital Certificates Blockchain Receipt Schema, Version 1.2.0: uses the chainpoint v2 standard for providing receipts of blockchain transactions",
   "type": "object",
   "definitions": {

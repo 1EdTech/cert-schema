@@ -1,5 +1,5 @@
 {
-  "@context": "https://raw.githubusercontent.com/digital-certificates/cert-schema/kh_receipt/cert_schema/schema/certificate/1.2.0/context.json#",
+  "@context": "https://w3id.org/blockcerts#",
   "@type": "DigitalCertificate",
   "verify": {
     "@type": "VerificationObject",

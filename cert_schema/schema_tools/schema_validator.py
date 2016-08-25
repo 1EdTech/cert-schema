@@ -8,6 +8,9 @@ import jsonschema
 from pyld import jsonld
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+SCHEMA_FILE_V1_1_0 = os.path.join(BASE_DIR, 'schema/certificate/1.1.0/certificate-schema-v1-1.json')
+SCHEMA_FILE_V1_2_0 = os.path.join(BASE_DIR, 'schema/certificate/1.2.0/digital-certificate-1.2.0.json')
+JSON_LD_CONTEXT_V1_2_0 = os.path.join(BASE_DIR, 'schema/certificate/1.2.0/context.json')
 
 
 def validate_v1_1_0(certificate_json):
@@ -16,9 +19,8 @@ def validate_v1_1_0(certificate_json):
     :param certificate_json:
     :return:
     """
-    schema_file_v1_1_0 = os.path.join(BASE_DIR, 'schema/certificate/1.1.0/certificate-schema-v1-1.json')
 
-    with open(schema_file_v1_1_0) as schema_f:
+    with open(SCHEMA_FILE_V1_1_0) as schema_f:
         schema_json = json.load(schema_f)
         return validate_json(certificate_json, schema_json)
 
@@ -29,10 +31,15 @@ def validate_v1_2_0(certificate_json):
     :param certificate_json:
     :return:
     """
-    schema_file_v1_2_0 = os.path.join(BASE_DIR, 'schema/certificate/1.2.0/digital-certificate-1.2.0.json')
 
-    with open(schema_file_v1_2_0) as schema_f:
+    with open(SCHEMA_FILE_V1_2_0) as schema_f:
         schema_json = json.load(schema_f)
+        # first a conditional check not done in the json schema
+        if certificate_json['hashed'] and not certificate_json['salt']:
+            # TODO: error reporting
+            print('certificate is hashed but has no salt!')
+            return False
+
         return validate_json(certificate_json, schema_json)
 
 
@@ -53,17 +60,20 @@ def validate(data_file, schema_file):
         return validate_json(data, schema)
 
 
-def parse_jsonld():
-    # context or @context
-    v1_2_file = '../../examples/1.2.0/sample_signed_cert-1.2.0.json'
-    context = '../schema/certificate/1.2.0/context.json'
-    with open(v1_2_file) as data_f, open(context) as context_f:
+def compact_with_json_ld_context(input_json):
+    with open(JSON_LD_CONTEXT_V1_2_0) as context_f:
+        ctx = json.load(context_f)
+        compacted = jsonld.compact(input_json, ctx)
+        return compacted
+
+
+def _parse_json_ld(filename):
+    # just some experiments
+    with open(filename) as data_f:
         data = json.load(data_f)
-        cnt = json.load(context_f)
+        compacted = compact_with_json_ld_context(data)
 
-        compacted = jsonld.compact(data, cnt)
         expanded = jsonld.expand(compacted)
-
         normalized = jsonld.normalize(
             data, {'algorithm': 'URDNA2015', 'format': 'application/nquads'})
         print(json.dumps(expanded, indent=2))
@@ -86,7 +96,7 @@ if __name__ == '__main__':
                      '../schema/certificate/1.2.0/digital-certificate-1.2.0.json')
     print('certificate is valid? ' + str(valid))
 
-    #parse_jsonld()
+    _parse_json_ld('../../examples/1.2.0/sample_signed_cert-1.2.0.json')
 
 
 

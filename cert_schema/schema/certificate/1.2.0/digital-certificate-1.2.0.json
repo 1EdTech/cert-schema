@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Digital Certificates Version 1.2.0 Schema",
-  "id": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/digital-certificate-1.2.0.json",
+  "id": "http://www.blockcerts.org/schema/1.2.0/digital-certificate-1.2.0.json",
   "description": "Digital Certificates Version 1.2.0 Schema: a schema for representing digital certificates on the blockchain",
   "type": "object",
   "definitions": {
@@ -44,16 +44,16 @@
       ]
     },
     "Certificate": {
-      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/certificate-1.2.0.json"
+      "$ref": "http://www.blockcerts.org/schema/1.2.0/certificate-1.2.0.json"
     },
     "Assertion": {
-      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/assertion-1.2.0.json"
+      "$ref": "http://www.blockcerts.org/schema/1.2.0/assertion-1.2.0.json"
     },
     "Issuer": {
-      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/issuer-1.2.0.json"
+      "$ref": "http://www.blockcerts.org/schema/1.2.0/issuer-1.2.0.json"
     },
     "BlockchainReceipt": {
-      "$ref": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/blockchain-receipt-1.2.0.json"
+      "$ref": "http://www.blockcerts.org/schema/1.2.0/blockchain-receipt-1.2.0.json"
     },
     "VerificationObject": {
       "type": "object",
@@ -94,6 +94,10 @@
         "hashed": {
           "type": "boolean",
           "description": "Describes if the value in the identity field is hashed or not. We strongly recommend that the issuer hash the identy to protect the recipient. Backcompatible change to allow 2 types that occurred in the wild before proper validation."
+        },
+        "salt": {
+          "type": "string",
+          "description": "per the OBI standard, if the recipient identity is hashed, then this should contain the string used to salt the hash"
         },
         "pubkey": {
           "type": "string",

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Digital Certificates Issuer Schema, Version 1.2.0",
-  "id": "file:///Users/kim/projects/cert-schema/cert_schema/schema/certificate/1.2.0/issuer-1.2.0.json",
+  "id": "http://www.blockcerts.org/schema/1.2.0/issuer-1.2.0.json",
   "description": "Digital Certificates Issuer Schema, Version 1.2.0: extends the Open Badges Issuer Schema for digital certificates on the blockchain",
   "type": "object",
   "definitions": {
