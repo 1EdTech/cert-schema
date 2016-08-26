@@ -1,6 +1,6 @@
 {
   "@context": "https://w3id.org/blockcerts/context#",
-  "@type": "DigitalCertificate",
+  "@type": "BlockchainCertificate",
   "verify": {
     "@type": "VerificationObject",
     "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
