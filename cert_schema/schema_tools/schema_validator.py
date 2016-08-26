@@ -35,13 +35,8 @@ def validate_v1_2_0(certificate_json):
 
     with open(SCHEMA_FILE_V1_2_0) as schema_f:
         schema_json = json.load(schema_f)
-        # first a conditional check not done in the json schema
-        if certificate_json['hashed'] and not certificate_json['salt']:
-            # TODO: error reporting
-            print('certificate is hashed but has no salt!')
-            return False
-
         return validate_json(certificate_json, schema_json)
+
 
 def validate_unsigned_v1_2_0(certificate_json):
     """
@@ -53,7 +48,7 @@ def validate_unsigned_v1_2_0(certificate_json):
     with open(SCHEMA_UNSIGNED_FILE_V1_2_0) as schema_f:
         schema_json = json.load(schema_f)
         # first a conditional check not done in the json schema
-        if certificate_json['hashed'] and not certificate_json['salt']:
+        if certificate_json['recipient']['hashed'] and not certificate_json['recipient']['salt']:
             # TODO: error reporting
             print('certificate is hashed but has no salt!')
             return False
