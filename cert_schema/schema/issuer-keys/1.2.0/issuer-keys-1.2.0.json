@@ -5,17 +5,23 @@
   "properties": {
     "issuer_key": {
       "type": "array",
+      "description": "list of issuer keys, listed in descending date order (most recent first)",
       "items": {
         "type": "object",
         "properties": {
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "Date time ISO-8601 format of the date that the keys were issued."
+            "description": "ISO-8601 formatted date time the key was issued."
           },
           "key": {
             "type": "string",
             "description": "Bitcoin address (compressed public key, usually 24 characters) that the issuer uses to issue the certificates."
+          },
+          "invalidated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Optional ISO-8601 formatted date time the key was invalidated."
           }
         },
         "additionalProperties": false,
@@ -27,17 +33,23 @@
     },
     "revocation_key": {
       "type": "array",
+      "description": "list of issuer keys, listed in descending date order (most recent first)",
       "items": {
         "type": "object",
         "properties": {
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "Date time ISO-8601 format of the date that the keys were issued."
+            "description": "ISO-8601 formatted date time the key was issued."
           },
           "key": {
             "type": "string",
             "description": "Bitcoin address (compressed public key, usually 24 characters) that the issuer uses to revoke the certificates."
+          },
+          "invalidated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Optional ISO-8601 formatted date time the key was invalidated."
           }
         },
         "additionalProperties": false,
