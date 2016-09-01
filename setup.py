@@ -16,7 +16,7 @@ setup(
     name='cert-schema',
     version='1.2.13',
     description='tools for working with blockchain certificates',
-    author='MIT Media Lab Digital Certificates',
+    author='MIT Media Lab Blockchain Certificates',
     tests_require=['tox'],
     url='https://github.com/blockchain-certificates/cert-schema',
     license='MIT',

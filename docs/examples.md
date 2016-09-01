@@ -53,7 +53,7 @@ unsigned input behind the sample included in the cert-viewer project.
 Learning Machine proof of employment certificate
 ------------------------------------------------
 
-Learning Machine generated proof of employment digital certificates for their employees. The raw, unsigned json
+Learning Machine generated proof of employment blockchain certificates for their employees. The raw, unsigned json
 below was the input resulting in [this Learning Machine certificate](https://hr.learningmachine.com/52d8acfc86584d0c40700631)
 
 
