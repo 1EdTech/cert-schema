@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://github.com/ml-learning/digital-certificates-schema/issuer-schema-v2.json",
+  "id": "https://github.com/blockchain-certificates/cert-schema/schema/issuer-schema-v2.json",
   "type": "object",
   "properties": {
     "issuer_key": {

@@ -18,7 +18,7 @@ setup(
     description='tools for working with blockchain certificates',
     author='MIT Media Lab Digital Certificates',
     tests_require=['tox'],
-    url='https://github.com/digital-certificates/cert-schema',
+    url='https://github.com/blockchain-certificates/cert-schema',
     license='MIT',
     author_email='certs@media.mit.edu',
     long_description=long_description,
