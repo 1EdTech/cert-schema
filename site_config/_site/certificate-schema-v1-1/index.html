@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Certificate Schema V1 &middot; cert-schema
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/cert-schema/public/css/poole.css">
+  <link rel="stylesheet" href="/cert-schema/public/css/syntax.css">
+  <link rel="stylesheet" href="/cert-schema/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/cert-schema/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/cert-schema/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/site_config/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/cert-schema/">
+          cert-schema
+        </a>
+        </h1>
+      <p class="lead">A Blockchain Certificates Project</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/cert-schema/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/cert-schema//about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item active" href="/cert-schema//certificate-schema-v1-1/">Certificate Schema V1</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/cert-schema//examples/">Examples</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/cert-schema//issuer-schema-v1-1/">Issuer Schema V1</a>
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.com/blockchain-certificates/cert-schema">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v0.0.1</span>
+    </nav>
+
+    <p>&copy; 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="page">
+  <h1 class="page-title">Certificate Schema V1</h1>
+  <h1>Certificate Schema V1</h1>
+
+<p>The schema defines the following properties:</p>
+
+<h2><code>certificate</code> (object, required)</h2>
+
+<p>Properties of the <code>certificate</code> object:</p>
+
+<h3><code>id</code> (string, required)</h3>
+
+<p>URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json.</p>
+
+<h3><code>image</code> (string, required)</h3>
+
+<p>A base-64 encoded png image of the certificate&#39;s image.</p>
+
+<p>Additional restrictions:</p>
+
+<ul>
+<li>Regex pattern: <code>data:image/png;base64,</code></li>
+</ul>
+
+<h3><code>language</code> (string, required)</h3>
+
+<p>Represents the ieft language and ieft country codes. Format is [ieft<em>language]-[IEFT</em>COUNTRY].</p>
+
+<p>Additional restrictions:</p>
+
+<ul>
+<li>Regex pattern: <code>[a-z]{2}-[A-Z]{2}</code></li>
+</ul>
+
+<h3><code>subtitle</code> (object, required)</h3>
+
+<p>Subtitle of the certificate.</p>
+
+<p>Properties of the <code>subtitle</code> object:</p>
+
+<h4><code>content</code> (string, required)</h4>
+
+<p>Content of the subtitle.</p>
+
+<h4><code>display</code> (boolean, required)</h4>
+
+<p>Flag that indicates whether to show or hide the subtitle in the viewer.</p>
+
+<h3><code>title</code> (string, required)</h3>
+
+<p>Title of the certificate.</p>
+
+<h3><code>issuer</code> (object, required)</h3>
+
+<p>Details about the issuer of the certificate.</p>
+
+<p>Properties of the <code>issuer</code> object:</p>
+
+<h4><code>image</code> (string, required)</h4>
+
+<p>A base-64 encoded png image of the issuer&#39;s logo.</p>
+
+<p>Additional restrictions:</p>
+
+<ul>
+<li>Regex pattern: <code>data:image/png;base64,</code></li>
+</ul>
+
+<h4><code>id</code> (string, required)</h4>
+
+<p>Link to a JSON that details the issuer&#39;s issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json. Included for (near) backward compatibility with open badges specification 1.1</p>
+
+<h4><code>url</code> (string, required)</h4>
+
+<p>URI of the issuer&#39;s homepage</p>
+
+<h4><code>name</code> (string, required)</h4>
+
+<p>Name of the issuer.</p>
+
+<h4><code>email</code> (string, required)</h4>
+
+<p>Email address of the issuer.</p>
+
+<h3><code>description</code> (string, required)</h3>
+
+<p>Description of what the certificate represents. Usually one - three sentences long.</p>
+
+<h2><code>assertion</code> (object, required)</h2>
+
+<p>Properties of the <code>assertion</code> object:</p>
+
+<h3><code>evidence</code> (string, required)</h3>
+
+<p>Text, uri, etc. that shows evidence of the recipient&#39;s learning that the certificate represents. Can be left as an empty string if not used.</p>
+
+<h3><code>uid</code> (string, required)</h3>
+
+<p>Unique identifier. By default it is created using the string of a BSON ObjectId(), yielding an identifier 24 characters long.</p>
+
+<h3><code>issuedOn</code> (string, required)</h3>
+
+<p>Date the the certificate JSON was created.</p>
+
+<h3><code>id</code> (string, required)</h3>
+
+<p>URI that links to the certificate on the viewer. Default is https://[domain]/[uid]</p>
+
+<h3><code>image:signature</code> (string, required)</h3>
+
+<p>A base-64 encoded png image of the issuer&#39;s signature.</p>
+
+<p>Additional restrictions:</p>
+
+<ul>
+<li>Regex pattern: <code>data:image/png;base64,</code></li>
+</ul>
+
+<h2><code>verify</code> (object, required)</h2>
+
+<p>Properties of the <code>verify</code> object:</p>
+
+<h3><code>attribute-signed</code> (string, required)</h3>
+
+<p>Name of the attribute in the json that is signed by the issuer&#39;s private key. Default is &#39;uid&#39;, referring to the uid attribute.</p>
+
+<h3><code>type</code> (string, required)</h3>
+
+<p>Name of the signing method. Default is &#39;ECDSA(secp256k1)&#39;, referring to the Bitcoin method of signing messages with the issuer&#39;s private key.</p>
+
+<h3><code>signer</code> (string, required)</h3>
+
+<p>URI where issuer&#39;s public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc. Compatible with open badges specification v1.1. Ideally, we would change this to point to a JSON instead, so we could retire keys (similar to the way we handle the issuer ID), but for now we&#39;re sticking with the OBS 1.1.</p>
+
+<h2><code>recipient</code> (object, required)</h2>
+
+<p>Properties of the <code>recipient</code> object:</p>
+
+<h3><code>familyName</code> (string, required)</h3>
+
+<p>Family name of the recipient.</p>
+
+<h3><code>identity</code> (string, required)</h3>
+
+<p>String that represents a recipient&#39;s identity. By default, it is an email address.</p>
+
+<h3><code>type</code> (string, required)</h3>
+
+<p>Type of value in the identity field. Default is &#39;email&#39;.</p>
+
+<h3><code>hashed</code> (boolean, required)</h3>
+
+<p>Describes if the value in the identity field is hashed or not. Default is false, indicating that the identity is not hashed.</p>
+
+<h3><code>pubkey</code> (string, required)</h3>
+
+<p>Bitcoin address (compressed public key, usually 24 characters) of the recipient.</p>
+
+<h3><code>givenName</code> (string, required)</h3>
+
+<p>Given name of the recipient</p>
+
+<h2><code>signature</code> (string)</h2>
+
+<p>String of signature created when the Bitcoin private key signs the value in the attribute-signed field.</p>
+
+<h2><code>extension</code> (object)</h2>
+
+<p>Extension object that includes extra fields not in the standard.</p>
+
+<p>Properties of the <code>extension</code> object:</p>
+
+<h3><code>assertion</code> (object)</h3>
+
+<p>Properties of the <code>assertion</code> object:</p>
+
+<h3><code>verify</code> (object)</h3>
+
+<p>Properties of the <code>verify</code> object:</p>
+
+<h3><code>certificate</code> (object)</h3>
+
+<p>Properties of the <code>certificate</code> object:</p>
+
+<h3><code>recipient</code> (object)</h3>
+
+<p>Properties of the <code>recipient</code> object:</p>
+
+</div>
+
+    </div>
+
+  </body>
+</html>
