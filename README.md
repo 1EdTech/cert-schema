@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/blockchain-certificates/cert-schema.svg?branch=master)](https://travis-ci.org/blockchain-certificates/cert-schema)
+
 Blockchain Certificates cert-schema project
 ========================================
 
