@@ -7,4 +7,16 @@ site/*
 
 dist
 build
-cert_schema.egg-info
+
+conf.ini
+*.pyc
+
+.cache/
+.coverage
+.eggs/
+.tox/
+*build/
+
+*.egg-info*
+~
+~
