@@ -32,6 +32,5 @@ the necessary fields needed for our issuer code to place it on the blockchain. W
 
 ## Contact
 
-Contact [certs@mit.edu](mailto:certs@media.mit.edu) with questions
-
+Contact [certs@mit.edu](mailto:certs@mit.edu) with questions
 
