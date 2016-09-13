@@ -1,9 +1,0 @@
-site_name: cert-schema
-
-pages:
-- Home: index.md
-- Certificate Schema V1: certificate-schema-v1-1.md
-- Issuer Schema V1: issuer-schema-v1-1.md
-- Examples: examples.md
-
-theme: readthedocs

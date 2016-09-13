@@ -1,7 +1,4 @@
----
-layout: page
-title: Certificate Schema V1
----
+
 # Certificate Schema V1
 
 The schema defines the following properties:

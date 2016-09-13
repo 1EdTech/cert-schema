@@ -1,7 +1,3 @@
----
-layout: page
-title: Issuer Schema V1
----
 
 # Issuer Schema V1
 
