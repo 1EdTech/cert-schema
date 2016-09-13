@@ -1,8 +1,8 @@
-===========================
-Our documentation has moved
-===========================
+===================================
+Cert-schema documentation has moved
+===================================
 
-See us at <http://www.blockcerts.org>
+See us at the `Blockchain Certificates Project Page <http://www.blockcerts.org>`.
 
 This page is intended for readthedocs forwarding; anyone else can ignore.
 
