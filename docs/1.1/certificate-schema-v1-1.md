@@ -1,5 +1,4 @@
-
-# Certificate Schema V1
+# Certificate schema V2
 
 The schema defines the following properties:
 
@@ -19,9 +18,9 @@ Additional restrictions:
 
 * Regex pattern: `data:image/png;base64,`
 
-### `language` (string, required)
+### `language` (string)
 
-Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY].
+Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY]. Backcompatible change to make this field not required.
 
 Additional restrictions:
 

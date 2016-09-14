@@ -25,9 +25,6 @@
     "Assertion": {
       "$ref": "http://www.blockcerts.org/schema/1.2/assertion-1.2.json"
     },
-    "Issuer": {
-      "$ref": "http://www.blockcerts.org/schema/1.2/issuer-1.2.json"
-    },
     "VerificationObject": {
       "type": "object",
       "properties": {

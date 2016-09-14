@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://github.com/ml-learning/digital-certificates-schema/certificate-schema-v2.json",
-  "title": "Certificate schema V2",
+  "id": "https://github.com/ml-learning/digital-certificates-schema/certificate-schema-v1.json",
+  "title": "Certificate schema V1.1",
   "type": "object",
   "properties": {
     "certificate": {

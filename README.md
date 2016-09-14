@@ -3,23 +3,32 @@
 
 # cert-schema
 
+The cert-schema project contains the Blockchain Certificate JSON schema and JSON LD specification.
+These are extensions to [Open Badges](http://openbadges.org/) schemas allowing the entire
+certificate contents to be registered and verified on a blockchain.
 
-The cert-schema project describes how to make a digital certificate. A digital certificate is essentially a JSON file with
-the necessary fields needed for our issuer code to place it on the blockchain. We tried to keep the schema as close to
- the [Mozilla Open Badges](http://openbadges.org/) specifications as possible.
 
+## JSON LD
 
-## Certificate schema
+- [Certificate JSON LD](cert_schema/schema/certificate/1.2/context.json)
 
-- [Certificate Schema V1](/docs/certificate-schema-v1-1.md)
-- [Issuer Schema V1](/docs/certificate-schema-v1-1.md)
+## JSON Schema Markdown
 
-## JSON schema
-- [Certificate JSON Schema V1](/schema/certificate-schema-v1-1.json)
-- [Issuer JSON Schema V1](/schema/certificate-schema-v1-1.json)
+- [Blockchain Certificate JSON Schema](docs/1.2/blockchain-certificate-1.2.md)
+  - [Certificate Document JSON Schema](docs/1.2/certificate-document-1.2.md)  
+    - [Assertion JSON Schema](docs/1.2/assertion-1.2.md)
+    - [Certificate JSON Schema](docs/1.2/certificate-1.2.md)
+        - [Issuer JSON Schema](docs/1.2/issuer-1.2.md) 
+  - [Blockchain Receipt JSON Schema](docs/1.2/blockchain-receipt-1.2.md)
 
-## Examples
-- [Example certificates](/docs/examples.md)
+## JSON Schema Raw
+
+- [Blockchain Certificate JSON Schema](cert_schema/schema/certificate/1.2/blockchain-certificate-1.2.json)
+  - [Certificate Document JSON Schema](cert_schema/schema/certificate/1.2/certificate-document-1.2.json)  
+    - [Assertion JSON Schema](cert_schema/schema/certificate/1.2/assertion-1.2.json)
+    - [Certificate JSON Schema](cert_schema/schema/certificate/1.2/certificate-1.2.json)
+        - [Issuer JSON Schema](cert_schema/schema/certificate/1.2/issuer-1.2.json) 
+  - [Blockchain Receipt JSON Schema](cert_schema/schema/certificate/1.2/blockchain-receipt-1.2.json)
 
 
 ## Compile markdown from schema
