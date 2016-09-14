@@ -20,7 +20,7 @@
       ]
     },
     "BCBadgeImage": {
-      "description": "An image representative of the entity",
+      "description": "An image representative of the entity. This overrides BadgeImage from OBI because oneOf, compared to anyOf, was failing validation",
       "anyOf": [
         {
           "$ref": "https://openbadgespec.org/v1/schema/issuer.json#/definitions/ImageDataUrl"
