@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Blockchain Certificates Issuer Schema, Version 1.2.0",
-  "id": "http://www.blockcerts.org/schema/1.2.0/issuer-1.2.0.json",
+  "title": "Blockchain Certificates Issuer Schema, Version 1.2",
+  "id": "http://www.blockcerts.org/schema/1.2/issuer-1.2.json",
   "description": "Extends the Open Badges Issuer Schema for certificates on the blockchain",
   "type": "object",
   "definitions": {
@@ -30,11 +30,6 @@
       "type": "string",
       "format": "uri",
       "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json. Included for (near) backward compatibility with open badges specification 1.1"
-    },
-    "image:logo": {
-      "type": "string",
-      "description": "A base-64 encoded png image of the issuer's logo. 1.2.0 changes: field renamed to avoid clashing with OBI fields",
-      "pattern": "data:image/png;base64,"
     }
   },
   "required": [

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Certificate Document Version 1.2.0 Schema",
-  "id": "http://www.blockcerts.org/schema/1.2.0/certificate-document-1.2.0.json",
+  "title": "Certificate Document Version 1.2 Schema",
+  "id": "http://www.blockcerts.org/schema/1.2/certificate-document-1.2.json",
   "description": "The complete certificate document, including the assertion, certificate, and issuer. Doesn't include the blockchain receipt. This part is hashed and placed on the blockchain",
   "type": "object",
   "definitions": {
@@ -20,13 +20,13 @@
       ]
     },
     "Certificate": {
-      "$ref": "http://www.blockcerts.org/schema/1.2.0/certificate-1.2.0.json"
+      "$ref": "http://www.blockcerts.org/schema/1.2/certificate-1.2.json"
     },
     "Assertion": {
-      "$ref": "http://www.blockcerts.org/schema/1.2.0/assertion-1.2.0.json"
+      "$ref": "http://www.blockcerts.org/schema/1.2/assertion-1.2.json"
     },
     "Issuer": {
-      "$ref": "http://www.blockcerts.org/schema/1.2.0/issuer-1.2.0.json"
+      "$ref": "http://www.blockcerts.org/schema/1.2/issuer-1.2.json"
     },
     "VerificationObject": {
       "type": "object",

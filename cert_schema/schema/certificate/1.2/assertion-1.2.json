@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Blockchain Certificates Assertion Schema, Version 1.2.0",
-  "id": "http://www.blockcerts.org/schema/1.2.0/assertion-1.2.0.json",
+  "title": "Blockchain Certificates Assertion Schema, Version 1.2",
+  "id": "http://www.blockcerts.org/schema/1.2/assertion-1.2.json",
   "description": "Extends the Open Badges Assertion Schema for certificates on the blockchain",
   "type": "object",
   "definitions": {
@@ -37,7 +37,7 @@
     "uid": {
       "type": "string",
       "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
-      "description": "Unique identifier, in GUID format. 1.2.0 changes: string pattern changed to guid"
+      "description": "Unique identifier, in GUID format. 1.2 changes: string pattern changed to guid"
     },
     "issuedOn": {
       "$ref": "https://openbadgespec.org/v1/schema/assertion.json#/definitions/DateTime",

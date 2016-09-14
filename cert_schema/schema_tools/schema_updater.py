@@ -5,7 +5,7 @@ import json
 
 def update(old_file, new_file):
     """
-    update old_file (1.1) to new_file (1.2.0)
+    update old_file (1.1) to new_file (1.2)
     :param old_file:
     :param new_file:
     :return:
@@ -28,15 +28,6 @@ def update(old_file, new_file):
         else:
             data['recipient']['hashed'] = False
 
-        # fix images
-        if 'image' in data['certificate']:
-            data['certificate']['image:certificate'] = data['certificate']['image']
-            del data['certificate']['image']
-
-        if 'image' in data['certificate']['issuer']:
-            data['certificate']['issuer']['image:logo'] = data['certificate']['issuer']['image']
-            del data['certificate']['issuer']['image']
-
         # update subtitle
         if 'subtitle' in data['certificate']:
             if data['certificate']['subtitle']['content']:
@@ -53,4 +44,4 @@ def update(old_file, new_file):
 
 
 if __name__ == '__main__':
-    update('../../examples/1.1.0/sample_unsigned_cert-1.1.0.json', 'v2_sample_unsigned_cert.json')
+    update('../../examples/1.1/sample_unsigned_cert-1.1.json', 'v2_sample_unsigned_cert.json')

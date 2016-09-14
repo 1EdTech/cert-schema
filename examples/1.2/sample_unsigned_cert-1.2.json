@@ -21,14 +21,14 @@
     "subtitle": "2016",
     "description": "Certificate description",
     "title": "Certificate title",
-    "image:certificate": "data:image/png;base64,",
+    "image": "data:image/png;base64,",
     "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
     "issuer": {
       "@type": "Issuer",
       "url": "http://www.theissuer.edu",
       "name": "Issuing Institution",
       "id": "https://www.theissuer.edu/issuer/the-issuer.json",
-      "image:logo": "data:image/png;base64,",
+      "image": "data:image/png;base64,",
       "email": "issuer@theissuer.edu"
     }
   },
