@@ -7,6 +7,10 @@ The cert-schema project contains the Blockchain Certificate JSON schema and JSON
 These are extensions to [Open Badges](http://openbadges.org/) schemas allowing the entire
 certificate contents to be registered and verified on a blockchain.
 
+The cert-schema python package allows verification of a Blockchain Certificate against the JSON
+schemas. This is not the same as validating the contents of a certificate against what is stored
+on the blockchain. See the cert-verifier project.
+
 
 ## JSON LD
 
