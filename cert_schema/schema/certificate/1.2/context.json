@@ -86,6 +86,9 @@
       "subtitle": {
         "@id": "bc:subtitle"
       },
+      "title": {
+        "@id": "bc:title"
+      },
       "description": {
         "@id": "schema:description"
       },
