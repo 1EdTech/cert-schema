@@ -22,7 +22,7 @@
   "certificate": {
     "subtitle": {
       "content": "2016",
-      "display": "FALSE"
+      "display": false
     },
     "description": "Certificate description",
     "title": "Certificate title",

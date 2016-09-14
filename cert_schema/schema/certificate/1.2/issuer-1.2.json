@@ -30,6 +30,11 @@
       "type": "string",
       "format": "uri",
       "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json. Included for (near) backward compatibility with open badges specification 1.1"
+    },
+    "image": {
+      "type": "string",
+      "description": "A base-64 encoded png image of the issuer's logo.",
+      "pattern": "data:image/png;base64,"
     }
   },
   "required": [
