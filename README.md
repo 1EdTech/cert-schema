@@ -14,12 +14,17 @@ on the blockchain. See the cert-verifier project.
 
 ## JSON LD
 
-- [Certificate JSON LD](cert_schema/schema/certificate/1.2/context.json)
+In 1.2 we've added a JSON LD schema to provide semantically rich linked data.
+
+[Certificate JSON LD](cert_schema/schema/certificate/1.2/context.json)
 
 ## JSON Schema Markdown
 
+This is simply a readable markdown-formatted version of the raw JSON
+schemas. 
+
 - [Blockchain Certificate JSON Schema](docs/1.2/blockchain-certificate-1.2.md)
-  - [Certificate Document JSON Schema](docs/1.2/certificate-document-1.2.md)  
+  - [Certificate Document JSON Schema](docs/1.2/certificate-document-1.2.md)
     - [Assertion JSON Schema](docs/1.2/assertion-1.2.md)
     - [Certificate JSON Schema](docs/1.2/certificate-1.2.md)
         - [Issuer JSON Schema](docs/1.2/issuer-1.2.md) 
@@ -35,13 +40,49 @@ on the blockchain. See the cert-verifier project.
   - [Blockchain Receipt JSON Schema](cert_schema/schema/certificate/1.2/blockchain-receipt-1.2.json)
 
 
-## Compile markdown from schema
-`scripts/generate_markdown.js` builds the markdown-formatted schemas from json
+## Running the python code lcoally
+
+1. Ensure you have an python environment. [Recommendations](https://github.com/blockchain-certificates/developer-common-docs/blob/master/virtualenv.md)
+
+2. Git clone the repository and change to the directory
+
+  ```bash
+  git clone https://github.com/blockchain-certificates/cert-schema.git && cd cert-schema
+  ```
+
+3. Run cert-schema setup
+
+  ```bash
+  pip install .
+  ```
+
 
 ## Publishing package to pypi
+
 - [First time info](http://peterdowns.com/posts/first-time-with-pypi.html)
 - Publish script: `./release_package.sh`
 
+
+
+
+## Unit tests
+
+This project uses tox to validate against several python environments.
+
+1. Ensure you have an python environment. [Recommendations](https://github.com/blockchain-certificates/developer-common-docs/blob/master/virtualenv.md)
+
+2. Run tests
+    ```
+    ./run_tests.sh
+    ```
+
+
+## Compile markdown from schema
+
+Note that json-schema-to-markdown doesn't handle ref schemas well, so you will 
+need to manually update any 'undefined' references.
+
+`scripts/generate_markdown.js` builds the markdown-formatted schemas from json
 
 ## Contact
 
