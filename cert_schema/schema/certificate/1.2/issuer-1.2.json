@@ -18,23 +18,49 @@
           }
         }
       ]
+    },
+    "BCBadgeImage": {
+      "description": "An image representative of the entity",
+      "anyOf": [
+        {
+          "$ref": "https://openbadgespec.org/v1/schema/issuer.json#/definitions/ImageDataUrl"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ]
     }
   },
-  "allOf": [
-    {
-      "$ref": "https://openbadgespec.org/v1/schema/issuer.json"
-    }
-  ],
   "properties": {
     "id": {
       "type": "string",
       "format": "uri",
       "description": "Link to a JSON that details the issuer's issuing and recovation keys. Default is https://[domain]/issuer/[org_abbr]-issuer.json. Included for (near) backward compatibility with open badges specification 1.1"
     },
-    "image": {
+    "image" : {
+     "$ref": "#/definitions/BCBadgeImage"
+    },
+    "name": {
+      "description": "Human-readable name of the issuing entity",
+      "type": "string"
+    },
+    "url": {
+      "description": "The URL of the issuer's website or homepage",
       "type": "string",
-      "description": "A base-64 encoded png image of the issuer's logo.",
-      "pattern": "data:image/png;base64,"
+      "format": "uri"
+    },
+    "description": {
+      "type": "string",
+      "description": "A text description of the issuing organization"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "revocationList": {
+      "type": "string",
+      "format": "uri"
     }
   },
   "required": [

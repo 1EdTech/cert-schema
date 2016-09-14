@@ -1,43 +1,69 @@
 {
   "@context": "https://w3id.org/blockcerts/context#",
   "@type": "BlockchainCertificate",
-  "verify": {
-    "@type": "VerificationObject",
-    "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
-    "attribute-signed": "uid",
-    "type": "ECDSA(secp256k1)"
-  },
-  "recipient": {
-    "@type": "Recipient",
-    "type": "email",
-    "familyName": "RecipientLastName",
-    "hashed": false,
-    "givenName": "RecipientFirstName",
-    "pubkey": "n1EduLzKsTL1pM8Roz9vEV16AQnBdg9JCx",
-    "identity": "recipient@domain.com"
-  },
-  "certificate": {
-    "@type": "Certificate",
-    "subtitle": "2016",
-    "description": "Certificate description",
-    "title": "Certificate title",
-    "image": "data:image/png;base64,",
-    "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
-    "issuer": {
-      "@type": "Issuer",
-      "url": "http://www.theissuer.edu",
-      "name": "Issuing Institution",
-      "id": "https://www.theissuer.edu/issuer/the-issuer.json",
+  "document": {
+    "@type": "CertificateDocument",
+    "assertion": {
+      "@type": "Assertion",
+      "evidence": "",
+      "id": "http://www.theissuer.edu/fb9e6259-f3ee-438a-b98f-a24f54187af8",
+      "image:signature": "data:image/png;base64,",
+      "issuedOn": "2016-05-26T12:00:00Z",
+      "uid": "fb9e6259-f3ee-438a-b98f-a24f54187af8"
+    },
+    "certificate": {
+      "@type": "Certificate",
+      "description": "Certificate description",
+      "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
       "image": "data:image/png;base64,",
-      "email": "issuer@theissuer.edu"
+      "issuer": {
+        "@type": "Issuer",
+        "email": "issuer@theissuer.edu",
+        "id": "https://www.theissuer.edu/issuer/the-issuer.json",
+        "image": "data:image/png;base64,",
+        "name": "Issuing Institution",
+        "url": "http://www.theissuer.edu"
+      },
+      "subtitle": "2016",
+      "title": "Certificate title"
+    },
+    "recipient": {
+      "@type": "Recipient",
+      "familyName": "RecipientLastName",
+      "givenName": "RecipientFirstName",
+      "hashed": false,
+      "identity": "recipient@domain.com",
+      "pubkey": "1GCrFRozNVWCqTreV7ZoXudiotknoJeXaz",
+      "type": "email"
+    },
+    "verify": {
+      "@type": "VerificationObject",
+      "attribute-signed": "uid",
+      "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
+      "type": "ECDSA(secp256k1)"
     }
   },
-  "assertion": {
-    "@type": "Assertion",
-    "issuedOn": "2016-05-26T12:00:00Z",
-    "image:signature": "data:image/png;base64,",
-    "id": "http://www.theissuer.edu/fb9e6259-f3ee-438a-b98f-a24f54187af8",
-    "uid": "fb9e6259-f3ee-438a-b98f-a24f54187af8",
-    "evidence": "https://www.theissuer.edu/issuer/the-issuer.json"
+  "receipt": {
+    "@type": "BlockchainReceipt",
+    "type": "ChainpointSHA256v2",
+    "targetHash": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+    "merkleRoot": "d71f8983ad4ee170f8129f1ebcdd7440be7798d8e1c80420bf11f1eced610dba",
+    "proof": [
+      {
+        "left": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+      },
+      {
+        "right": "bffe0b34dba16bc6fac17c08bac55d676cded5a4ade41fe2c9924a5dde8f3e5b"
+      },
+      {
+        "right": "3f79bb7b435b05321651daefd374cdc681dc06faa65e374e38337b88ca046dea"
+      }
+    ],
+    "anchors": [
+      {
+        "type": "BTCOpReturn",
+        "sourceId": "b84a92f28cc9dbdc4cd51834f6595cf97f018b925167c299097754780d7dea09"
+      }
+    ]
   }
 }

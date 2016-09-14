@@ -111,6 +111,3 @@ if __name__ == '__main__':
     print('certificate is valid? ' + str(valid))
 
     _parse_json_ld('../../examples/1.2/sample_signed_cert-1.2.json')
-
-
-
