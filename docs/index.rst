@@ -1,6 +1,6 @@
-===================================
-Cert-schema documentation has moved
-===================================
+===========================
+Our documentation has moved
+===========================
 
 See us at the Blockchain Certificates Project Page http://www.blockcerts.org.
 
