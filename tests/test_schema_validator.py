@@ -23,5 +23,5 @@ class TestSchemaValidator(unittest.TestCase):
     def test_v1_2_unsigned(self):
         with open('../examples/1.2/sample_unsigned_cert-1.2.json') as data_f:
             data = json.load(data_f)
-        valid = schema_validator.validate_unsigned_v1_2(data)
+        valid = schema_validator.validate_unsigned_v1_2(data['document'])
         self.assertTrue(valid)
