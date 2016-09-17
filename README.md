@@ -18,18 +18,6 @@ In 1.2 we've added a JSON LD schema to provide semantically rich linked data.
 
 [Certificate JSON LD](cert_schema/schema/certificate/1.2/context.json)
 
-## JSON Schema Markdown
-
-This is simply a readable markdown-formatted version of the raw JSON
-schemas. 
-
-- [Blockchain Certificate JSON Schema](docs/1.2/blockchain-certificate-1.2.md)
-  - [Certificate Document JSON Schema](docs/1.2/certificate-document-1.2.md)
-    - [Assertion JSON Schema](docs/1.2/assertion-1.2.md)
-    - [Certificate JSON Schema](docs/1.2/certificate-1.2.md)
-        - [Issuer JSON Schema](docs/1.2/issuer-1.2.md) 
-  - [Blockchain Receipt JSON Schema](docs/1.2/blockchain-receipt-1.2.md)
-
 ## JSON Schema Raw
 
 - [Blockchain Certificate JSON Schema](cert_schema/schema/certificate/1.2/blockchain-certificate-1.2.json)
