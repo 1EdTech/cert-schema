@@ -14,7 +14,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='1.2.17',
+    version='1.2.18',
     description='tools for working with blockchain certificates',
     author='MIT Media Lab Blockchain Certificates',
     tests_require=['tox'],
@@ -23,6 +23,6 @@ setup(
     author_email='certs@mit.edu',
     long_description=long_description,
     packages=find_packages(),
-    package_data={"cert_schema": ["schema/certificate/1.1/*.json", "schema/certificate/1.2/*.json"]},
+    package_data={"cert_schema": ["schema/1.1/*.json", "schema/1.2/*.json"]},
     install_requires=reqs
 )

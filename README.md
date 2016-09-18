@@ -16,16 +16,17 @@ on the blockchain. See the cert-verifier project.
 
 In 1.2 we've added a JSON LD schema to provide semantically rich linked data.
 
-[Certificate JSON LD](cert_schema/schema/certificate/1.2/context.json)
+[Certificate JSON LD](cert_schema/schema/1.2/context.json)
 
 ## JSON Schema Raw
 
-- [Blockchain Certificate JSON Schema](cert_schema/schema/certificate/1.2/blockchain-certificate-1.2.json)
-  - [Certificate Document JSON Schema](cert_schema/schema/certificate/1.2/certificate-document-1.2.json)  
-    - [Assertion JSON Schema](cert_schema/schema/certificate/1.2/assertion-1.2.json)
-    - [Certificate JSON Schema](cert_schema/schema/certificate/1.2/certificate-1.2.json)
-        - [Issuer JSON Schema](cert_schema/schema/certificate/1.2/issuer-1.2.json) 
-  - [Blockchain Receipt JSON Schema](cert_schema/schema/certificate/1.2/blockchain-receipt-1.2.json)
+- [Blockchain Certificate JSON Schema](cert_schema/schema/1.2/blockchain-certificate-1.2.json)
+  - [Certificate Document JSON Schema](cert_schema/schema/1.2/certificate-document-1.2.json)  
+    - [Assertion JSON Schema](cert_schema/schema/1.2/assertion-1.2.json)
+    - [Certificate JSON Schema](cert_schema/schema/1.2/certificate-1.2.json)
+        - [Issuer JSON Schema](cert_schema/schema/1.2/issuer-1.2.json) 
+  - [Blockchain Receipt JSON Schema](cert_schema/schema/1.2/blockchain-receipt-1.2.json)
+- [Issuer Identification JSON Schema](cert_schema/schema/1.2/issuer-id-1.2.json)
 
 
 ## Running the python code lcoally

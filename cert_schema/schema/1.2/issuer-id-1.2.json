@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.blockcerts.org/schema/1.2/issuer-keys-1.2.json",
+  "id": "http://www.blockcerts.org/schema/1.2/issuer-id-1.2.json",
   "type": "object",
   "properties": {
     "issuerKeys": {
@@ -58,11 +58,46 @@
           "key"
         ]
       }
+    },
+    "id": {
+      "description": "The URL of the issuer's website or homepage",
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "description": "Human-readable name of the issuing entity",
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact address for the individual or organization."
+    },
+    "url": {
+      "description": "The URL where the issuer's certificates can be found",
+      "type": "string",
+      "format": "uri"
+    },
+    "introductionURL":  {
+      "description": "The URL hosting the issuer's introduction endpoint",
+      "type": "string",
+      "format": "uri"
+    },
+    "image": {
+      "type": "string",
+      "pattern": "data:image/png;base64,",
+      "description": "Data URI; a base-64 encoded png image of the issuer's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
     }
   },
   "additionalProperties": false,
   "required": [
     "issuerKeys",
-    "revocationKeys"
+    "revocationKeys",
+    "id",
+    "name",
+    "email",
+    "url",
+    "introductionURL",
+    "image"
   ]
 }
