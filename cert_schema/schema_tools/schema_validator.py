@@ -8,10 +8,10 @@ import jsonschema
 from pyld import jsonld
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, 'schema/certificate/1.1/certificate-schema-v1-1.json')
-SCHEMA_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/certificate/1.2/blockchain-certificate-1.2.json')
-SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/certificate/1.2/certificate-document-1.2.json')
-JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, 'schema/certificate/1.2/context.json')
+SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, 'schema/1.1/certificate-schema-v1-1.json')
+SCHEMA_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/blockchain-certificate-1.2.json')
+SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-document-1.2.json')
+JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/context.json')
 
 
 def validate_v1_1(certificate_json):
@@ -95,19 +95,19 @@ def _parse_json_ld(filename):
 
 if __name__ == '__main__':
     valid = validate('../../examples/1.1/sample_unsigned_cert-1.1.json',
-                     '../schema/certificate/1.1/certificate-schema-v1-1.json')
+                     '../schema/1.1/certificate-schema-v1-1.json')
     print('certificate is valid? ' + str(valid))
 
     valid = validate('../../examples/1.1/sample_signed_cert-1.1.json',
-                     '../schema/certificate/1.1/certificate-schema-v1-1.json')
+                     '../schema/1.1/certificate-schema-v1-1.json')
     print('certificate is valid? ' + str(valid))
 
     #valid = validate('../../examples/1.2/sample_unsigned_cert-1.2.json',
-    #                 '../schema/certificate/1.2/digital-certificate-1.2.json')
+    #                 '../schema/1.2/digital-certificate-1.2.json')
     #print('certificate is valid? ' + str(valid))
 
     valid = validate('../../examples/1.2/sample_signed_cert-1.2.json',
-                     '../schema/certificate/1.2/blockchain-certificate-1.2.json')
+                     '../schema/1.2/blockchain-certificate-1.2.json')
     print('certificate is valid? ' + str(valid))
 
     _parse_json_ld('../../examples/1.2/sample_signed_cert-1.2.json')
