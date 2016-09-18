@@ -1,18 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://github.com/blockchain-certificates/cert-schema/schema/issuer-schema-v2.json",
+  "id": "http://www.blockcerts.org/schema/1.2/issuer-keys-1.2.json",
   "type": "object",
   "properties": {
-    "issuer_key": {
+    "issuerKeys": {
       "type": "array",
-      "description": "list of issuer keys, listed in descending date order (most recent first)",
+      "description": "list of issuer keys, listed in descending date order (most recent first). V1.2 change: renamed from issuer_key, added optional invalidated field.",
       "items": {
         "type": "object",
         "properties": {
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "ISO-8601 formatted date time the key was issued."
+            "description": "ISO-8601 formatted date time the key was activated."
           },
           "key": {
             "type": "string",
@@ -31,16 +31,16 @@
         ]
       }
     },
-    "revocation_key": {
+    "revocationKeys": {
       "type": "array",
-      "description": "list of issuer keys, listed in descending date order (most recent first)",
+      "description": "list of revocation keys, listed in descending date order (most recent first). V1.2 changes: renamed from revocation_key, added optional invalidated field.",
       "items": {
         "type": "object",
         "properties": {
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "ISO-8601 formatted date time the key was issued."
+            "description": "ISO-8601 formatted date time the key was activated."
           },
           "key": {
             "type": "string",
@@ -62,7 +62,7 @@
   },
   "additionalProperties": false,
   "required": [
-    "issuer_key",
-    "revocation_key"
+    "issuerKeys",
+    "revocationKeys"
   ]
 }

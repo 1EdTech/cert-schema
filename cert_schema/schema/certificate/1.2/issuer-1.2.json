@@ -56,7 +56,8 @@
     },
     "email": {
       "type": "string",
-      "format": "email"
+      "format": "email",
+      "description": "Contact address for the individual or organization."
     },
     "revocationList": {
       "type": "string",

@@ -55,12 +55,12 @@
     },
     "language": {
       "type": "string",
-      "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY]. 1.2 changes: this field is optional",
+      "description": "Represents the ieft language and ieft country codes. Format is [ieft_language]-[IEFT_COUNTRY]. V1.2 changes: this field is optional",
       "pattern": "[a-z]{2}-[A-Z]{2}"
     },
     "subtitle": {
       "type": "string",
-      "description": "Subtitle of the certificate. 1.2 changes: this type is now string, and this field is optional"
+      "description": "Subtitle of the certificate. V1.2 changes: this type is now string, and this field is optional"
     },
     "title": {
       "type": "string",
