@@ -15,13 +15,13 @@ var certmarkdown = parse(certschema);
 writeMarkdownToFile('docs/certificate-schema-v1-1.md', certmarkdown);
 */
 
-var schemas = ['../cert_schema/schema/certificate/1.2/assertion-1.2.json',
-				'../cert_schema/schema/certificate/1.2/blockchain-certificate-1.2.json',
-				'../cert_schema/schema/certificate/1.2/blockchain-receipt-1.2.json',
-				'../cert_schema/schema/certificate/1.2/certificate-1.2.json',
-				'../cert_schema/schema/certificate/1.2/certificate-document-1.2.json',
-				'../cert_schema/schema/certificate/1.2/issuer-1.2.json',
-				'../cert_schema/schema/issuer-keys/1.2/issuer-keys-1.2.json'];
+var schemas = ['../cert_schema/schema/1.2/assertion-1.2.json',
+				'../cert_schema/schema/1.2/blockchain-certificate-1.2.json',
+				'../cert_schema/schema/1.2/blockchain-receipt-1.2.json',
+				'../cert_schema/schema/1.2/certificate-1.2.json',
+				'../cert_schema/schema/1.2/certificate-document-1.2.json',
+				'../cert_schema/schema/1.2/issuer-1.2.json',
+				'../cert_schema/schema/1.2/issuer-id-1.2.json'];
 
 for (var i = 0; i < schemas.length; i++) {
 	var schema = schemas[i];
