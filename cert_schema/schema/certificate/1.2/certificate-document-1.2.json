@@ -27,21 +27,32 @@
     },
     "VerificationObject": {
       "type": "object",
+      "description": "V1.2 notice: the Blockchain Certificates VerificationObject will change in the next schema version to be consistent with OBI VerificationObjects. This work is in progress.",
       "properties": {
+        "attribute-signed": {
+          "type": "string",
+          "description": "Name of the attribute in the json that is signed by the issuer's private key. Default is 'uid', referring to the uid attribute."
+        },
         "type": {
-          "title": "VerificationType",
           "type": "string",
           "enum": [
             "hosted",
             "signed",
             "ECDSA(secp256k1)"
-          ]
+          ],
+          "description": "Name of the signing method. Default is 'ECDSA(secp256k1)', referring to the Blockchain Certificates method of signing messages with the issuer's private key."
         },
-        "url": {
+        "signer": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description": "URI where issuer's public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc"
         }
-      }
+      },
+      "required": [
+        "attribute-signed",
+        "type",
+        "signer"
+      ]
     },
     "Recipient": {
       "type": "object",
@@ -63,7 +74,7 @@
         },
         "hashed": {
           "type": "boolean",
-          "description": "Describes if the value in the identity field is hashed or not. We strongly recommend that the issuer hash the identy to protect the recipient. Backcompatible change to allow 2 types that occurred in the wild before proper validation."
+          "description": "Describes if the value in the identity field is hashed or not. We strongly recommend that the issuer hash the identy to protect the recipient."
         },
         "salt": {
           "type": "string",

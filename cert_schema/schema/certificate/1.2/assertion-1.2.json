@@ -18,11 +18,6 @@
           }
         }
       ]
-    },
-    "ImageBase64": {
-      "type": "string",
-      "description": "A base-64 encoded png image of the issuer's logo.",
-      "pattern": "data:image/png;base64,"
     }
   },
   "properties": {
@@ -32,12 +27,12 @@
     "id": {
       "type": "string",
       "format": "uri",
-      "description": "URI that links to the certificate on the viewer. Default is https://[domain]/[uid]"
+      "description": "URI that links to the certificate on the viewer."
     },
     "uid": {
       "type": "string",
       "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
-      "description": "Unique identifier, in GUID format. 1.2 changes: string pattern changed to guid"
+      "description": "Unique identifier, in GUID format. V1.2 change: string pattern changed to guid"
     },
     "issuedOn": {
       "$ref": "https://openbadgespec.org/v1/schema/assertion.json#/definitions/DateTime",
@@ -46,15 +41,17 @@
     "evidence": {
       "type": "string",
       "format": "uri",
-      "description": "Text, uri, etc. that shows evidence of the recipient's learning that the certificate represents. Can be left as an empty string if not used."
+      "description": "URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible. V1.2 made this field optional, which is consistent with OBI spec."
     },
     "expires": {
       "$ref": "https://openbadgespec.org/v1/schema/assertion.json#/definitions/DateTime",
-      "description": "Date the the certificate JSON expires."
+      "description": "If the achievement has some notion of expiry, this indicates a date when a badge should no longer be considered valid."
     },
     "image:signature": {
-      "$ref": "#/definitions/ImageBase64",
-      "description": "A base-64 encoded png image of the issuer's signature."
+      "type": "string",
+      "pattern": "data:image/png;base64,",
+      "description": "Data URI; a base-64 encoded png image of the certificate's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
+
     }
   },
   "required": [

@@ -20,7 +20,8 @@ var schemas = ['../cert_schema/schema/certificate/1.2/assertion-1.2.json',
 				'../cert_schema/schema/certificate/1.2/blockchain-receipt-1.2.json',
 				'../cert_schema/schema/certificate/1.2/certificate-1.2.json',
 				'../cert_schema/schema/certificate/1.2/certificate-document-1.2.json',
-				'../cert_schema/schema/certificate/1.2/issuer-1.2.json'];
+				'../cert_schema/schema/certificate/1.2/issuer-1.2.json',
+				'../cert_schema/schema/issuer-keys/1.2/issuer-keys-1.2.json'];
 
 for (var i = 0; i < schemas.length; i++) {
 	var schema = schemas[i];
