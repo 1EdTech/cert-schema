@@ -68,7 +68,7 @@
     }
   },
   "required": [
-    "@type",
+    "type",
     "id",
     "image",
     "title",

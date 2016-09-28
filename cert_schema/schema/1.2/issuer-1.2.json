@@ -65,7 +65,7 @@
     }
   },
   "required": [
-    "@type",
+    "type",
     "name",
     "url",
     "id"

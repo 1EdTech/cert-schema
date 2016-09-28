@@ -20,7 +20,7 @@ setup(
     tests_require=['tox'],
     url='https://github.com/blockchain-certificates/cert-schema',
     license='MIT',
-    author_email='certs@mit.edu',
+    author_email='info@blockcerts.org',
     long_description=long_description,
     packages=find_packages(),
     package_data={"cert_schema": ["schema/1.1/*.json", "schema/1.2/*.json"]},

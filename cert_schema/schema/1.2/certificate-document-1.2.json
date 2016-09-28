@@ -57,7 +57,7 @@
     "Recipient": {
       "type": "object",
       "properties": {
-        "@type": {
+        "type": {
           "$ref": "#/definitions/JsonLdType"
         },
         "familyName": {
@@ -90,7 +90,7 @@
         }
       },
       "required": [
-        "@type",
+        "type",
         "familyName",
         "identity",
         "type",
@@ -103,7 +103,7 @@
 
   },
   "properties": {
-    "@type": {
+    "type": {
       "$ref": "#/definitions/JsonLdType"
     },
     "certificate": {
@@ -120,7 +120,7 @@
     }
   },
   "required": [
-    "@type",
+    "type",
     "certificate",
     "assertion",
     "verify",

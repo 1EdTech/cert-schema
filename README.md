@@ -75,5 +75,5 @@ need to manually update any 'undefined' references.
 
 ## Contact
 
-Contact [certs@mit.edu](mailto:certs@mit.edu) with questions
+Contact [info@blockcerts.org](mailto:info@blockcerts.org) with questions
 

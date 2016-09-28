@@ -1,7 +1,9 @@
 {
   "@context": [
     {
+      //https://w3id.org/chainpoint/v1
       "id": "@id",
+      "type": "@type",
       "bc": "https://w3id.org/blockcerts#",
       "obi": "https://w3id.org/openbadges#",
       "cp": "https://w3id.org/chainpoint#",
@@ -91,9 +93,6 @@
       },
       "description": {
         "@id": "schema:description"
-      },
-      "type": {
-        "@id": "bc:type"
       },
       "url": {
         "@id": "schema:url",

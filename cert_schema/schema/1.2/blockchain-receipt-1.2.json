@@ -4,23 +4,12 @@
   "id": "http://www.blockcerts.org/schema/1.2/blockchain-receipt-1.2.json",
   "description": "Provides evidence of the certificate on the blockchain, using the chainpoint v2 standard",
   "type": "object",
-  "definitions": {
-    "JsonLdType": {
-      "description": "A type or an array of types that the receipt object represents. The first or only item should be 'BlockchainReceipt', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'BlockchainReceipt'",
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      ]
-    }
-  },
   "properties": {
+    "@context": {
+      "type": "string",
+      "pattern": "https://w3id.org/chainpoint/v2",
+      "description": "This should always be chainpoint v2 JSON LD context"
+    },
     "type": {
       "type": "string",
       "pattern": "ChainpointSHA256v2",
@@ -82,7 +71,7 @@
     }
   },
   "required": [
-    "@type",
+    "@context",
     "type",
     "targetHash",
     "merkleRoot",

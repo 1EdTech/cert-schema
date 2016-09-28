@@ -21,7 +21,7 @@
     }
   },
   "properties": {
-    "@type": {
+    "type": {
       "$ref": "#/definitions/JsonLdType"
     },
     "id": {
@@ -55,7 +55,7 @@
     }
   },
   "required": [
-    "@type",
+    "type",
     "uid",
     "issuedOn",
     "id"
