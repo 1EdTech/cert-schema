@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Blockchain Certificates Issuer Schema, Version 1.2",
-  "id": "http://www.blockcerts.org/schema/1.2/issuer-1.2.json",
+  "id": "http://w3id.org/blockcerts/schema/1.2/issuer-1.2.json",
   "description": "Extends the Open Badges Issuer Schema for certificates on the blockchain",
   "type": "object",
   "definitions": {
@@ -65,7 +65,6 @@
     }
   },
   "required": [
-    "type",
     "name",
     "url",
     "id"

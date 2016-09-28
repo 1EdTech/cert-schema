@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Blockchain Certificates Version 1.2 Schema",
-  "id": "http://www.blockcerts.org/schema/1.2/blockchain-certificate-1.2.json",
+  "id": "http://w3id.org/blockcerts/schema/1.2/blockchain-certificate-1.2.json",
   "description": "A schema for representing certificates on the blockchain",
   "type": "object",
   "definitions": {
@@ -44,10 +44,10 @@
       ]
     },
     "CertificateDocument": {
-      "$ref": "http://www.blockcerts.org/schema/1.2/certificate-document-1.2.json"
+      "$ref": "http://w3id.org/blockcerts/schema/1.2/certificate-document-1.2.json"
     },
     "BlockchainReceipt": {
-      "$ref": "http://www.blockcerts.org/schema/1.2/blockchain-receipt-1.2.json"
+      "$ref": "http://w3id.org/blockcerts/schema/1.2/blockchain-receipt-1.2.json"
     }
   },
   "properties": {
@@ -66,7 +66,6 @@
   },
   "required": [
     "@context",
-    "type",
     "document",
     "receipt"
   ],

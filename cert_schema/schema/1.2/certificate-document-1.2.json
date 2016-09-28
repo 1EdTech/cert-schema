@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Certificate Document Version 1.2 Schema",
-  "id": "http://www.blockcerts.org/schema/1.2/certificate-document-1.2.json",
+  "id": "http://w3id.org/blockcerts/schema/1.2/certificate-document-1.2.json",
   "description": "The complete certificate document, including the assertion, certificate, and issuer. Doesn't include the blockchain receipt. This part is hashed and placed on the blockchain",
   "type": "object",
   "definitions": {
@@ -20,10 +20,10 @@
       ]
     },
     "Certificate": {
-      "$ref": "http://www.blockcerts.org/schema/1.2/certificate-1.2.json"
+      "$ref": "http://w3id.org/blockcerts/schema/1.2/certificate-1.2.json"
     },
     "Assertion": {
-      "$ref": "http://www.blockcerts.org/schema/1.2/assertion-1.2.json"
+      "$ref": "http://w3id.org/blockcerts/schema/1.2/assertion-1.2.json"
     },
     "VerificationObject": {
       "type": "object",
@@ -57,9 +57,6 @@
     "Recipient": {
       "type": "object",
       "properties": {
-        "type": {
-          "$ref": "#/definitions/JsonLdType"
-        },
         "familyName": {
           "type": "string",
           "description": "Family name of the recipient. http://schema.org/Person#familyName"
@@ -120,7 +117,6 @@
     }
   },
   "required": [
-    "type",
     "certificate",
     "assertion",
     "verify",

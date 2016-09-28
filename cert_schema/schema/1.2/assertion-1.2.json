@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Blockchain Certificates Assertion Schema, Version 1.2",
-  "id": "http://www.blockcerts.org/schema/1.2/assertion-1.2.json",
+  "id": "http://w3id.org/blockcerts/schema/1.2/assertion-1.2.json",
   "description": "Extends the Open Badges Assertion Schema for certificates on the blockchain",
   "type": "object",
   "definitions": {

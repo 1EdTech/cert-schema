@@ -1,7 +1,6 @@
 {
   "@context": [
     {
-      //https://w3id.org/chainpoint/v1
       "id": "@id",
       "type": "@type",
       "bc": "https://w3id.org/blockcerts#",
@@ -17,9 +16,6 @@
       "Issuer": "bc:Issuer",
       "BlockchainCertificate": "bc:BlockchainCertificate",
       "CertificateDocument": "bc:CertificateDocument",
-      "VerificationObject": "bc:VerificationObject",
-      "Recipient": "bc:Recipient",
-      "BlockchainReceipt": "bc:BlockchainReceipt",
       "issuer": {
         "@id": "bc:issuer",
         "@type": "@id"
@@ -45,7 +41,7 @@
         "@type": "@id"
       },
       "verify": {
-        "@id": "bc:verificationobject",
+        "@id": "bc:verify",
         "@type": "@id"
       },
       "recipient": {
@@ -141,32 +137,32 @@
     {
       "type": "TypeValidation",
       "validatesType": "Assertion",
-      "validationSchema": "http://www.blockcerts.org/schema/1.2/assertion-1.2.json"
+      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/assertion-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Certificate",
-      "validationSchema": "http://www.blockcerts.org/schema/1.2/certificate-1.2.json"
+      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/certificate-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Issuer",
-      "validationSchema": "http://www.blockcerts.org/schema/1.2/issuer-1.2.json"
+      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/issuer-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "CertificateDocument",
-      "validationSchema": "http://www.blockcerts.org/schema/1.2/certificate-document-1.2.json"
+      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/certificate-document-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "BlockchainCertificate",
-      "validationSchema": "http://www.blockcerts.org/schema/1.2/blockchain-certificate-1.2.json"
+      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/blockchain-certificate-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "BlockchainReceipt",
-      "validationSchema": "http://www.blockcerts.org/schema/1.2/blockchain-receipt-1.2.json"
+      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/blockchain-receipt-1.2.json"
     }
   ]
 }
