@@ -1,10 +1,10 @@
 {
-  "@context": "http://www.blockcerts.org/schema/1.2/context.json",
-  "@type": "BlockchainCertificate",
+  "@context": "https://w3id.org/blockcerts/v1",
+  "type": "BlockchainCertificate",
   "document": {
-    "@type": "CertificateDocument",
+    "type": "CertificateDocument",
     "assertion": {
-      "@type": "Assertion",
+      "type": "Assertion",
       "evidence": "",
       "id": "http://www.theissuer.edu/fb9e6259-f3ee-438a-b98f-a24f54187af8",
       "image:signature": "data:image/png;base64,",
@@ -12,12 +12,12 @@
       "uid": "fb9e6259-f3ee-438a-b98f-a24f54187af8"
     },
     "certificate": {
-      "@type": "Certificate",
+      "type": "Certificate",
       "description": "Certificate description",
       "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
       "image": "data:image/png;base64,",
       "issuer": {
-        "@type": "Issuer",
+        "type": "Issuer",
         "email": "issuer@theissuer.edu",
         "id": "https://www.theissuer.edu/issuer/the-issuer.json",
         "image": "data:image/png;base64,",
@@ -28,7 +28,6 @@
       "title": "Certificate title"
     },
     "recipient": {
-      "@type": "Recipient",
       "familyName": "RecipientLastName",
       "givenName": "RecipientFirstName",
       "hashed": false,
@@ -38,14 +37,13 @@
     },
     "signature": "IAhahreb77hgM9khBcWCSfwq0Qal/bzU9AzBSUMEDErTdExBRHsBH2dDmBa1NvR38wVGn70SPEglI0VIvUFc2AI=",
     "verify": {
-      "@type": "VerificationObject",
       "attribute-signed": "uid",
       "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
       "type": "ECDSA(secp256k1)"
     }
   },
   "receipt": {
-    "@type": "BlockchainReceipt",
+    "@context": "https://w3id.org/chainpoint/v2",
     "type": "ChainpointSHA256v2",
     "targetHash": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
     "merkleRoot": "d71f8983ad4ee170f8129f1ebcdd7440be7798d8e1c80420bf11f1eced610dba",
