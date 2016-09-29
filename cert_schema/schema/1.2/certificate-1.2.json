@@ -5,8 +5,32 @@
   "description": "Extends the Open Badges Certificate Schema for certificates on the blockchain",
   "type": "object",
   "definitions": {
+    "JsonLdContext": {
+      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Blockchain Certificate contexts may also define JSON-schema to validate Blockchain Certificates against. In a Blockchain Certificate Object, this will almost always be a string:uri to a single context file, but might rarely be an array of links or context objects instead. This schema also allows direct mapping of terms to IRIs by using an object as an option within an array.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              }
+            ]
+          }
+        }
+      ]
+    },
     "JsonLdType": {
-      "description": "A type or an array of types that the certificate represents. The first or only item should be 'Certificate', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'Certificate'",
+      "description": "A type or an array of types that the Blockchain Certificate object represents. The first or only item should be 'Certificate', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'Certificate'",
       "oneOf": [
         {
           "type": "string"
@@ -24,13 +48,20 @@
     }
   },
   "properties": {
+    "@context": {
+      "$ref": "#/definitions/JsonLdContext"
+    },
+    "type": {
+      "$ref": "#/definitions/JsonLdType"
+    },
     "id": {
       "type": "string",
       "format": "uri",
       "description": "URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json."
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "Name (or title) of the certificate. V1.2 change: renamed from 'title' to be consistent with OBI schema"
     },
     "description": {
       "type": "string"
@@ -44,14 +75,14 @@
       "type": "string",
       "format": "uri"
     },
+    "issuer": {
+      "$ref": "#/definitions/Issuer"
+    },
     "alignment": {
       "$ref": "https://openbadgespec.org/v1/schema/badgeclass.json#/definitions/AlignmentArray"
     },
     "tags": {
       "$ref": "https://openbadgespec.org/v1/schema/badgeclass.json#/definitions/TagsArray"
-    },
-    "issuer": {
-      "$ref": "#/definitions/Issuer"
     },
     "language": {
       "type": "string",
@@ -61,18 +92,14 @@
     "subtitle": {
       "type": "string",
       "description": "Subtitle of the certificate. V1.2 changes: this type is now string, and this field is optional"
-    },
-    "title": {
-      "type": "string",
-      "description": "Title of the certificate. Note: this is called 'name' in the OBI schema"
     }
   },
   "required": [
     "id",
+    "name",
+    "description",
     "image",
-    "title",
-    "issuer",
-    "description"
+    "issuer"
   ],
   "additionalProperties": true
 }

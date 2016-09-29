@@ -52,8 +52,11 @@
         "@id": "bc:receipt",
         "@type": "@id"
       },
-      "pubkey": {
-        "@id": "bc:pubkey"
+      "publicKey": {
+        "@id": "bc:publicKey"
+      },
+      "revocationKey": {
+        "@id": "bc:revocationKey"
       },
       "image:signature": {
         "@id": "bc:image:signature"
@@ -75,17 +78,53 @@
         "@id": "bc:attribute-signed"
       },
       "ECDSA(secp256k1)": "bc:SignedBadge",
-      "name": {
-        "@id": "schema:name"
-      },
-      "uid": {
-        "@id": "bc:uid"
-      },
       "subtitle": {
         "@id": "bc:subtitle"
       },
-      "title": {
-        "@id": "bc:title"
+      "email": "schema:email",
+      "hashed": {
+        "@id": "obi:hashed",
+        "@type": "xsd:boolean"
+      },
+      "image": {
+        "@id": "schema:image",
+        "@type": "@id"
+      },
+      "salt": {
+        "@id": "obi:salt"
+      },
+      "identity": {
+        "@id": "obi:identityHash"
+      },
+      "issuedOn": {
+        "@id": "obi:issueDate",
+        "@type": "xsd:dateTime"
+      },
+      "expires": {
+        "@id": "sec:expiration",
+        "@type": "xsd:dateTime"
+      },
+      "evidence": {
+        "@id": "obi:evidence",
+        "@type": "@id"
+      },
+      "criteria": {
+        "@id": "obi:criteria",
+        "@type": "@id"
+      },
+      "tags": {
+        "@id": "schema:keywords"
+      },
+      "alignment": {
+        "@id": "obi:alignment",
+        "@type": "@id"
+      },
+      "revocationList": {
+        "@id": "obi:revocationList",
+        "@type": "@id"
+      },
+      "name": {
+        "@id": "schema:name"
       },
       "description": {
         "@id": "schema:description"
@@ -94,25 +133,15 @@
         "@id": "schema:url",
         "@type": "@id"
       },
-      "email": "schema:email",
-      "hashed": "obi:hashed",
-      "image": "obi:image",
-      "salt": "obi:salt",
-      "identity": "obi:identity",
-      "issuedOn": "obi:issuedOn",
-      "expires": "obi:expires",
-      "evidence": "obi:evidence",
-      "criteria": "obi:criteria",
-      "tags": "obi:tags",
-      "alignment": "obi:alignment",
+      "uid": {
+        "@id": "obi:uid"
+      },
       "revocationList": "obi:revocationList",
       "TypeValidation": "obi:TypeValidation",
       "FrameValidation": "obi:FrameValidation",
-
       "validatesType": "obi:validatesType",
       "validationSchema": "obi:validationSchema",
       "validationFrame": "obi:validationFrame",
-
       "ChainpointSHA224v2": "cp:ChainpointSHA224v2",
       "ChainpointSHA256v2": "cp:ChainpointSHA256v2",
       "ChainpointSHA384v2": "cp:ChainpointSHA384v2",
@@ -121,13 +150,11 @@
       "ChainpointSHA3-256v2": "cp:ChainpointSHA3-256v2",
       "ChainpointSHA3-384v2": "cp:ChainpointSHA3-384v2",
       "ChainpointSHA3-512v2": "cp:ChainpointSHA3-512v2",
-
       "BTCOpReturn": "cp:BTCOpReturn",
       "targetHash": "cp:targetHash",
       "merkleRoot": "cp:merkleRoot",
       "proof": "cp:proof",
-      "anchors":  "cp:anchors",
-
+      "anchors": "cp:anchors",
       "sourceId": "cp:sourceId",
       "right": "cp:right",
       "left": "cp:left"

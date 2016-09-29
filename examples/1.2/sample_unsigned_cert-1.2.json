@@ -1,10 +1,10 @@
 {
   "@context": "http://www.blockcerts.org/schema/1.2/context.json",
-  "@type": "BlockchainCertificate",
+  "type": "BlockchainCertificate",
   "document": {
-    "@type": "CertificateDocument",
+    "type": "CertificateDocument",
     "assertion": {
-      "@type": "Assertion",
+      "type": "Assertion",
       "evidence": "",
       "id": "http://www.theissuer.edu/fb9e6259-f3ee-438a-b98f-a24f54187af8",
       "image:signature": "data:image/png;base64,",
@@ -12,12 +12,12 @@
       "uid": "fb9e6259-f3ee-438a-b98f-a24f54187af8"
     },
     "certificate": {
-      "@type": "Certificate",
+      "type": "Certificate",
       "description": "Certificate description",
       "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
       "image": "data:image/png;base64,",
       "issuer": {
-        "@type": "Issuer",
+        "type": "Issuer",
         "email": "issuer@theissuer.edu",
         "id": "https://www.theissuer.edu/issuer/the-issuer.json",
         "image": "data:image/png;base64,",
@@ -25,19 +25,17 @@
         "url": "http://www.theissuer.edu"
       },
       "subtitle": "2016",
-      "title": "Certificate title"
+      "name": "Certificate name"
     },
     "recipient": {
-      "@type": "Recipient",
       "familyName": "RecipientLastName",
       "givenName": "RecipientFirstName",
       "hashed": false,
       "identity": "recipient@domain.com",
-      "pubkey": "1GCrFRozNVWCqTreV7ZoXudiotknoJeXaz",
+      "publicKey": "1GCrFRozNVWCqTreV7ZoXudiotknoJeXaz",
       "type": "email"
     },
     "verify": {
-      "@type": "VerificationObject",
       "attribute-signed": "uid",
       "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
       "type": "ECDSA(secp256k1)"
