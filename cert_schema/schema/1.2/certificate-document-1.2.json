@@ -5,8 +5,32 @@
   "description": "The complete certificate document, including the assertion, certificate, and issuer. Doesn't include the blockchain receipt. This part is hashed and placed on the blockchain",
   "type": "object",
   "definitions": {
+    "JsonLdContext": {
+      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Blockchain Certificate contexts may also define JSON-schema to validate Blockchain Certificates against. In a Blockchain Certificate Object, this will almost always be a string:uri to a single context file, but might rarely be an array of links or context objects instead. This schema also allows direct mapping of terms to IRIs by using an object as an option within an array.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              }
+            ]
+          }
+        }
+      ]
+    },
     "JsonLdType": {
-      "description": "A type or an array of types that the document object represents. The first or only item should be 'CertificateDocument', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'CertificateDocument'",
+      "description": "A type or an array of types that the Blockchain Certificate object represents. The first or only item should be 'CertificateDocument', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'CertificateDocument'",
       "oneOf": [
         {
           "type": "string"
@@ -100,9 +124,11 @@
       ],
       "additionalProperties": true
     }
-
   },
   "properties": {
+    "@context": {
+      "$ref": "#/definitions/JsonLdContext"
+    },
     "type": {
       "$ref": "#/definitions/JsonLdType"
     },
@@ -120,6 +146,7 @@
     }
   },
   "required": [
+    "type",
     "certificate",
     "assertion",
     "verify",

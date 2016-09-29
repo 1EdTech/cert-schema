@@ -6,7 +6,7 @@
   "type": "object",
   "definitions": {
     "JsonLdContext": {
-      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Blockchain certificates contexts extend Open Badges contexts, and also define JSON-schema to validate blockchain certificates. This should contain the Blockchain Certificates JSON LD context: https://w3id.org/blockcerts/v1",
+      "description": "A link to a valid JSON-LD context file, that maps term names to contexts. Blockchain Certificate contexts may also define JSON-schema to validate Blockchain Certificates against. In a Blockchain Certificate Object, this will almost always be a string:uri to a single context file, but might rarely be an array of links or context objects instead. This schema also allows direct mapping of terms to IRIs by using an object as an option within an array.",
       "oneOf": [
         {
           "type": "string"
@@ -30,7 +30,7 @@
       ]
     },
     "JsonLdType": {
-      "description": "A type or an array of types that the blockchain certificate object represents. The first or only item should be 'BlockchainCertificate', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'BlockchainCertificate'",
+      "description": "A type or an array of types that the Blockchain Certificate object represents. The first or only item should be 'BlockchainCertificate', and any others should each be an IRI (usually a URL) corresponding to a definition of the type itself. In almost all cases, there will be only one type: 'BlockchainCertificate'",
       "oneOf": [
         {
           "type": "string"
@@ -66,6 +66,7 @@
   },
   "required": [
     "@context",
+    "type",
     "document",
     "receipt"
   ],
