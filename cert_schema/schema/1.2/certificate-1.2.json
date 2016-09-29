@@ -29,9 +29,6 @@
       "format": "uri",
       "description": "URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json."
     },
-    "name": {
-      "type": "string"
-    },
     "description": {
       "type": "string"
     },
@@ -62,15 +59,15 @@
       "type": "string",
       "description": "Subtitle of the certificate. V1.2 changes: this type is now string, and this field is optional"
     },
-    "title": {
+    "name": {
       "type": "string",
-      "description": "Title of the certificate. Note: this is called 'name' in the OBI schema"
+      "description": "Name (or title) of the certificate. V1.2 change: renamed from 'title' to be consistent with OBI schema"
     }
   },
   "required": [
     "id",
     "image",
-    "title",
+    "name",
     "issuer",
     "description"
   ],

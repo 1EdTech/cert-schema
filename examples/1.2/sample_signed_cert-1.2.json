@@ -25,14 +25,14 @@
         "url": "http://www.theissuer.edu"
       },
       "subtitle": "2016",
-      "title": "Certificate title"
+      "name": "Certificate name"
     },
     "recipient": {
       "familyName": "RecipientLastName",
       "givenName": "RecipientFirstName",
       "hashed": false,
       "identity": "recipient@domain.com",
-      "pubkey": "1GCrFRozNVWCqTreV7ZoXudiotknoJeXaz",
+      "publicKey": "1GCrFRozNVWCqTreV7ZoXudiotknoJeXaz",
       "type": "email"
     },
     "signature": "IAhahreb77hgM9khBcWCSfwq0Qal/bzU9AzBSUMEDErTdExBRHsBH2dDmBa1NvR38wVGn70SPEglI0VIvUFc2AI=",

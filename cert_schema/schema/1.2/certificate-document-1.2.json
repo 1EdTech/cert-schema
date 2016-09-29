@@ -77,9 +77,13 @@
           "type": "string",
           "description": "per the OBI standard, if the recipient identity is hashed, then this should contain the string used to salt the hash"
         },
-        "pubkey": {
+        "publicKey": {
           "type": "string",
-          "description": "Bitcoin address (compressed public key, usually 24 characters) of the recipient."
+          "description": "Bitcoin address (compressed public key, usually 24 characters) of the recipient. V1.2 change: renamed from pubkey"
+        },
+        "revocationKey": {
+          "type": "string",
+          "description": "Issuer revocation key for the recipient, optional. Bitcoin address (compressed public key, usually 24 characters) of the recipient."
         },
         "givenName": {
           "type": "string",
@@ -90,9 +94,8 @@
         "type",
         "familyName",
         "identity",
-        "type",
         "hashed",
-        "pubkey",
+        "publicKey",
         "givenName"
       ],
       "additionalProperties": true
