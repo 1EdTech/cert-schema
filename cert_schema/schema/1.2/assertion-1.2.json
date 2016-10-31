@@ -76,7 +76,6 @@
     },
     "image:signature": {
       "description": "A single signature image, or array of objects with fields image and jobTitle. V1.2 change: support multiple signatures",
-      "type": "object",
       "oneOf": [
         {
           "type": "string",
