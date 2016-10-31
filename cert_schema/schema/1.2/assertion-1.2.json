@@ -75,9 +75,31 @@
       "description": "If the achievement has some notion of expiry, this indicates a date when a badge should no longer be considered valid."
     },
     "image:signature": {
-      "type": "string",
-      "pattern": "data:image/png;base64,",
-      "description": "Data URI; a base-64 encoded png image of the certificate's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
+      "description": "A single signature image, or array of objects with fields image and jobTitle. V1.2 change: support multiple signatures",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "data:image/png;base64,",
+          "description": "Data URI; a base-64 encoded png image of the certificate's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "image": {
+                "type": "string",
+                "pattern": "data:image/png;base64,",
+                "description": "Data URI; a base-64 encoded png image of the certificate's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
+              },
+              "jobIitle": {
+                "type": "string",
+                "description": "Title of the undersigned. http://schema.org/Person#jobTitle"
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "required": [

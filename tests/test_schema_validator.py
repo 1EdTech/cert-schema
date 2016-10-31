@@ -29,3 +29,8 @@ class TestSchemaValidator(unittest.TestCase):
     def test_v1_2_jsonld(self):
         schema_validator._parse_json_ld('../examples/1.2/sample_signed_cert-1.2.json')
         self.assertTrue(True)
+
+    def test_v1_2_signed_multiple_signers(self):
+        valid = schema_validator.validate('../examples/1.2/sample_signed_cert_multiple_signers-1.2.json',
+                                  '../cert_schema/schema/1.2/blockchain-certificate-1.2.json')
+        self.assertTrue(valid)

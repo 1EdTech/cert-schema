@@ -29,7 +29,7 @@ In 1.2 we've added a JSON LD schema to provide semantically rich linked data.
 - [Issuer Identification JSON Schema](cert_schema/schema/1.2/issuer-id-1.2.json)
 
 
-## Running the python code lcoally
+## Running the python code locally
 
 1. Ensure you have an python environment. [Recommendations](https://github.com/blockchain-certificates/developer-common-docs/blob/master/virtualenv.md)
 
@@ -50,7 +50,6 @@ In 1.2 we've added a JSON LD schema to provide semantically rich linked data.
 
 - [First time info](http://peterdowns.com/posts/first-time-with-pypi.html)
 - Publish script: `./release_package.sh`
-
 
 
 
