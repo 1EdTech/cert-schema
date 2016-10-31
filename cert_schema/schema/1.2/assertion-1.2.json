@@ -75,9 +75,20 @@
       "description": "If the achievement has some notion of expiry, this indicates a date when a badge should no longer be considered valid."
     },
     "image:signature": {
-      "type": "string",
-      "pattern": "data:image/png;base64,",
-      "description": "Data URI; a base-64 encoded png image of the certificate's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
+        "oneOf": [
+        {
+          "type": "string",
+          "pattern": "data:image/png;base64,",
+          "description": "Data URI; a base-64 encoded png image of the certificate's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "Array of undersigned Person descriptors and signatures"
+          }
+        }
+      ]
     }
   },
   "required": [

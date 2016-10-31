@@ -14,7 +14,6 @@
     "certificate": {
       "type": "Certificate",
       "description": "Certificate description",
-      "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
       "image": "data:image/png;base64,",
       "issuer": {
         "type": "Issuer",
@@ -38,7 +37,6 @@
     "signature": "IAhahreb77hgM9khBcWCSfwq0Qal/bzU9AzBSUMEDErTdExBRHsBH2dDmBa1NvR38wVGn70SPEglI0VIvUFc2AI=",
     "verify": {
       "attribute-signed": "uid",
-      "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
       "type": "ECDSA(secp256k1)"
     }
   },

@@ -57,7 +57,7 @@
     "id": {
       "type": "string",
       "format": "uri",
-      "description": "URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json."
+      "description": "URI link to a JSON that describes the type of certificate. Default format is https://[domain]/criteria/[year]/[month]/[certificate_title].json. V1.2 changes: this field is optional."
     },
     "name": {
       "type": "string",
@@ -95,7 +95,6 @@
     }
   },
   "required": [
-    "id",
     "name",
     "description",
     "image",
