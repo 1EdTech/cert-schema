@@ -70,6 +70,9 @@
       "givenName": {
         "@id": "schema:givenName"
       },
+      "jobTitle": {
+        "@id": "schema:jobTitle"
+      },
       "signer": {
         "@id": "bc:signer",
         "@type": "@id"

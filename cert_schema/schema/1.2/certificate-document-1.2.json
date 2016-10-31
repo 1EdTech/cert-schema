@@ -69,7 +69,7 @@
         "signer": {
           "type": "string",
           "format": "uri",
-          "description": "URI where issuer's public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc. V1.2 changes: this field is optional"
+          "description": "URI where issuer's public key is presented. Default is https://[domain]/keys/[org-abbr]-certs-public-key.asc. V1.2 change: this field is optional"
         }
       },
       "required": [
