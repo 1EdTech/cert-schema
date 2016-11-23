@@ -1,10 +1,10 @@
 #! /usr/bin/env python
 
 import json
+import logging
 import os
 
 import jsonschema
-
 from pyld import jsonld
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
@@ -14,9 +14,13 @@ SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-docum
 JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/context.json')
 
 
+class BlockcertValidationError(Exception):
+    pass
+
+
 def validate_v1_1(certificate_json):
     """
-    throws jsonschema.exceptions.ValidationError on failure
+    Propagates BlockcertValidationError on failure
     :param certificate_json:
     :return:
     """
@@ -28,7 +32,7 @@ def validate_v1_1(certificate_json):
 
 def validate_v1_2(certificate_json):
     """
-    throws jsonschema.exceptions.ValidationError on failure
+    Propagates BlockcertValidationError on failure
     :param certificate_json:
     :return:
     """
@@ -40,31 +44,33 @@ def validate_v1_2(certificate_json):
 
 def validate_unsigned_v1_2(certificate_json):
     """
-    throws jsonschema.exceptions.ValidationError on failure
+    Raises or propagates BlockcertValidationError on failure
     :param certificate_json:
     :return:
     """
-
     with open(SCHEMA_UNSIGNED_FILE_V1_2) as schema_f:
         schema_json = json.load(schema_f)
         # first a conditional check not done in the json schema
         if certificate_json['recipient']['hashed'] and not certificate_json['recipient']['salt']:
-            # TODO: error reporting
-            print('certificate is hashed but has no salt!')
-            return False
+            logging.error('certificate is hashed but has no salt')
+            raise jsonschema.exceptions.ValidationError('certificate is hashed but has no salt')
 
         return validate_json(certificate_json, schema_json)
 
 
-
 def validate_json(certificate_json, schema_json):
-    # If no exception is raised by validate(), the instance is valid.
+    """
+    If no exception is raised, the instance is valid. Raises BlockcertValidationError is validation fails.
+    :param certificate_json:
+    :param schema_json:
+    :return:
+    """
     try:
         jsonschema.validate(certificate_json, schema_json)
         return True
     except jsonschema.exceptions.ValidationError as ve:
-        print(ve)
-        raise ve
+        logging.error(ve, exc_info=True)
+        raise BlockcertValidationError(ve)
 
 
 def validate(data_file, schema_file):
@@ -74,22 +80,29 @@ def validate(data_file, schema_file):
         return validate_json(data, schema)
 
 
-def compact_with_json_ld_context(input_json):
+def compact_with_json_ld_context(input_json, document_loader=None):
+    options = {}
+    if document_loader:
+        options['documentLoader'] = document_loader
     with open(JSON_LD_CONTEXT_V1_2) as context_f:
         ctx = json.load(context_f)
-        compacted = jsonld.compact(input_json, ctx)
+        compacted = jsonld.compact(input_json, ctx, options=options)
         return compacted
 
 
-def _parse_json_ld(filename):
+def _parse_json_ld(filename, document_loader=None):
     # just some experiments
+    options = {}
+    if document_loader:
+        options['documentLoader'] = document_loader
     with open(filename) as data_f:
         data = json.load(data_f)
-        compacted = compact_with_json_ld_context(data)
-
-        expanded = jsonld.expand(compacted)
-        normalized = jsonld.normalize(
-            data, {'algorithm': 'URDNA2015', 'format': 'application/nquads'})
+        compacted = compact_with_json_ld_context(data, document_loader)
+        expanded = jsonld.expand(compacted, options=options)
+        options = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
+        if document_loader:
+            options['documentLoader'] = document_loader
+        normalized = jsonld.normalize(data, options)
         print(json.dumps(expanded, indent=2))
 
 
@@ -102,9 +115,9 @@ if __name__ == '__main__':
                      '../schema/1.1/certificate-schema-v1-1.json')
     print('certificate is valid? ' + str(valid))
 
-    #valid = validate('../../examples/1.2/sample_unsigned_cert-1.2.json',
+    # valid = validate('../../examples/1.2/sample_unsigned_cert-1.2.json',
     #                 '../schema/1.2/digital-certificate-1.2.json')
-    #print('certificate is valid? ' + str(valid))
+    # print('certificate is valid? ' + str(valid))
 
     valid = validate('../../examples/1.2/sample_signed_cert-1.2.json',
                      '../schema/1.2/blockchain-certificate-1.2.json')
