@@ -92,7 +92,7 @@
                 "pattern": "data:image/png;base64,",
                 "description": "Data URI; a base-64 encoded png image of the certificate's image. https://en.wikipedia.org/wiki/Data_URI_scheme"
               },
-              "jobIitle": {
+              "jobTitle": {
                 "type": "string",
                 "description": "Title of the undersigned. http://schema.org/Person#jobTitle"
               }
@@ -110,5 +110,3 @@
   ],
   "additionalProperties": true
 }
-
-
