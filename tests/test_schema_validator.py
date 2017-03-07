@@ -3,7 +3,7 @@ import unittest
 
 from werkzeug.contrib.cache import SimpleCache
 
-from cert_schema import validate_v1_2, validate_unsigned_v1_2
+from cert_schema import validate_v1_2, validate_unsigned_v1_2, validate_v2
 from cert_schema.schema_tools import schema_validator
 from cert_schema import jsonld_document_loader, BlockcertValidationError
 
@@ -53,6 +53,12 @@ class TestSchemaValidator(unittest.TestCase):
     def test_v1_2_jsonld(self):
         schema_validator._parse_json_ld('../examples/1.2/sample_signed_cert-1.2.json')
         self.assertTrue(True)
+
+    def test_v2(self):
+        with open('../examples/2.0-alpha/sample_signed_2.0-alpha.json') as data_f:
+            certificate = json.load(data_f)
+            valid = validate_v2(certificate)
+            self.assertTrue(valid)
 
     def test_caching(self):
         schema_validator._parse_json_ld('../examples/1.2/sample_signed_cert-1.2.json', cached_document_loader)

@@ -1,0 +1,101 @@
+{
+  "@context": [
+    "https://openbadgespec.org/v2/context.json",
+    {
+      "bc_ext": "http://www.blockcerts.org/blockcerts_v2_alpha/vocab/bc_obi_ext#"
+    }
+  ],
+  "id": "https://example.org/assertions/123",
+  "type": "Assertion",
+  "recipient": {
+    "hashed": false,
+    "identity": "alice@example.org",
+    "type": "email",
+    "bc_ext:recipientProfile": {
+      "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json",
+      "type": [
+        "RecipientProfile",
+        "Extension"
+      ],
+      "id": "ecdsa-koblitz-pubkey:1LGpGhGK8whX23ZNdxrgtjKrek9rP4xWER",
+      "name": "Alice Example"
+    }
+  },
+  "issuedOn": "2016-12-31T23:59:59+00:00",
+  "badge": {
+    "type": "BadgeClass",
+    "id": "https://example.org/badges/5",
+    "name": "3-D Printmaster",
+    "description": "This badge is awarded for passing the 3-D printing knowledge and safety test.",
+    "image": "data:image/png;base64,",
+    "criteria": {
+      "narrative": "Students are tested on knowledge and safety, both through a paper test and a supervised performance evaluation on live equipment"
+    },
+    "bc_ext:signatureLines": [
+      {
+        "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json",
+        "type": [
+          "SignatureLine",
+          "Extension"
+        ],
+        "jobTitle": "aJobTitle",
+        "image": "data:image/png;base64,"
+      },
+      {
+        "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json",
+        "type": [
+          "SignatureLine",
+          "Extension"
+        ],
+        "jobTitle": "bJobTitle",
+        "image": "data:image/png;base64,"
+      }
+    ],
+    "issuer": {
+      "id": "https://example.org/issuer",
+      "type": "Profile",
+      "name": "Example Maker Society",
+      "url": "https://example.org",
+      "email": "contact@example.org",
+      "image": "data:image/png;base64,",
+      "revocationList": "https://example.org/issuer/revocation",
+      "publicKey": "https://example.org/issuer/keys/1.9.1.1"
+    }
+  },
+  "verification": {
+    "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json",
+    "type": [
+      "AnchoredBlockchainVerification",
+      "Extension"
+    ],
+    "creator": "https://example.org/issuer/keys/1.9.1.1"
+  },
+  "bc_ext:signature": {
+    "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json",
+    "type": [
+      "EcdsaKoblitzSignature2016",
+      "Extension"
+    ],
+    "merkleProof": {
+      "type": "PoP2016",
+      "ledger": "bitcoin",
+      "transactionId": "7ea0cef6a31c65590d6c1d61abbfa02d3006da6509a018cdbc709d0a781a7c28",
+      "merkleRoot": "80ab866e989432e023b51e866545c141e00d456e59fa1e253fac3a561e1a6c14",
+      "proof": [
+        {
+          "merkleParent": "f51cd07057a813f92a33a05ed58a0f26600d2205f9c590f3461f94bd8451b567",
+          "merkleLeftSibling": "247911c653b43a2d13010538c7eae52e500a556448f17384d636857b2b63ae45",
+          "merkleRightSibling": "93ca67aea78e996fb9e10368243110c6f037143dbeec726de0b9172766427399"
+        },
+        {
+          "merkleParent": "e6a881dd07c479eaf2afdd26ae34b441af2fede85c90b5281346846a5dc81bca",
+          "merkleLeftSibling": "44c66b49e4024bf1ba370c38a3655f2094cd110caf91636f749d9e0385fb9272",
+          "merkleRightSibling": "93ca67aea78e996fb9e10368243110c6f037143dbeec726de0b9172766427399"
+        }
+      ]
+    },
+    "creator": "https://example.org/issuer/keys/1.9.1.1",
+    "created": "2016-09-23T20:21:34Z",
+    "signatureValue": "OGQzNGVkMzVm4NTIyZTkZDY...NmExMgoYzI43Q3ODIyOWM32NjI="
+  }
+}
