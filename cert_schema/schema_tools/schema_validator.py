@@ -3,7 +3,11 @@
 import json
 import logging
 import os
-import urllib.request
+
+try:
+    from urllib.request import urlopen
+except ImportError:
+    from urllib2 import urlopen
 
 import jsonschema
 from pyld import jsonld
@@ -48,11 +52,18 @@ def validate_v1_2(certificate_json):
 
 
 def validate_v2(certificate_json):
-    with urllib.request.urlopen(SCHEMA_FILE_V2_ALPHA) as response:
-        schema_v2_alpha_bytes = response.read()
-        schema_v2_alpha = json.loads(str(schema_v2_alpha_bytes, 'utf-8'))
-        return validate_json(certificate_json, schema_v2_alpha)
 
+    response = urlopen(SCHEMA_FILE_V2_ALPHA)
+    schema_v2_alpha_bytes = response.read()
+    schema_v2_alpha = json.loads(schema_v2_alpha_bytes.decode('utf-8'))
+    result = validate_json(certificate_json, schema_v2_alpha)
+    try:
+        response.close()
+    except:
+        logging.warning('exception trying to close...')
+        # doesn't exist in python2
+        pass
+    return result
 
 def validate_unsigned_v1_2(certificate_json):
     """
