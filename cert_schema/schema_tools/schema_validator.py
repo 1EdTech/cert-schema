@@ -3,6 +3,7 @@
 import json
 import logging
 import os
+import urllib.request
 
 import jsonschema
 from pyld import jsonld
@@ -12,7 +13,11 @@ SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, 'schema/1.1/certificate-schema-v1-1.js
 SCHEMA_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/blockchain-certificate-1.2.json')
 SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-document-1.2.json')
 JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/context.json')
+SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-document-1.2.json')
 
+JSON_LD_BC_OBI_EXT_CONTEXT_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json'
+JSON_LD_BLOCKCERTS_CONTEXT_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json'
+SCHEMA_FILE_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/obi/blockcertsSignatureExtension/schema.json'
 
 class BlockcertValidationError(Exception):
     pass
@@ -40,6 +45,13 @@ def validate_v1_2(certificate_json):
     with open(SCHEMA_FILE_V1_2) as schema_f:
         schema_json = json.load(schema_f)
         return validate_json(certificate_json, schema_json)
+
+
+def validate_v2(certificate_json):
+    with urllib.request.urlopen(SCHEMA_FILE_V2_ALPHA) as response:
+        schema_v2_alpha_bytes = response.read()
+        schema_v2_alpha = json.loads(str(schema_v2_alpha_bytes, 'utf-8'))
+        return validate_json(certificate_json, schema_v2_alpha)
 
 
 def validate_unsigned_v1_2(certificate_json):
