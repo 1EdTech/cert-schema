@@ -8,7 +8,7 @@
       "cp": "https://w3id.org/chainpoint#",
       "extensions": "https://w3id.org/openbadges/extensions#",
       "validation": "obi:validation",
-      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "xsd": "https://www.w3.org/2001/XMLSchema#",
       "schema": "http://schema.org/",
       "sec": "https://w3id.org/security#",
       "Assertion": "bc:Assertion",
@@ -167,32 +167,32 @@
     {
       "type": "TypeValidation",
       "validatesType": "Assertion",
-      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/assertion-1.2.json"
+      "validationSchema": "https://w3id.org/blockcerts/schema/1.2/assertion-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Certificate",
-      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/certificate-1.2.json"
+      "validationSchema": "https://w3id.org/blockcerts/schema/1.2/certificate-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "Issuer",
-      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/issuer-1.2.json"
+      "validationSchema": "https://w3id.org/blockcerts/schema/1.2/issuer-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "CertificateDocument",
-      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/certificate-document-1.2.json"
+      "validationSchema": "https://w3id.org/blockcerts/schema/1.2/certificate-document-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "BlockchainCertificate",
-      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/blockchain-certificate-1.2.json"
+      "validationSchema": "https://w3id.org/blockcerts/schema/1.2/blockchain-certificate-1.2.json"
     },
     {
       "type": "TypeValidation",
       "validatesType": "BlockchainReceipt",
-      "validationSchema": "http://w3id.org/blockcerts/schema/1.2/blockchain-receipt-1.2.json"
+      "validationSchema": "https://w3id.org/blockcerts/schema/1.2/blockchain-receipt-1.2.json"
     }
   ]
 }
