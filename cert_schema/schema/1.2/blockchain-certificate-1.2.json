@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Blockchain Certificates Version 1.2 Schema",
-  "id": "http://w3id.org/blockcerts/schema/1.2/blockchain-certificate-1.2.json",
+  "id": "https://w3id.org/blockcerts/schema/1.2/blockchain-certificate-1.2.json",
   "description": "A schema for representing certificates on the blockchain",
   "type": "object",
   "definitions": {
