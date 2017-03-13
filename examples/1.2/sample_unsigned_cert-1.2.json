@@ -1,5 +1,5 @@
 {
-  "@contexts": "http://www.blockcerts.org/schema/1.2/context.json",
+  "@context": "https://www.blockcerts.org/schema/1.2/context.json",
   "type": "BlockchainCertificate",
   "document": {
     "type": "CertificateDocument",
