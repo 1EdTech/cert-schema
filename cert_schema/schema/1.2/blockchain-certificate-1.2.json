@@ -44,10 +44,10 @@
       ]
     },
     "CertificateDocument": {
-      "$ref": "http://w3id.org/blockcerts/schema/1.2/certificate-document-1.2.json"
+      "$ref": "https://w3id.org/blockcerts/schema/1.2/certificate-document-1.2.json"
     },
     "BlockchainReceipt": {
-      "$ref": "http://w3id.org/blockcerts/schema/1.2/blockchain-receipt-1.2.json"
+      "$ref": "https://w3id.org/blockcerts/schema/1.2/blockchain-receipt-1.2.json"
     }
   },
   "properties": {
