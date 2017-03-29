@@ -19,9 +19,8 @@ SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-docum
 JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/context.json')
 SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-document-1.2.json')
 
-JSON_LD_BC_OBI_EXT_CONTEXT_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json'
 JSON_LD_BLOCKCERTS_CONTEXT_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json'
-SCHEMA_FILE_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/obi/blockcertsSignatureExtension/schema.json'
+SCHEMA_FILE_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/obi/schema.json'
 
 class BlockcertValidationError(Exception):
     pass

@@ -51,7 +51,7 @@ class TestSchemaValidator(unittest.TestCase):
             self.assertTrue(valid)
 
     def test_v1_2_jsonld(self):
-        schema_validator._parse_json_ld('../examples/1.2/sample_signed_cert-1.2.json')
+        schema_validator._parse_json_ld('../examples/1.2/sample_signed_cert-1.2.json', cached_document_loader)
         self.assertTrue(True)
 
     def test_v2(self):
