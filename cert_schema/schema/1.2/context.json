@@ -8,7 +8,7 @@
       "cp": "https://w3id.org/chainpoint#",
       "extensions": "https://w3id.org/openbadges/extensions#",
       "validation": "obi:validation",
-      "xsd": "https://www.w3.org/2001/XMLSchema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "schema": "http://schema.org/",
       "sec": "https://w3id.org/security#",
       "Assertion": "bc:Assertion",
