@@ -1,23 +1,20 @@
 {
   "@context": [
     "https://openbadgespec.org/v2/context.json",
+    "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json",
     {
-      "bc_ext": "http://www.blockcerts.org/blockcerts_v2_alpha/vocab/bc_obi_ext#"
+      "bc": "http://www.blockcerts.org/blockcerts_v2_alpha/vocab/blockcerts#"
     }
   ],
-  "id": "https://example.org/assertions/123",
+  "id": "urn:uuid:e79a6c18-787e-4868-8e65-e6a4530fb418",
   "type": "Assertion",
   "recipient": {
     "hashed": false,
     "identity": "alice@example.org",
     "type": "email",
-    "bc_ext:recipientProfile": {
-      "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json",
-      "type": [
-        "RecipientProfile",
-        "Extension"
-      ],
-      "id": "ecdsa-koblitz-pubkey:1LGpGhGK8whX23ZNdxrgtjKrek9rP4xWER",
+    "bc:recipientProfile": {
+      "type": ["RecipientProfile","Extension"],
+      "publicKey": "ecdsa-koblitz-pubkey:020d79074ef137d4f338c2e6bef2a49c618109eccf1cd01ccc3286634789baef4b",
       "name": "Alice Example"
     }
   },
@@ -31,22 +28,14 @@
     "criteria": {
       "narrative": "Students are tested on knowledge and safety, both through a paper test and a supervised performance evaluation on live equipment"
     },
-    "bc_ext:signatureLines": [
+    "bc:signatureLines": [
       {
-        "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json",
-        "type": [
-          "SignatureLine",
-          "Extension"
-        ],
+        "type": ["SignatureLine","Extension"],
         "jobTitle": "aJobTitle",
         "image": "data:image/png;base64,"
       },
       {
-        "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc_obi_ext.json",
-        "type": [
-          "SignatureLine",
-          "Extension"
-        ],
+        "type": ["SignatureLine","Extension"],
         "jobTitle": "bJobTitle",
         "image": "data:image/png;base64,"
       }
@@ -63,19 +52,11 @@
     }
   },
   "verification": {
-    "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json",
-    "type": [
-      "AnchoredBlockchainVerification",
-      "Extension"
-    ],
+    "type": ["BlockchainVerification","Extension"],
     "creator": "https://example.org/issuer/keys/1.9.1.1"
   },
-  "bc_ext:signature": {
-    "@context": "http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json",
-    "type": [
-      "EcdsaKoblitzSignature2016",
-      "Extension"
-    ],
+  "bc:signature": {
+    "type": ["LinkedDataEcdsaKoblitzSignature","Extension"],
     "merkleProof": {
       "type": "PoP2016",
       "ledger": "bitcoin",
@@ -94,8 +75,6 @@
         }
       ]
     },
-    "creator": "https://example.org/issuer/keys/1.9.1.1",
-    "created": "2016-09-23T20:21:34Z",
     "signatureValue": "OGQzNGVkMzVm4NTIyZTkZDY...NmExMgoYzI43Q3ODIyOWM32NjI="
   }
 }
