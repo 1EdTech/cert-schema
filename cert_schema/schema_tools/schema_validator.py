@@ -12,6 +12,8 @@ except ImportError:
 import jsonschema
 from pyld import jsonld
 
+from cert_core import BLOCKCERTS_V2_CONTEXT, BLOCKCERTS_V2_SCHEMA
+
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, 'schema/1.1/certificate-schema-v1-1.json')
 SCHEMA_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/blockchain-certificate-1.2.json')
@@ -19,8 +21,6 @@ SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-docum
 JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/context.json')
 SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-document-1.2.json')
 
-JSON_LD_BLOCKCERTS_CONTEXT_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/context_bc.json'
-SCHEMA_FILE_V2_ALPHA = 'http://www.blockcerts.org/blockcerts_v2_alpha/obi/schema.json'
 
 class BlockcertValidationError(Exception):
     pass
@@ -51,8 +51,7 @@ def validate_v1_2(certificate_json):
 
 
 def validate_v2(certificate_json):
-
-    response = urlopen(SCHEMA_FILE_V2_ALPHA)
+    response = urlopen(BLOCKCERTS_V2_SCHEMA)
     schema_v2_alpha_bytes = response.read()
     schema_v2_alpha = json.loads(schema_v2_alpha_bytes.decode('utf-8'))
     result = validate_json(certificate_json, schema_v2_alpha)
