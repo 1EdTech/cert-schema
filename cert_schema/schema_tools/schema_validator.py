@@ -12,7 +12,7 @@ except ImportError:
 import jsonschema
 from pyld import jsonld
 
-from cert_core import BLOCKCERTS_V2_CONTEXT, BLOCKCERTS_V2_SCHEMA
+from cert_core import BLOCKCERTS_V2_SCHEMA
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, 'schema/1.1/certificate-schema-v1-1.json')
@@ -62,6 +62,7 @@ def validate_v2(certificate_json):
         # doesn't exist in python2
         pass
     return result
+
 
 def validate_unsigned_v1_2(certificate_json):
     """
