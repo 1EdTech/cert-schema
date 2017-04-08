@@ -1,4 +1,4 @@
 jsonschema>=2.6
 pyld>=0.7.1
-requests>=2.12.1
-cert-core>=0.0.14
+requests>=2.13.0
+cert-core>=0.0.15

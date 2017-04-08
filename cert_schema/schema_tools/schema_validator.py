@@ -52,9 +52,9 @@ def validate_v1_2(certificate_json):
 
 def validate_v2(certificate_json):
     response = urlopen(BLOCKCERTS_V2_SCHEMA)
-    schema_v2_alpha_bytes = response.read()
-    schema_v2_alpha = json.loads(schema_v2_alpha_bytes.decode('utf-8'))
-    result = validate_json(certificate_json, schema_v2_alpha)
+    schema_v2_bytes = response.read()
+    schema_v2 = json.loads(schema_v2_bytes.decode('utf-8'))
+    result = validate_json(certificate_json, schema_v2)
     try:
         response.close()
     except:
