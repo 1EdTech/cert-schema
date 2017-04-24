@@ -46,7 +46,7 @@ class TestSchemaValidator(unittest.TestCase):
             self.assertTrue(valid)
 
     def test_v2(self):
-        with open('../examples/2.0/sample_signed_2.0.json') as data_f:
+        with open('../examples/2.0/sample_signed-2.0.json') as data_f:
             certificate = json.load(data_f)
             valid = validate_v2(certificate)
             self.assertTrue(valid)
