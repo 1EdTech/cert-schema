@@ -6,8 +6,6 @@ from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-from cert_schema import __version__
-
 install_reqs = parse_requirements(os.path.join(here, 'requirements.txt'), session=uuid.uuid1())
 reqs = [str(ir.req) for ir in install_reqs]
 
@@ -16,7 +14,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version=__version__,
+    version='2.0b5',
     description='tools for working with blockchain certificates',
     author='info@blockcerts.org',
     tests_require=['tox'],
