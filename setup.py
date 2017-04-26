@@ -14,7 +14,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='2.0b5',
+    version='2.0b6',
     description='tools for working with blockchain certificates',
     author='info@blockcerts.org',
     tests_require=['tox'],
