@@ -6,6 +6,8 @@ from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 
+from cert_schema import __version__
+
 install_reqs = parse_requirements(os.path.join(here, 'requirements.txt'), session=uuid.uuid1())
 reqs = [str(ir.req) for ir in install_reqs]
 
@@ -14,7 +16,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='2.0b1',
+    version=__version__,
     description='tools for working with blockchain certificates',
     author='MIT Media Lab Blockchain Certificates',
     tests_require=['tox'],
