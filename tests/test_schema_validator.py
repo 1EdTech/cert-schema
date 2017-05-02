@@ -1,23 +1,9 @@
 import json
 import unittest
 
-from werkzeug.contrib.cache import SimpleCache
-
 from cert_schema import BlockcertValidationError
-from cert_schema import validate_v1_2, validate_unsigned_v1_2, validate_v2, normalize_jsonld, jsonld_document_loader
+from cert_schema import validate_v1_2, validate_unsigned_v1_2, validate_v2
 from cert_schema.schema_tools import schema_validator
-
-cache = SimpleCache()
-
-
-def cached_document_loader(url, override_cache=False):
-    if not override_cache:
-        result = cache.get(url)
-        if result:
-            return result
-    doc = jsonld_document_loader(url)
-    cache.set(url, doc)
-    return doc
 
 
 class TestSchemaValidator(unittest.TestCase):
@@ -64,9 +50,3 @@ class TestSchemaValidator(unittest.TestCase):
             certificate = json.load(data_f)
             valid = validate_v2(certificate)
             self.assertTrue(valid)
-
-    def test_v2_unmapped_fields(self):
-        with self.assertRaises(BlockcertValidationError):
-            with open('../examples/2.0/tampered_unmapped_fields.json') as data_f:
-                certificate = json.load(data_f)
-                normalize_jsonld(certificate, document_loader=cached_document_loader, detect_unmapped_fields=True)
