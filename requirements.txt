@@ -2,5 +2,3 @@ jsonschema>=2.6
 pyld>=0.7.1
 requests>=2.13.0
 cert-core>=0.0.15
-validators>=0.11.1
-werkzeug>=0.11.11
