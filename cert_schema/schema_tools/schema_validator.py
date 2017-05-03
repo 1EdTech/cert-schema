@@ -3,6 +3,8 @@
 import json
 import logging
 import os
+import re
+from copy import deepcopy
 
 try:
     from urllib.request import urlopen
@@ -11,8 +13,13 @@ except ImportError:
 
 import jsonschema
 from pyld import jsonld
+from pyld.jsonld import JsonLdProcessor
 
 from cert_core import BLOCKCERTS_V2_SCHEMA
+
+FALLBACK_VOCAB = 'http://fallback.org/'
+JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
+FALLBACK_CONTEXT = {'@vocab': FALLBACK_VOCAB}
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, 'schema/1.1/certificate-schema-v1-1.json')
@@ -52,9 +59,9 @@ def validate_v1_2(certificate_json):
 
 def validate_v2(certificate_json):
     response = urlopen(BLOCKCERTS_V2_SCHEMA)
-    schema_v2_alpha_bytes = response.read()
-    schema_v2_alpha = json.loads(schema_v2_alpha_bytes.decode('utf-8'))
-    result = validate_json(certificate_json, schema_v2_alpha)
+    schema_v2_bytes = response.read()
+    schema_v2 = json.loads(schema_v2_bytes.decode('utf-8'))
+    result = validate_json(certificate_json, schema_v2)
     try:
         response.close()
     except:
@@ -110,6 +117,48 @@ def compact_with_json_ld_context(input_json, document_loader=None):
         ctx = json.load(context_f)
         compacted = jsonld.compact(input_json, ctx, options=options)
         return compacted
+
+
+def normalize_jsonld(json_ld_to_normalize, document_loader=None, detect_unmapped_fields=False):
+    """
+    Canonicalize the JSON-LD certificate.
+
+    The detect_unmapped_fields parameter is a temporary, incomplete, workaround to detecting fields that do not
+    correspond to items in the JSON-LD schemas. It works in the Blockcerts context because:
+    - Blockcerts doesn't use a default vocab
+    - fallback.org is not expected to occur
+
+    Because unmapped fields get dropped during canonicalization, this uses a trick of adding
+     {"@vocab": "http://fallback.org/"} to the json ld, which will cause any unmapped fields to be prefixed with
+     http://fallback.org/.
+
+    This issue will be addressed in a first-class manner in the future.
+
+    :param json_ld_to_normalize:
+    :param detect_unmapped_fields:
+    :return:
+    """
+    json_ld = json_ld_to_normalize
+    options = deepcopy(JSONLD_OPTIONS)
+    if document_loader:
+        options['documentLoader'] = document_loader
+
+    if detect_unmapped_fields:
+        json_ld = deepcopy(json_ld_to_normalize)
+        prev_context = JsonLdProcessor.get_values(json_ld_to_normalize, '@context')
+        prev_context.append(FALLBACK_CONTEXT)
+        json_ld['@context'] = prev_context
+
+    normalized = jsonld.normalize(json_ld, options=options)
+
+    if detect_unmapped_fields and FALLBACK_VOCAB in normalized:
+        unmapped_fields = []
+        for m in re.finditer('<http://fallback\.org/(.*)>', normalized):
+            unmapped_fields.append(m.group(0))
+        error_string = ', '.join(unmapped_fields)
+        raise BlockcertValidationError(
+            'There are some fields in the certificate that do not correspond to the expected schema. This has likely been tampered with. Unmapped fields are: ' + error_string)
+    return normalized
 
 
 def _parse_json_ld(filename, document_loader=None):
