@@ -219,7 +219,7 @@
           "description": "Defined by `criteria` property of https://w3id.org/openbadges#BadgeClass. This field is required in Open Badges. If migrating from an earlier version, a quick change is to reuse the `description` field"
         },
         "issuer": {
-          "$ref": "#/definitions/Profile",
+          "$ref": "https://w3id.org/blockcerts/schema/2.0/issuerSchema.json",
           "description": "Defined by `issuer` property of https://w3id.org/openbadges#BadgeClass, with Blockcerts extensions for blockchain verification of badges."
         },
         "alignment": {
@@ -252,61 +252,6 @@
         "image",
         "issuer",
         "criteria"
-      ]
-    },
-    "Profile": {
-      "description": "Defined by https://w3id.org/openbadges#Profile. This type is used in certificates, and in the issuer-hosted identification page. The minimal set of properties required in the certificate are `id` and `type`. In this case, additional issuer-identification properties are assumed to be available at the issuer-hosted identification page.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "uri",
-          "description": "Defined by `id` property of https://w3id.org/openbadges#Profile"
-        },
-        "type": {
-          "$ref": "#/definitions/JsonLdType",
-          "description": "Defined by `type` property of https://w3id.org/openbadges#Profile"
-        },
-        "name": {
-          "type": "string",
-          "description": "Defined by `name` property of https://w3id.org/openbadges#Profile"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri",
-          "description": "Defined by `url` property of https://w3id.org/openbadges#Profile"
-        },
-        "telephone": {
-          "type": "string",
-          "description": "Defined by `telephone` property of https://w3id.org/openbadges#Profile"
-        },
-        "description": {
-          "type": "string",
-          "description": "Defined by `description` property of https://w3id.org/openbadges#Profile"
-        },
-        "image": {
-          "$ref": "#/definitions/ImageUri",
-          "description": "Defined by `image` property of https://w3id.org/openbadges#Profile"
-        },
-        "email": {
-          "type": "string",
-          "description": "Defined by `email` property of https://w3id.org/openbadges#Profile"
-        },
-        "revocationList": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "uri"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Defined by `revocationList` property of https://w3id.org/openbadges#Profile. If embedded in a Blockcert and the issuer-hosted Profile, the value in the Blockcert should take preference."
-        }
-      },
-      "required": [
-        "id",
-        "type"
       ]
     }
   },
