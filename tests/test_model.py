@@ -76,26 +76,6 @@ class TestModel(unittest.TestCase):
             self.assertEquals(certificate_model.issued_on, parse_date('2016-10-03 00:00:00+00:00'))
             self.assertIsNotNone(certificate_model.signature_image[0].image)
 
-    def test_to_certificate_model_v2(self):
-        with open('data/2.0/8e0b8a28-beff-43de-a72c-820bc360db3d.json', 'rb') as cert_file:
-            certificate_bytes = cert_file.read()
-            certificate_json = helpers.certificate_bytes_to_json(certificate_bytes)
-            certificate_model = model.to_certificate_model(certificate_json)
-            self.assertEquals(certificate_model.version, BlockcertVersion.V2)
-            self.assertEquals(certificate_model.issuer.id,
-                              'https://www.blockcerts.org/blockcerts_v2_alpha/samples/issuer_testnet.json')
-            self.assertEquals(certificate_model.txid,
-                              '08e205566662b97f149ad677649bbb94ebc2f46c0ac72bc7c9b57d2d207015f4')
-            self.assertEquals(certificate_model.title, 'This is the certificate title')
-            self.assertEquals(certificate_model.description, 'This is the display description of the certificate.')
-            self.assertEquals(certificate_model.uid, 'urn:uuid:8e0b8a28-beff-43de-a72c-820bc360db3d')
-            self.assertEquals(certificate_model.subtitle, None)
-            self.assertEquals(certificate_model.expires, None)
-
-            self.assertEquals(certificate_model.issuer.name, 'Issuer Institution Name')
-            self.assertEquals(certificate_model.recipient_public_key, 'mkwntSiQmc14H65YxwckLenxY3DsEpvFbe')
-            self.assertEquals(certificate_model.issued_on, parse_date('2017-05-01 00:00:00+00:00'))
-
     def test_to_proof(self):
         with open('data/1.2/receipt.json') as receipt_file:
             receipt_json = json.load(receipt_file)
@@ -113,6 +93,26 @@ class TestModel(unittest.TestCase):
             self.assertEquals(proof.merkle_root,
                               '68f3ede17fdb67ffd4a5164b5687a71f9fbb68da803b803935720f2aa38f7728')
             self.assertEquals(proof.proof_type, ProofType.merkle_proof_2017)
+
+    def test_to_certificate_model_v2(self):
+        with open('data/2.0/13a58c4a-f49f-4b63-9c82-125b944f5dfb.json', 'rb') as cert_file:
+            certificate_bytes = cert_file.read()
+            certificate_json = helpers.certificate_bytes_to_json(certificate_bytes)
+            certificate_model = model.to_certificate_model(certificate_json)
+            self.assertEquals(certificate_model.version, BlockcertVersion.V2)
+            self.assertEquals(certificate_model.issuer.id,
+                              'https://www.blockcerts.org/samples/2.0/issuerTestnet.json')
+            self.assertEquals(certificate_model.txid,
+                              'cbe1a820fd0512607d9cd41f3020770abc4ce015efb332a38b17598d981d26b9')
+            self.assertEquals(certificate_model.title, 'This is the certificate title')
+            self.assertEquals(certificate_model.description, 'This is the display description of the certificate.')
+            self.assertEquals(certificate_model.uid, 'urn:uuid:13a58c4a-f49f-4b63-9c82-125b944f5dfb')
+            self.assertEquals(certificate_model.subtitle, None)
+            self.assertEquals(certificate_model.expires, None)
+
+            self.assertEquals(certificate_model.issuer.name, 'Issuer Institution Name')
+            self.assertEquals(certificate_model.recipient_public_key, 'mtr98kany9G1XYNU74pRnfBQmaCg2FZLmc')
+            self.assertEquals(certificate_model.issued_on, parse_date('2017-06-23T10:58:32.613613+00:00'))
 
 
 if __name__ == '__main__':

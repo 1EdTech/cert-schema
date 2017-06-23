@@ -238,7 +238,7 @@ def parse_v2_blockchain_certificate(certificate_json):
 
     subtitle = get_value_or_default(badge, 'subtitle')
 
-    recipient_public_key_full = recipient[scope_name('recipientProfile')]['publicKey']
+    recipient_public_key_full = certificate_json[scope_name('recipientProfile')]['publicKey']
 
     recipient_public_key = str.split(str(recipient_public_key_full), ':')[1]
 
@@ -250,7 +250,7 @@ def parse_v2_blockchain_certificate(certificate_json):
 
     return BlockchainCertificate(BlockcertVersion.V2,
                                  uid,
-                                 recipient[scope_name('recipientProfile')]['name'],
+                                 certificate_json[scope_name('recipientProfile')]['name'],
                                  recipient_public_key,
                                  badge['name'],
                                  badge['description'],
