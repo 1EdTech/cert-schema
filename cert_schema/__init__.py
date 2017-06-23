@@ -16,6 +16,7 @@ URN_UUID_PREFIX = 'urn:uuid:'
 class BlockcertVersion(Enum):
     V1_1 = 0
     V1_2 = 1
+    V2_ALPHA = -1
     V2 = 2
 
 

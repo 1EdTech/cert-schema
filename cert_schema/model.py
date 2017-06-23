@@ -28,7 +28,6 @@ from cert_schema import *
 V1_1_REGEX = re.compile('[0-9a-fA-F]{24}')
 V1_2_REGEX = re.compile('[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}')
 
-CONTEXT_REGEX = re.compile('v[0-9]')
 USE_PREFIX = False
 
 
@@ -165,17 +164,16 @@ def detect_version(certificate_json):
         return BlockcertVersion.V1_1
     context = certificate_json['@context']
     if isinstance(context, list):
-        version_marker = context[0]
+        version_marker = context[-1]
     else:
         version_marker = context
 
-    matches = CONTEXT_REGEX.search(version_marker)
-    if matches:
-        version = matches.group(0)
-        if version == 'v1':
-            return BlockcertVersion.V1_2
-        elif version == 'v2':
-            return BlockcertVersion.V2
+    if 'v1' in version_marker:
+        return BlockcertVersion.V1_2
+    elif '2.0-alpha' in version_marker:
+        return BlockcertVersion.V2_ALPHA
+    elif '2.0' in version_marker:
+        return BlockcertVersion.V2
 
     raise UnknownBlockcertVersionException()
 
@@ -216,7 +214,7 @@ def get_value_or_default(node, field):
     return value
 
 
-def parse_v2_blockchain_certificate(certificate_json):
+def parse_v2_blockchain_certificate(certificate_json, version_marker):
     assertion = certificate_json
     uid = assertion['id']
     badge = assertion['badge']
@@ -238,8 +236,12 @@ def parse_v2_blockchain_certificate(certificate_json):
 
     subtitle = get_value_or_default(badge, 'subtitle')
 
-    recipient_public_key_full = certificate_json[scope_name('recipientProfile')]['publicKey']
+    if version_marker == BlockcertVersion.V2_ALPHA:
+        recipient_profile = recipient[scope_name('recipientProfile')]
+    else:
+        recipient_profile = certificate_json[scope_name('recipientProfile')]
 
+    recipient_public_key_full = recipient_profile['publicKey']
     recipient_public_key = str.split(str(recipient_public_key_full), ':')[1]
 
     import copy
@@ -248,9 +250,9 @@ def parse_v2_blockchain_certificate(certificate_json):
 
     transaction_signature = TransactionSignature(document_json, txid, merkle_proof)
 
-    return BlockchainCertificate(BlockcertVersion.V2,
+    return BlockchainCertificate(version_marker,
                                  uid,
-                                 certificate_json[scope_name('recipientProfile')]['name'],
+                                 recipient_profile['name'],
                                  recipient_public_key,
                                  badge['name'],
                                  badge['description'],
@@ -355,7 +357,7 @@ def to_certificate_model(certificate_json, txid=None, certificate_bytes=None):
         return parse_v1_1_blockchain_certificate(certificate_json, txid, certificate_bytes)
     elif version == BlockcertVersion.V1_2:
         return parse_v1_2_blockchain_certificate(certificate_json)
-    elif version == BlockcertVersion.V2:
-        return parse_v2_blockchain_certificate(certificate_json)
+    elif version == BlockcertVersion.V2 or version == BlockcertVersion.V2_ALPHA:
+        return parse_v2_blockchain_certificate(certificate_json, version)
     else:
         raise UnknownBlockcertVersionException(version)
