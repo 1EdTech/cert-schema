@@ -1,1 +1,1 @@
-include LICENSE *.md *.txt
+include LICENSE *.md *.txt cert_schema/schema/*/*.json

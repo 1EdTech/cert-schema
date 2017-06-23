@@ -42,9 +42,25 @@
         }
       ]
     },
-    "DateTime": {
-      "description": "Open Badges must express timestamps as strings compatible with ISO 8601 guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, 2016-12-31T23:59:59+00:00 is a valid ISO 8601 timestamp. It contains the year, month, day, T separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the Z designator for UTC).",
+    "ISODateTime": {
+      "description": "ISO 8601 date format string `yyyy-MM-dd'T'HH:mm:ss.SSS` with optional `.SSS` milliseconds",
       "type": "string"
+    },
+    "UNIXTimeStamp": {
+      "description": "10-digit UNIX timestamp, epoch time",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9999999999
+    },
+    "DateTime": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ISODateTime"
+        },
+        {
+          "$ref": "#/definitions/UNIXTimeStamp"
+        }
+      ]
     },
     "HashString": {
       "type": "string",
@@ -54,7 +70,7 @@
     },
     "IdentityObject": {
       "title": "Badge Identity Object",
-      "description": "From https://w3id.org/openbadges#IdentityObject.",
+      "description": "From https://w3id.org/openbadges#IdentityObject, with extensions for recipient profile.",
       "type": "object",
       "properties": {
         "identity": {
@@ -90,6 +106,9 @@
               "type": "null"
             }
           ]
+        },
+        "recipientProfile": {
+          "$ref": "https://w3id.org/blockcerts/schema/2.0-alpha/recipientSchema.json"
         }
       },
       "required": [
@@ -106,17 +125,32 @@
           "$ref": "#/definitions/JsonLdType",
           "description": "Defined by `type` property of https://w3id.org/openbadges#VerificationObject. Blockcerts extension: this should contain the entry `MerkleProofVerification2017`"
         },
-        "publicKey": {
+        "creator": {
           "type": "string",
           "anyOf": [{
             "type": "string",
             "pattern": "^ecdsa-koblitz-pubkey:",
             "description": "Issuer public key or blockchain address with `<scheme>:` prefix. For Bitcoin transactions, this would be the issuer public address prefixed with `ecdsa-koblitz-pubkey:`. Example: `ecdsa-koblitz-pubkey:14RZvYazz9H2DC2skBfpPVxax54g4yabxe`"
           }, {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           }
           ],
-          "description": "Blockcerts extension: the expected blockchain address for the signer of the transaction containing the merkle proof. In Blockcerts `publicKey`s are typically represented with a `<scheme>:` prefix. For Bitcoin transactions, this would be the issuer public Bitcoin address prefixed with `ecdsa-koblitz-pubkey:`; e.g. `ecdsa-koblitz-pubkey:14RZvYazz9H2DC2skBfpPVxax54g4yabxe`"
+          "description": "Blockcerts extension: the expected blockchain address for the signer of the transaction containing the merkle proof. In Blockcerts `creator` IRIs are typically represented with a `<scheme>:` prefix. For Bitcoin transactions, this would be the issuer public Bitcoin address prefixed with `ecdsa-koblitz-pubkey:`; e.g. `ecdsa-koblitz-pubkey:14RZvYazz9H2DC2skBfpPVxax54g4yabxe`"
+        },
+        "verificationProperty": {
+          "type": "object",
+          "description": "Defined by `verificationProperty` property of https://w3id.org/openbadges#VerificationObject"
+        },
+        "startsWith": {
+          "type": "string",
+          "format": "uri",
+          "description": "Defined by `startsWith` property of https://w3id.org/openbadges#VerificationObject"
+        },
+        "allowedOrigins": {
+          "type": "string",
+          "format": "uri",
+          "description": "Defined by `allowedOrigins` property of https://w3id.org/openbadges#VerificationObject"
         }
       },
       "required": [
@@ -176,13 +210,10 @@
       "uniqueItems": true
     },
     "SignatureLine": {
-      "$ref": "https://w3id.org/blockcerts/schema/2.0/signatureLineSchema.json"
-    },
-    "RecipientProfile": {
-      "$ref": "https://w3id.org/blockcerts/schema/2.0/recipientSchema.json"
+      "$ref": "https://w3id.org/blockcerts/schema/2.0-alpha/signatureLineSchema.json"
     },
     "MerkleProof2017": {
-      "$ref": "https://w3id.org/blockcerts/schema/2.0/merkleProof2017Schema.json"
+      "$ref": "https://w3id.org/blockcerts/schema/2.0-alpha/merkleProof2017Schema.json"
     },
     "BadgeClass": {
       "description": "From https://w3id.org/openbadges#BadgeClass",
@@ -191,7 +222,7 @@
         "id": {
           "type": "string",
           "format": "uri",
-          "description": "Defined by `id` property of https://w3id.org/openbadges#BadgeClass. This field is now required in V2. This may be an HTTP IRI, but only if the issuer plans to host the BadgeClass definitions on a long-term basis, or (at least) until expiration of certificates referencing this BadgeClass. Otherwise it is recommended to use a `urn:uuid:<UUID>`-formatted IRI."
+          "description": "Defined by `id` property of https://w3id.org/openbadges#BadgeClass. This field is required in Open Badges but currently optional in Blockcerts for compatibility. This may be an HTTP IRI, but only if the issuer plans to host the BadgeClass definitions on a long-term basis, or (at least) until expiration of certificates referencing this BadgeClass. Otherwise it is recommended to use a `urn:uuid:<UUID>`-formatted IRI."
         },
         "type": {
           "$ref": "#/definitions/JsonLdType",
@@ -215,10 +246,10 @@
         },
         "criteria": {
           "type": "object",
-          "description": "Defined by `criteria` property of https://w3id.org/openbadges#BadgeClass. This field is required in Open Badges. If migrating from an earlier version, a quick change is to reuse the `description` field"
+          "description": "Defined by `criteria` property of https://w3id.org/openbadges#BadgeClass. This field is required in Open Badges, currently optional in Blockcerts for compatibility. "
         },
         "issuer": {
-          "$ref": "https://w3id.org/blockcerts/schema/2.0/issuerSchema.json",
+          "$ref": "#/definitions/Profile",
           "description": "Defined by `issuer` property of https://w3id.org/openbadges#BadgeClass, with Blockcerts extensions for blockchain verification of badges."
         },
         "alignment": {
@@ -245,12 +276,65 @@
         }
       },
       "required": [
-        "id",
         "name",
         "description",
         "image",
-        "issuer",
-        "criteria"
+        "issuer"
+      ]
+    },
+    "Profile": {
+      "description": "Defined by https://w3id.org/openbadges#Profile. This type is used in certificates, and in the issuer-hosted identification page. The minimal set of properties required in the certificate are `id` and `type`. In this case, additional issuer-identification properties are assumed to be available at the issuer-hosted identification page.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Defined by `id` property of https://w3id.org/openbadges#Profile"
+        },
+        "type": {
+          "$ref": "#/definitions/JsonLdType",
+          "description": "Defined by `type` property of https://w3id.org/openbadges#Profile"
+        },
+        "name": {
+          "type": "string",
+          "description": "Defined by `name` property of https://w3id.org/openbadges#Profile"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Defined by `url` property of https://w3id.org/openbadges#Profile"
+        },
+        "telephone": {
+          "type": "string",
+          "description": "Defined by `telephone` property of https://w3id.org/openbadges#Profile"
+        },
+        "description": {
+          "type": "string",
+          "description": "Defined by `description` property of https://w3id.org/openbadges#Profile"
+        },
+        "image": {
+          "$ref": "#/definitions/ImageUri",
+          "description": "Defined by `image` property of https://w3id.org/openbadges#Profile"
+        },
+        "email": {
+          "type": "string",
+          "description": "Defined by `email` property of https://w3id.org/openbadges#Profile"
+        },
+        "revocationList": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Defined by `revocationList` property of https://w3id.org/openbadges#Profile. If embedded in a Blockcert and the issuer-hosted Profile, the value in the Blockcert should take preference."
+        }
+      },
+      "required": [
+        "id",
+        "type"
       ]
     }
   },
@@ -306,11 +390,8 @@
       "$ref": "#/definitions/DateTime",
       "description": "Defined by `expires` property of https://w3id.org/openbadges#Assertion"
     },
-    "recipientProfile": {
-      "$ref": "#/definitions/RecipientProfile"
-    },
     "signature": {
-      "$ref": "#/definitions/MerkleProof2017"
+      "ref": "#/definitions/MerkleProof2017"
     }
   },
   "required": [

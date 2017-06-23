@@ -1,0 +1,25 @@
+{
+  "@context": "https://w3id.org/chainpoint/v2",
+  "receipt": {
+    "anchors": [
+      {
+        "sourceId": "7d0edf184a2969a9df3a129a9bd36e4b5f52b5faee7613c2b26691328ef62a56",
+        "type": "BTCOpReturn"
+      }
+    ],
+    "type": "ChainpointSHA256v2",
+    "proof": [
+      {
+        "right": "333aaf6f791324783b2d04095146b586b5c606903861f444251198d284a5c4a5"
+      },
+      {
+        "left": "b2a13165e3b0076ce4991f77124cde5ca15b6d5c25c1d24ee5119c6a10e32362"
+      },
+      {
+        "right": "c4afe67d60cac5437ff950dfdb5967725b9a6f71e05fdf8b1591e220a5ce622f"
+      }
+    ],
+    "targetHash": "2d3d0f49416587c4ce14c05d47c4193f0da3dd56f7244a568b06484cb8d2fe78",
+    "merkleRoot": "3268386feb897f6cab2c100a0edb6f66b4bb3a8745e3e3e8a54b1cb7151a6d96"
+  }
+}
