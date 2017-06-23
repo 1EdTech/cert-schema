@@ -1,6 +1,8 @@
-jsonschema>=2.6
-pyld>=0.7.1
-requests>=2.13.0
-cert-core>=2.0b7
-validators>=0.11.1
-werkzeug>=0.11.11
+enum34>=1.1.6
+jsonschema>=2.6.0
+pyld>=0.7.2
+python-dateutil>=2.5.3
+pytz>=2017.2
+requests>=2.18.1
+tox>=2.7.0
+validators>=0.12.0

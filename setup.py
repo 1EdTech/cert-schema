@@ -14,7 +14,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='2.0b12',
+    version='2.0b18',
     description='tools for working with blockchain certificates',
     author='info@blockcerts.org',
     tests_require=['tox'],
@@ -23,6 +23,7 @@ setup(
     author_email='info@blockcerts.org',
     long_description=long_description,
     packages=find_packages(),
-    package_data={"cert_schema": ["schema/1.1/*.json", "schema/1.2/*.json"]},
+    package_data={"cert_schema": ["schema/1.1/*.json", "schema/1.2/*.json", "schema/2.0-alpha/*.json",
+                                  "schema/2.0/*.json"]},
     install_requires=reqs
 )
