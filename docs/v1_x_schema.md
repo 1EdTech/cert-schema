@@ -1,0 +1,85 @@
+## Schemas
+
+Blockchain Certificate schemas extend those of [Open Badges](https://openbadgespec.org/). As with Open Badges, we've provided both a JSON-LD context and JSON schema. The purpose of the JSON-LD context is to map types to Internationalized Resource Identifiers (IRIs), providing semantic context for data. The JSON Schema is used for syntactic validation.
+
+We are working closely with the Open Badges team to bring our schemas up to the OBI v2 spec.
+
+*   [Blockchain Certificates JSON LD Context](json-context.md) 
+*   [Blockchain Certificate JSON Schema](json-schema.md) (components below)
+    *   [Certificate Document](certificate-document.md)
+        *   [Assertion](assertion-schema.md)
+        *   [Certificate](certificate-schema.md)
+            *   [Issuer](issuer.md)
+    *   [Blockchain Receipt](receipt.md)
+*   [Issuer Identity JSON Schema](issuer-id.md) 
+
+### Example
+
+    {
+      "@context": "https://w3id.org/blockcerts/v1",
+      "type": "BlockchainCertificate",
+      "document": {
+        "type": "CertificateDocument",
+        "assertion": {
+          "type": "Assertion",
+          "evidence": "",
+          "id": "http://www.theissuer.edu/fb9e6259-f3ee-438a-b98f-a24f54187af8",
+          "image:signature": "data:image/png;base64,",
+          "issuedOn": "2016-05-26T12:00:00Z",
+          "uid": "fb9e6259-f3ee-438a-b98f-a24f54187af8"
+        },
+        "certificate": {
+          "type": "Certificate",
+          "description": "Certificate description",
+          "id": "https://www.theissuer.edu/criteria/2016/05/certificate-type.json",
+          "image": "data:image/png;base64,",
+          "issuer": {
+            "type": "Issuer",
+            "email": "issuer@theissuer.edu",
+            "id": "https://www.theissuer.edu/issuer/the-issuer.json",
+            "image": "data:image/png;base64,",
+            "name": "Issuing Institution",
+            "url": "http://www.theissuer.edu"
+          },
+          "subtitle": "2016",
+          "name": "Certificate name"
+        },
+        "recipient": {
+          "familyName": "RecipientLastName",
+          "givenName": "RecipientFirstName",
+          "hashed": false,
+          "identity": "recipient@domain.com",
+          "publicKey": "1GCrFRozNVWCqTreV7ZoXudiotknoJeXaz",
+          "type": "email"
+        },
+        "signature": "IAhahreb77hgM9khBcWCSfwq0Qal/bzU9AzBSUMEDErTdExBRHsBH2dDmBa1NvR38wVGn70SPEglI0VIvUFc2AI=",
+        "verify": {
+          "attribute-signed": "uid",
+          "signer": "https://www.theissuer.edu/keys/signing-public-key.asc",
+          "type": "ECDSA(secp256k1)"
+        }
+      },
+      "receipt": {
+        "@context": "https://w3id.org/chainpoint/v2",
+        "type": "ChainpointSHA256v2",
+        "targetHash": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+        "merkleRoot": "d71f8983ad4ee170f8129f1ebcdd7440be7798d8e1c80420bf11f1eced610dba",
+        "proof": [
+          {
+            "left": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+          },
+          {
+            "right": "bffe0b34dba16bc6fac17c08bac55d676cded5a4ade41fe2c9924a5dde8f3e5b"
+          },
+          {
+            "right": "3f79bb7b435b05321651daefd374cdc681dc06faa65e374e38337b88ca046dea"
+          }
+        ],
+        "anchors": [
+          {
+            "type": "BTCOpReturn",
+            "sourceId": "b84a92f28cc9dbdc4cd51834f6595cf97f018b925167c299097754780d7dea09"
+          }
+        ]
+      }
+    }
