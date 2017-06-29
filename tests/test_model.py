@@ -115,24 +115,24 @@ class TestModel(unittest.TestCase):
             self.assertEquals(certificate_model.issued_on, parse_date('2017-05-01 00:00:00+00:00'))
 
     def test_to_certificate_model_v2(self):
-        with open('data/2.0/13a58c4a-f49f-4b63-9c82-125b944f5dfb.json', 'rb') as cert_file:
+        with open('data/2.0/bbba8553-8ec1-445f-82c9-a57251dd731c.json', 'rb') as cert_file:
             certificate_bytes = cert_file.read()
             certificate_json = helpers.certificate_bytes_to_json(certificate_bytes)
             certificate_model = model.to_certificate_model(certificate_json)
             self.assertEquals(certificate_model.version, BlockcertVersion.V2)
             self.assertEquals(certificate_model.issuer.id,
-                              'https://www.blockcerts.org/samples/2.0/issuerTestnet.json')
+                              'https://www.blockcerts.org/samples/2.0/issuer-testnet.json')
             self.assertEquals(certificate_model.txid,
-                              'cbe1a820fd0512607d9cd41f3020770abc4ce015efb332a38b17598d981d26b9')
-            self.assertEquals(certificate_model.title, 'This is the certificate title')
-            self.assertEquals(certificate_model.description, 'This is the display description of the certificate.')
-            self.assertEquals(certificate_model.uid, 'urn:uuid:13a58c4a-f49f-4b63-9c82-125b944f5dfb')
+                              'd75b7a5bdb3d5244b753e6b84e987267cfa4ffa7a532a2ed49ad3848be1d82f8')
+            self.assertEquals(certificate_model.title, 'Certificate of Accomplishment')
+            self.assertEquals(certificate_model.description, 'Lorem ipsum dolor sit amet, mei docendi concludaturque ad, cu nec partem graece. Est aperiam consetetur cu, expetenda moderatius neglegentur ei nam, suas dolor laudem eam an.')
+            self.assertEquals(certificate_model.uid, 'urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c')
             self.assertEquals(certificate_model.subtitle, None)
             self.assertEquals(certificate_model.expires, None)
 
-            self.assertEquals(certificate_model.issuer.name, 'Issuer Institution Name')
+            self.assertEquals(certificate_model.issuer.name, 'University of Learning')
             self.assertEquals(certificate_model.recipient_public_key, 'mtr98kany9G1XYNU74pRnfBQmaCg2FZLmc')
-            self.assertEquals(certificate_model.issued_on, parse_date('2017-06-23T10:58:32.613613+00:00'))
+            self.assertEquals(certificate_model.issued_on, parse_date('2017-06-29T14:58:57.461422+00:00'))
 
 
 if __name__ == '__main__':
