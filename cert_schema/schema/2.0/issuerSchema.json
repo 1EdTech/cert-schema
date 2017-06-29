@@ -58,8 +58,7 @@
     },
     "DateTime": {
       "description":  "ISO 8601 datetime",
-      "type": "string",
-      "pattern": "^\\d{4}-[01]\\d-[0-3]\\d(T[0-2]\\d:[0-5]\\d(:[0-5]\\d)?([\\.,]\\d{1,3})?(Z|[+-][0-2]\\d(:?[0-5]\\d)?)?)?$"
+      "type": "string"
     },
     "CryptographicKey": {
       "description": "Defined by https://web-payments.org/vocabs/security#Key",
