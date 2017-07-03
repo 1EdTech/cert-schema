@@ -1,4 +1,4 @@
-enum34>=1.1.6
+enum34>=1.1.6;python_version<"3.4"
 jsonschema>=2.6.0
 pyld>=0.7.2
 python-dateutil>=2.5.3
