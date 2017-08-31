@@ -93,9 +93,8 @@ class MerkleProof(object):
         self.proof_type = proof_type
         self.proof_json = original_proof_json
         from copy import deepcopy
-        chainpoint_proof = deepcopy(original_proof_json)
-        chainpoint_proof['type'] = 'ChainpointSHA256v2'
-        self.chainpoint_proof = chainpoint_proof
+        merkle_proof = deepcopy(original_proof_json)
+        self.merkle_proof = merkle_proof
 
 
 class Issuer(object):
@@ -185,7 +184,7 @@ def is_v1_uid(uid):
         return False
 
 
-def parse_chainpoint_proof(proof_json):
+def parse_merkle_proof(proof_json):
     proof_type = ProofType.merkle_proof_2017
     return MerkleProof(proof_json['targetHash'], proof_json['merkleRoot'], proof_type, proof_json)
 
@@ -223,7 +222,7 @@ def parse_v2_blockchain_certificate(certificate_json, version_marker):
     issued_on = parse_date(assertion['issuedOn'])
     signature = assertion[scope_name('signature')]
     txid = signature['anchors'][0]['sourceId']
-    merkle_proof = parse_chainpoint_proof(signature)
+    merkle_proof = parse_merkle_proof(signature)
 
     signature_lines = []
     if scope_name('signatureLines') in badge:
@@ -291,7 +290,7 @@ def parse_v1_2_blockchain_certificate(certificate_json):
         revocation_addresses.append(recipient_revocation_address)
 
     embedded_signature = EmbeddedSignature(assertion_uid, document['signature'])
-    transaction_signature = TransactionSignature(document, txid, parse_chainpoint_proof(receipt))
+    transaction_signature = TransactionSignature(document, txid, parse_merkle_proof(receipt))
 
     return BlockchainCertificate(BlockcertVersion.V1_2,
                                  assertion_uid,

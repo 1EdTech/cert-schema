@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "MerkleProof2017 schema",
-  "description": "An extension that allows an issuer to issue an Open Badge on the blockchain and provide proof of inclusion in a blockchain transaction. This uses the Chainpoint v2.0 specification: https://chainpoint.org/",
+  "description": "An extension that allows an issuer to issue an Open Badge on the blockchain and provide proof of inclusion in a blockchain transaction.This uses the 2017 Merkle Proof Signature Suite (https://w3c-dvcg.github.io/lds-merkleproof2017/)",
   "type": "object",
   "definitions": {
     "JsonLdType": {
