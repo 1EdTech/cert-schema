@@ -1,6 +1,6 @@
 ## MerkleProof2017 schema
 
-An extension that allows an issuer to issue an Open Badge on the blockchain and provide proof of inclusion in a blockchain transaction. This uses the Chainpoint v2.0 specification: [https://chainpoint.org/](https://chainpoint.org/)
+An extension that allows an issuer to issue an Open Badge on the blockchain and provide proof of inclusion in a blockchain transaction. This uses [Merkle Proof Signature Suite 2017](https://w3c-dvcg.github.io/lds-merkleproof2017/)
 
 This signature scheme is used along with the OBI verification extension type `MerkleProofVerification2017`.
 

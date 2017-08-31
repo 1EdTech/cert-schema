@@ -79,7 +79,7 @@ class TestModel(unittest.TestCase):
     def test_to_proof(self):
         with open('data/1.2/receipt.json') as receipt_file:
             receipt_json = json.load(receipt_file)
-            proof = model.parse_chainpoint_proof(receipt_json['receipt'])
+            proof = model.parse_merkle_proof(receipt_json['receipt'])
             self.assertEquals(proof.target_hash, '2d3d0f49416587c4ce14c05d47c4193f0da3dd56f7244a568b06484cb8d2fe78')
             self.assertEquals(proof.merkle_root, '3268386feb897f6cab2c100a0edb6f66b4bb3a8745e3e3e8a54b1cb7151a6d96')
             self.assertEquals(proof.proof_type, ProofType.merkle_proof_2017)
@@ -87,7 +87,7 @@ class TestModel(unittest.TestCase):
     def test_to_v2_proof(self):
         with open('data/2.0/receipt.json') as receipt_file:
             receipt_json = json.load(receipt_file)
-            proof = model.parse_chainpoint_proof(receipt_json)
+            proof = model.parse_merkle_proof(receipt_json)
             self.assertEquals(proof.target_hash,
                               'c9ead76a54426b4ce4899bb921e48f5b55ea7592e5cee4460c86ebf4698ac3a6')
             self.assertEquals(proof.merkle_root,
