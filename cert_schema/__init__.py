@@ -24,6 +24,8 @@ class Chain(Enum):
     mainnet = 0, 'BTC'
     testnet = 1, 'XTN'
     regtest = 2, 'XTN'
+    # Made up code; hopefully it will never cause a conflict =/
+    mocknet = 3, 'MOK'
 
     def __new__(cls, enum_value, netcode):
         obj = object.__new__(cls)
@@ -39,6 +41,8 @@ class Chain(Enum):
             return Chain.testnet
         elif chain_string == 'regtest':
             return Chain.regtest
+        elif chain_string == 'mocknet':
+            return Chain.mocknet
         else:
             raise UnknownChainError(chain_string)
 
@@ -48,6 +52,8 @@ class Chain(Enum):
             return Chain.mainnet
         elif netcode_string == 'XTN':
             return Chain.testnet
+        elif netcode_string == 'MOK':
+            return Chain.mocknet
         else:
             raise UnknownChainError(netcode_string)
 

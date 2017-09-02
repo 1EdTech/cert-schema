@@ -28,6 +28,10 @@ class TestInit(unittest.TestCase):
         chain = Chain.parse_from_chain('regtest')
         self.assertEquals(chain, Chain.regtest)
 
+    def test_parse_chain_from_chain_string_mocknet(self):
+        chain = Chain.parse_from_chain('mocknet')
+        self.assertEquals(chain, Chain.mocknet)
+
     def test_parse_chain_from_netcode_mainnet(self):
         chain = Chain.parse_from_netcode('BTC')
         self.assertEquals(chain, Chain.mainnet)
@@ -35,6 +39,10 @@ class TestInit(unittest.TestCase):
     def test_parse_chain_from_chain_testnet(self):
         chain = Chain.parse_from_netcode('XTN')
         self.assertEquals(chain, Chain.testnet)
+
+    def test_parse_chain_from_chain_testnet(self):
+        chain = Chain.parse_from_netcode('MOK')
+        self.assertEquals(chain, Chain.mocknet)
 
     def test_blockcerts_versions_v2(self):
         v2_alpha = BlockcertVersion.V2_ALPHA
