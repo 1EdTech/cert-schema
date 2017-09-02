@@ -134,6 +134,5 @@ class TestModel(unittest.TestCase):
             self.assertEquals(certificate_model.recipient_public_key, 'mtr98kany9G1XYNU74pRnfBQmaCg2FZLmc')
             self.assertEquals(certificate_model.issued_on, parse_date('2017-06-29T14:58:57.461422+00:00'))
 
-
 if __name__ == '__main__':
     unittest.main()

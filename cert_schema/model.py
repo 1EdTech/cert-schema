@@ -163,7 +163,7 @@ def detect_version(certificate_json):
         return BlockcertVersion.V1_1
     context = certificate_json['@context']
     if isinstance(context, list):
-        version_marker = context[-1]
+        version_marker = next(c for c in context if 'blockcerts' in c)
     else:
         version_marker = context
 
