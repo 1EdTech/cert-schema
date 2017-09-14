@@ -88,7 +88,7 @@ The following is a Blockchain Certificate issued on the testnet Bitcoin network.
 
 ## Open Badge Extensions
 
-(Details on Blockcerts extensions to Open Badges)[docs/open_badge_v2_extensions.md]
+Details on [Blockcerts extensions to Open Badges](docs/open_badge_v2_extensions.md)
 
 ## Running the python code locally
 
