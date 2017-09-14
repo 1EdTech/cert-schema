@@ -1,8 +1,8 @@
 # Blockcerts Proposed Extensions to Open Badges V2
 
-## Summary of extensions
+The [Open Badges specification](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/index.html) is maintained by [IMS Global](http://www.imsglobal.org/). While developing Blockcerts, we created 4 Open Badge v2-compliant extensions. 2 of these are specific to blockchain verification; the other 2 are extensions we found useful. All are being offered as official Open Badge extensions.
 
-Note that the blockchain-specific extensions are the `MerkleProofVerification2017` verification type and the `signature` block in the example below. The others are extensions we found useful while developing Blockcerts, and are being offered in case other community members find this useful.
+## Summary of extensions
 
 - (Required for blockchain verification) blockchain verification type `MerkleProofVerification2017`, ideally as an enum added to the current verification options "hosted", "signed"
 - (Required for blockchain verification) `signature` proof as an Open Badge extension; defined by the [W3C LD Signature Specification](https://w3c-dvcg.github.io/ld-signatures/)
