@@ -23,7 +23,7 @@ class BlockcertVersion(Enum):
 class Chain(Enum):
     mainnet = 0, 'BTC'
     testnet = 1, 'XTN'
-    regtest = 2, 'XTN'
+    regtest = 2, 'REG'
     # Made up code; hopefully it will never cause a conflict =/
     mocknet = 3, 'MOK'
 
@@ -52,19 +52,16 @@ class Chain(Enum):
             return Chain.mainnet
         elif netcode_string == 'XTN':
             return Chain.testnet
+        elif netcode_string == 'REG':
+            return Chain.regtest
         elif netcode_string == 'MOK':
             return Chain.mocknet
         else:
             raise UnknownChainError(netcode_string)
 
 
-def parse_chain_from_address(address):
-    if address.startswith('1'):
-        return Chain.mainnet
-    elif address.startswith('m') or address.startswith('n'):
-        return Chain.testnet
-    else:
-        raise UnknownChainError('Unrecognized bitcoin address')
+def is_mainnet_address(address):
+    return address.startswith('1')
 
 
 class BlockcertValidationError(Exception):
