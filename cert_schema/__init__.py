@@ -26,10 +26,10 @@ class Chain(Enum):
     regtest = 2, 'REG'
     # Made up code; hopefully it will never cause a conflict =/
     mocknet = 3, 'MOK'
-    # More made up codes for some eth testing.
-    ethmain = 4, 'ETM'
-    ethrop = 5, 'ETR'
-    ethtest = 6, 'ETT'
+    # The ether codes are multiplied by ten as they would cause a conflict with the bitcoin ones.
+    ethmain = 10, 'ETM'
+    ethrop =  30, 'ETR'
+    ethtest = 100, 'ETT'
 
     def __new__(cls, enum_value, netcode):
         obj = object.__new__(cls)
