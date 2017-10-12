@@ -86,11 +86,17 @@ class Chain(Enum):
         else:
             raise UnknownChainError(external_display_value)
 
-def chain_to_bitcoin_netcode(chain):
+
+def chain_to_bitcoin_network(chain):
+    """
+    Used or bitcoin.SelectParams
+    :param chain:
+    :return:
+    """
     if chain == Chain.bitcoin_mainnet:
-        return 'BTC'
+        return 'bitcoin'
     elif chain.blockchain_type == BlockchainType.bitcoin:
-        return 'XTN'
+        return 'testnet'
     else:
         message = 'This chain cannot be converted to a bitcoin netcode; chain='
         if chain:
