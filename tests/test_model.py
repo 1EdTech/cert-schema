@@ -6,6 +6,7 @@ from cert_schema import helpers
 from cert_schema import model
 from cert_schema.model import ProofType, parse_date
 from cert_schema.model import SignatureType
+from cert_schema import Chain
 
 
 class TestModel(unittest.TestCase):
@@ -49,10 +50,11 @@ class TestModel(unittest.TestCase):
             self.assertEquals(certificate_model.signatures[0].signature_type, SignatureType.signed_content)
             self.assertEquals(certificate_model.signatures[1].signature_type, SignatureType.signed_transaction)
             self.assertIsNone(certificate_model.signatures[1].merkle_proof)
+            self.assertEquals(certificate_model.chain, Chain.bitcoin_testnet)
 
     def test_to_certificate_model_v1_2(self):
         """
-        Note this is a mainnet certificate with different uid
+        Note this is a bitcoin_mainnet certificate with different uid
         :return:
         """
         with open('data/1.2/609c2989-275f-4f4c-ab02-b245cfb09017.json', 'rb') as cert_file:
@@ -75,6 +77,7 @@ class TestModel(unittest.TestCase):
             self.assertEquals(certificate_model.recipient_public_key, '1AAGG6jirbu9XwikFpkHokbbiYpjVtFe1G')
             self.assertEquals(certificate_model.issued_on, parse_date('2016-10-03 00:00:00+00:00'))
             self.assertIsNotNone(certificate_model.signature_image[0].image)
+            self.assertEquals(certificate_model.chain, Chain.bitcoin_mainnet)
 
     def test_to_proof(self):
         with open('data/1.2/receipt.json') as receipt_file:
@@ -113,6 +116,7 @@ class TestModel(unittest.TestCase):
             self.assertEquals(certificate_model.issuer.name, 'Issuer Institution Name')
             self.assertEquals(certificate_model.recipient_public_key, 'mkwntSiQmc14H65YxwckLenxY3DsEpvFbe')
             self.assertEquals(certificate_model.issued_on, parse_date('2017-05-01 00:00:00+00:00'))
+            self.assertEquals(certificate_model.chain, Chain.bitcoin_testnet)
 
     def test_to_certificate_model_v2(self):
         with open('data/2.0/bbba8553-8ec1-445f-82c9-a57251dd731c.json', 'rb') as cert_file:
@@ -133,6 +137,7 @@ class TestModel(unittest.TestCase):
             self.assertEquals(certificate_model.issuer.name, 'University of Learning')
             self.assertEquals(certificate_model.recipient_public_key, 'mtr98kany9G1XYNU74pRnfBQmaCg2FZLmc')
             self.assertEquals(certificate_model.issued_on, parse_date('2017-06-29T14:58:57.461422+00:00'))
+            self.assertEquals(certificate_model.chain, Chain.bitcoin_testnet)
 
 if __name__ == '__main__':
     unittest.main()

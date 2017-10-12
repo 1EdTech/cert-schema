@@ -17,6 +17,7 @@ Signature
 
 """
 
+from copy import deepcopy
 import re
 import sys
 
@@ -92,7 +93,6 @@ class MerkleProof(object):
         self.merkle_root = merkle_root
         self.proof_type = proof_type
         self.proof_json = original_proof_json
-        from copy import deepcopy
         merkle_proof = deepcopy(original_proof_json)
         self.merkle_proof = merkle_proof
 
@@ -107,7 +107,7 @@ class Issuer(object):
 
 class BlockchainCertificate(object):
     def __init__(self, version, uid, recipient_name, recipient_public_key, title, description, signature_image,
-                 issued_on, expires, subtitle, signatures, certificate_json, txid, issuer, revocation_addresses=[]):
+                 issued_on, expires, subtitle, signatures, certificate_json, txid, issuer, chain, revocation_addresses=[]):
         self.version = version
         self.uid = uid
         self.recipient_name = recipient_name
@@ -122,6 +122,7 @@ class BlockchainCertificate(object):
         self.certificate_json = certificate_json
         self.txid = txid
         self.issuer = issuer
+        self.chain = chain
         self.revocation_addresses = revocation_addresses
 
     def __str__(self):
@@ -248,6 +249,10 @@ def parse_v2_blockchain_certificate(certificate_json, version_marker):
     del document_json['signature']
 
     transaction_signature = TransactionSignature(document_json, txid, merkle_proof)
+    if version_marker == BlockcertVersion.V2_ALPHA:
+        chain = parse_bitcoin_chain(certificate_json['verification']['creator'])
+    else:
+        chain = parse_chain_v2(certificate_json)
 
     return BlockchainCertificate(version_marker,
                                  uid,
@@ -262,7 +267,8 @@ def parse_v2_blockchain_certificate(certificate_json, version_marker):
                                  [transaction_signature],
                                  certificate_json,
                                  txid,
-                                 issuer)
+                                 issuer,
+                                 chain)
 
 
 def parse_v1_2_blockchain_certificate(certificate_json):
@@ -291,6 +297,7 @@ def parse_v1_2_blockchain_certificate(certificate_json):
 
     embedded_signature = EmbeddedSignature(assertion_uid, document['signature'])
     transaction_signature = TransactionSignature(document, txid, parse_merkle_proof(receipt))
+    chain = parse_bitcoin_chain(certificate_json['document']['recipient']['publicKey'])
 
     return BlockchainCertificate(BlockcertVersion.V1_2,
                                  assertion_uid,
@@ -306,6 +313,7 @@ def parse_v1_2_blockchain_certificate(certificate_json):
                                  certificate_json,
                                  txid,
                                  issuer,
+                                 chain,
                                  revocation_addresses)
 
 
@@ -330,6 +338,7 @@ def parse_v1_1_blockchain_certificate(json_certificate, txid, certificate_bytes)
     signature_lines = []
     if 'image:signature' in json_certificate['assertion']:
         signature_lines.append(SignatureLine(json_certificate['assertion']['image:signature']))
+    chain = parse_bitcoin_chain(json_certificate['recipient']['pubkey'])
     return BlockchainCertificate(BlockcertVersion.V1_1,
                                  assertion_uid,
                                  json_certificate['recipient']['givenName'] + ' ' + json_certificate['recipient'][
@@ -345,7 +354,24 @@ def parse_v1_1_blockchain_certificate(json_certificate, txid, certificate_bytes)
                                  json_certificate,
                                  txid,
                                  issuer,
+                                 chain,
                                  revocation_addresses)
+
+
+def parse_chain_v2(certificate_json):
+    anchor = certificate_json['signature']['anchors'][0]
+    if 'chain' in anchor:
+        external_display_value = anchor['chain']
+        return Chain.parse_from_external_display_value(external_display_value)
+    verification_public_key = certificate_json['verification']['publicKey']
+    return parse_bitcoin_chain(verification_public_key)
+
+
+def parse_bitcoin_chain(hint_address):
+    if is_bitcoin_mainnet_address(hint_address):
+        return Chain.bitcoin_mainnet
+    else:
+        return Chain.bitcoin_testnet
 
 
 def to_certificate_model(certificate_json, txid=None, certificate_bytes=None):
