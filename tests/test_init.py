@@ -81,16 +81,16 @@ class TestInit(unittest.TestCase):
         self.assertEquals(chain, Chain.mockchain)
 
     def test_bitcoin_chain_to_netcode_bitcoin_mainnet(self):
-        netcode = chain_to_bitcoin_netcode(Chain.bitcoin_mainnet)
-        self.assertEquals(netcode, 'BTC')
+        netcode = chain_to_bitcoin_network(Chain.bitcoin_mainnet)
+        self.assertEquals(netcode, 'mainnet')
 
     def test_bitcoin_chain_to_netcode_bitcoin_testnet(self):
-        netcode = chain_to_bitcoin_netcode(Chain.bitcoin_testnet)
-        self.assertEquals(netcode, 'XTN')
+        netcode = chain_to_bitcoin_network(Chain.bitcoin_testnet)
+        self.assertEquals(netcode, 'testnet')
 
     def test_bitcoin_chain_to_netcode_bitcoin_testnet(self):
-        netcode = chain_to_bitcoin_netcode(Chain.bitcoin_regtest)
-        self.assertEquals(netcode, 'XTN')
+        netcode = chain_to_bitcoin_network(Chain.bitcoin_regtest)
+        self.assertEquals(netcode, 'regtest')
 
     def test_bitcoin_chain_to_netcode_mocknet(self):
         """
@@ -98,7 +98,7 @@ class TestInit(unittest.TestCase):
         :return:
         """
         try:
-            chain_to_bitcoin_netcode(Chain.mockchain)
+            chain_to_bitcoin_network(Chain.mockchain)
             self.assertTrue(False)
         except UnknownChainError:
             self.assertTrue(True)
@@ -109,7 +109,7 @@ class TestInit(unittest.TestCase):
         :return:
         """
         try:
-            chain_to_bitcoin_netcode(Chain.ethereum_mainnet)
+            chain_to_bitcoin_network(Chain.ethereum_mainnet)
             self.assertTrue(False)
         except UnknownChainError:
             self.assertTrue(True)

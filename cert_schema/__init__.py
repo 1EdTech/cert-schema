@@ -94,9 +94,11 @@ def chain_to_bitcoin_network(chain):
     :return:
     """
     if chain == Chain.bitcoin_mainnet:
-        return 'bitcoin'
-    elif chain.blockchain_type == BlockchainType.bitcoin:
+        return 'mainnet'
+    elif chain == Chain.bitcoin_testnet:
         return 'testnet'
+    elif chain == Chain.bitcoin_regtest:
+        return 'regtest'
     else:
         message = 'This chain cannot be converted to a bitcoin netcode; chain='
         if chain:
