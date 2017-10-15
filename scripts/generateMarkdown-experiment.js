@@ -15,7 +15,7 @@ function writeMarkdownToFile(filename, markdown){
 
 
 var schemas = [
-  '../cert_schema/schema/2.0/issuerSchema.json'
+  '../cert_schema/2.0/issuerSchema.json'
 ];
 
 for (var i = 0; i < schemas.length; i++) {

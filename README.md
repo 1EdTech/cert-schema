@@ -90,23 +90,6 @@ The following is a Blockchain Certificate issued on the testnet Bitcoin network.
 
 Details on [Blockcerts extensions to Open Badges](docs/open_badge_v2_extensions.md)
 
-## Running the python code locally
-
-1. Ensure you have an python environment. [Recommendations](https://github.com/blockchain-certificates/cert-issuer/blob/master/docs/virtualenv.md)
-
-2. Git clone the repository and change to the directory
-
-  ```bash
-  git clone https://github.com/blockchain-certificates/cert-schema.git && cd cert-schema
-  ```
-
-3. Run cert-schema setup
-
-  ```bash
-  pip install .
-  ```
-
-
 ## Publishing package to pypi
 
 - [First time info](http://peterdowns.com/posts/first-time-with-pypi.html)
