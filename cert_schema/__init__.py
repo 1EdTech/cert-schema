@@ -7,7 +7,6 @@ BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
 BLOCKCERTS_V2_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0/schema.json'
 BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
 BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/v2#'
-BLOCKCERTS_PREFIX = 'bc:'
 
 
 class BlockcertValidationError(Exception):
