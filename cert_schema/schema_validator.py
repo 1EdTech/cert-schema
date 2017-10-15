@@ -2,24 +2,21 @@
 
 import json
 import logging
-import os
 
 import jsonschema
-from jsonschema import RefResolutionError, RefResolver, Draft4Validator
+import os
 
-from cert_schema import BLOCKCERTS_V2_SCHEMA
 from cert_schema import BlockcertValidationError
 
-V2_SCHEMA_LOCAL_PATH = 'schema/2.0/schema.json'
+V2_SCHEMA_LOCAL_PATH = '2.0/schema.json'
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, 'schema/1.1/certificate-schema-v1-1.json')
-SCHEMA_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/blockchain-certificate-1.2.json')
-SCHEMA_FILE_V2_0_ALPHA = os.path.join(BASE_DIR, 'schema/2.0-alpha/schema.json')
+SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, '1.1/certificate-schema-v1-1.json')
+SCHEMA_FILE_V1_2 = os.path.join(BASE_DIR, '1.2/blockchain-certificate-1.2.json')
+SCHEMA_FILE_V2_0_ALPHA = os.path.join(BASE_DIR, '2.0-alpha/schema.json')
 SCHEMA_FILE_V2_0 = os.path.join(BASE_DIR, V2_SCHEMA_LOCAL_PATH)
 
-
-SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/certificate-document-1.2.json')
+SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, '1.2/certificate-document-1.2.json')
 
 
 def validate_v1_1(certificate_json):
@@ -99,13 +96,13 @@ def validate(data_file, schema_file):
 
 if __name__ == '__main__':
     valid = validate('../../examples/1.1/sample_unsigned_cert-1.1.json',
-                     '../schema/1.1/certificate-schema-v1-1.json')
+                     '../1.1/certificate-schema-v1-1.json')
     print('certificate is valid? ' + str(valid))
 
     valid = validate('../../examples/1.1/sample_signed_cert-1.1.json',
-                     '../schema/1.1/certificate-schema-v1-1.json')
+                     '../1.1/certificate-schema-v1-1.json')
     print('certificate is valid? ' + str(valid))
 
     valid = validate('../../examples/1.2/sample_signed_cert-1.2.json',
-                     '../schema/1.2/blockchain-certificate-1.2.json')
+                     '../1.2/blockchain-certificate-1.2.json')
     print('certificate is valid? ' + str(valid))

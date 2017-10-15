@@ -12,12 +12,12 @@ from cert_schema.schema_validator import validate_v2_alpha
 class TestSchemaValidator(unittest.TestCase):
     def test_v1_unsigned(self):
         valid = schema_validator.validate('../examples/1.1/sample_unsigned_cert-1.1.json',
-                                          '../cert_schema/schema/1.1/certificate-schema-v1-1.json')
+                                          '../cert_schema/1.1/certificate-schema-v1-1.json')
         self.assertTrue(valid)
 
     def test_v1_signed(self):
         valid = schema_validator.validate('../examples/1.1/sample_signed_cert-1.1.json',
-                                          '../cert_schema/schema/1.1/certificate-schema-v1-1.json')
+                                          '../cert_schema/1.1/certificate-schema-v1-1.json')
         self.assertTrue(valid)
 
     def test_v1_2_signed(self):

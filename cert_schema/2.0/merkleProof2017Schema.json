@@ -53,6 +53,9 @@
           },
           "type": {
             "type": "string"
+          },
+          "chain": {
+            "type": "string"
           }
         }
       }

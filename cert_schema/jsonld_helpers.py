@@ -27,10 +27,10 @@ FALLBACK_CONTEXT = {'@vocab': FALLBACK_VOCAB}
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
-JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, 'schema/1.2/context.json')
-JSON_LD_CONTEXT_V2_0_ALPHA = os.path.join(BASE_DIR, 'schema/2.0-alpha/context.json')
-JSON_LD_CONTEXT_V2_0 = os.path.join(BASE_DIR, 'schema/2.0/context.json')
-OBI_JSON_LD_CONTEXT_V2 = os.path.join(BASE_DIR, 'schema/2.0/obi.json')
+JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, '1.2/context.json')
+JSON_LD_CONTEXT_V2_0_ALPHA = os.path.join(BASE_DIR, '2.0-alpha/context.json')
+JSON_LD_CONTEXT_V2_0 = os.path.join(BASE_DIR, '2.0/context.json')
+OBI_JSON_LD_CONTEXT_V2 = os.path.join(BASE_DIR, '2.0/obi.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -116,7 +116,10 @@ def normalize_jsonld(json_ld_to_normalize, document_loader=preloaded_context_doc
      {"@vocab": "http://fallback.org/"} to the json ld, which will cause any unmapped fields to be prefixed with
      http://fallback.org/.
 
-    This issue will be addressed in a first-class manner in the future.
+    If a @vocab is already there (i.e. an issuer adds this in their extensions), then tampering will change the
+    normalized form, hence the hash of the certificate, so we will still detect this during verification.
+
+    This issue will be addressed in a first-class manner in the future by the pyld library.
 
     :param json_ld_to_normalize:
     :param document_loader
@@ -131,8 +134,17 @@ def normalize_jsonld(json_ld_to_normalize, document_loader=preloaded_context_doc
     if detect_unmapped_fields:
         json_ld = deepcopy(json_ld_to_normalize)
         prev_context = JsonLdProcessor.get_values(json_ld_to_normalize, '@context')
-        prev_context.append(FALLBACK_CONTEXT)
-        json_ld['@context'] = prev_context
+        add_fallback = True
+        for pc in prev_context:
+            if type(pc) is dict:
+                for key, value in pc.items():
+                    if key == '@vocab':
+                        # this already has a vocab; unmapped fields will be detected in the hash
+                        add_fallback = False
+                        break
+        if add_fallback:
+            prev_context.append(FALLBACK_CONTEXT)
+            json_ld['@context'] = prev_context
 
     normalized = jsonld.normalize(json_ld, options=options)
 
