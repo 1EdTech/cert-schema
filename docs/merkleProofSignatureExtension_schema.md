@@ -32,6 +32,19 @@ The array object has the following properties:
 
 #### `type` (string)
 
+#### `chain` (string)
+
+Chain is an optional field introduced by Blockcerts to help during verification. Current supported values are:
+
+- bitcoinMainnet
+- bitcoinTestnet
+- bitcoinRegtest
+- ethereumMainnet
+- ethereumRopsten
+- ethereumTestnet
+- mockchain
+
+
 ---
 
 # Sub Schemas
