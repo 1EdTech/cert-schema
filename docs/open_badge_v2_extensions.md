@@ -1,6 +1,6 @@
 # Blockcerts Proposed Extensions to Open Badges V2
 
-The [Open Badges specification](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/index.html) is maintained by [IMS Global](http://www.imsglobal.org/). While developing Blockcerts, we created 4 Open Badge v2-compliant extensions. 2 of these are specific to blockchain verification; the other 2 are extensions we found useful. All are being offered as official Open Badge extensions.
+The [Open Badges specification](https://www.imsglobal.org/sites/default/files/Badges/OBv2p0/index.html) is maintained by [IMS Global](http://www.imsglobal.org/). While developing Blockcerts, we created 4 Open Badge v2-compliant extensions. 2 of these are specific to blockchain verification; the other 2 are extensions we found useful. All are being offered as official Open Badge extensions to IMS Global Learning Consortium
 
 ## Summary of extensions
 
