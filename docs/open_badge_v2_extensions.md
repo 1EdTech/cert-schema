@@ -5,7 +5,9 @@ The [Open Badges specification](https://www.imsglobal.org/sites/default/files/Ba
 ## Summary of extensions
 
 - (Required for blockchain verification) blockchain verification type `MerkleProofVerification2017`, ideally as an enum added to the current verification options "hosted", "signed"
-- (Required for blockchain verification) `signature` proof as an Open Badge extension; defined by the [W3C LD Signature Specification](https://w3c-dvcg.github.io/ld-signatures/)
+- (Required for blockchain verification) `signature` proof as an Open Badge extension; defined by:
+    - [W3C LD Signature Specification](https://w3c-dvcg.github.io/ld-signatures/)
+    - [Merkle Proof Signature Suite][https://w3c-dvcg.github.io/lds-merkleproof2017/]
 - `recipientProfile` for identifying recipients
   - `RecipientProfile` extends the `Profile` type and adds `publicKey` for embedding a recipient's public key
 - `signatureLines` as a image/signer array, intended for display in the certificate
@@ -87,7 +89,16 @@ Following is an example of a Blockcerts certificate. Note that this is fully OBv
 
 - The current extension type/term names are not assumed to be final; it's expected that we will iterate on them during Open Badges review
 - Signature lines are currently defined in the `badge` type instead of the  `assertion` type. I understand that this should likely move to `assertion` per OB extension best practices
-- The prefix `ecdsa-koblitz-pubkey:` is not final and is currently being discussed by the Digital Verification subgroup of the W3C Credentials CG
+- The prefix `ecdsa-koblitz-pubkey:` 
+    - This is not final and is being Digital Verification subgroup of the W3C Credentials CG
+    - The problem was that examples like this `ecdsa-koblitz-pubkey:msBCHdwaQ7N2ypBYupkp6uNxtr9Pg76imj` are not quite correct
+        - The value right of the colon is a base58 encoded ecdsa koblitz public key hash
+        - Currently the approach used by others in the community is to keep the `ecdsa-koblitz-pubkey:` and actually list the public key (not the hash)
+        - The problem is readability (e.g. bitcoin addresses vs longer public keys)
+        - Another option would be to invent a new prefix
+    - Alternately, a more forward looking approach would be to use (or reserve) DIDs (Decentralized Identifiers) for this purpose. 
+- Are there any special considerations in using the 2017 Merkle Proof Signature Suite from the W3C?
+- How do we integrate Blockcerts verification into the OB verifier?
 
 ## Extension schemas and context
 
