@@ -99,6 +99,7 @@ Following is an example of a Blockcerts certificate. Note that this is fully OBv
     - Alternately, a more forward looking approach would be to use (or reserve) DIDs (Decentralized Identifiers) for this purpose. 
 - Are there any special considerations in using the 2017 Merkle Proof Signature Suite from the W3C?
 - How do we integrate Blockcerts verification into the OB verifier?
+- How do we add the blockchain/blockcerts verification "type" (i.e. signed/hosted/...)
 
 ## Extension schemas and context
 
