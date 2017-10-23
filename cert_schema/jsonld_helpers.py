@@ -5,24 +5,35 @@ import re
 from copy import deepcopy
 
 import requests
+from pyld import jsonld
+from pyld.jsonld import JsonLdProcessor
 import validators
+
+from cert_schema.errors import *
 
 try:
     from urllib.request import urlopen
 except ImportError:
     from urllib2 import urlopen
 
-from pyld import jsonld
-from pyld.jsonld import JsonLdProcessor
 
-from cert_schema import *
+SECURITY_CONTEXT_URL = 'https://w3id.org/security/v1'
+OPEN_BADGES_V2_CONTEXT = 'https://openbadgespec.org/v2/context.json'
+OPEN_BADGES_V2_CANONICAL_CONTEXT = 'https://w3id.org/openbadges/v2'
+BLOCKCERTS_V2_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0-alpha/context.json'
+BLOCKCERTS_V2_ALPHA_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0-alpha/schema.json'
+BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
+BLOCKCERTS_V2_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0/schema.json'
+BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
+BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/v2#'
+JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
+
 
 # Nonstandard contexts
 BLOCKCERTS_V2_ALPHA_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
 BLOCKCERTS_V2_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0/context.json'
 
 FALLBACK_VOCAB = 'http://fallback.org/'
-JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
 FALLBACK_CONTEXT = {'@vocab': FALLBACK_VOCAB}
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
