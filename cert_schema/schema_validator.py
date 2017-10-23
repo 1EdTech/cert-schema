@@ -6,7 +6,7 @@ import logging
 import jsonschema
 import os
 
-from cert_schema import BlockcertValidationError
+from cert_schema.errors import BlockcertValidationError
 
 V2_SCHEMA_LOCAL_PATH = '2.0/schema.json'
 
