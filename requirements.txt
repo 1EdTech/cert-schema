@@ -1,5 +1,5 @@
+pyld>=0.8.1
 jsonschema>=2.6.0
 requests>=2.18.4
-pyld>=0.8.0
 tox>=2.7.0
 validators>=0.12.0
