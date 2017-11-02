@@ -7,7 +7,7 @@ The [Open Badges specification](https://www.imsglobal.org/sites/default/files/Ba
 - (Required for blockchain verification) blockchain verification type `MerkleProofVerification2017`, ideally as an enum added to the current verification options "hosted", "signed"
 - (Required for blockchain verification) `signature` proof as an Open Badge extension; defined by:
     - [W3C LD Signature Specification](https://w3c-dvcg.github.io/ld-signatures/)
-    - [Merkle Proof Signature Suite][https://w3c-dvcg.github.io/lds-merkleproof2017/]
+    - [Merkle Proof Signature Suite](https://w3c-dvcg.github.io/lds-merkleproof2017/)
 - `recipientProfile` for identifying recipients
   - `RecipientProfile` extends the `Profile` type and adds `publicKey` for embedding a recipient's public key
 - `signatureLines` as a image/signer array, intended for display in the certificate
