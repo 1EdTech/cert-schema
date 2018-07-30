@@ -18,14 +18,22 @@ except ImportError:
 
 
 SECURITY_CONTEXT_URL = 'https://w3id.org/security/v1'
+
 OPEN_BADGES_V2_CONTEXT = 'https://openbadgespec.org/v2/context.json'
 OPEN_BADGES_V2_CANONICAL_CONTEXT = 'https://w3id.org/openbadges/v2'
+
 BLOCKCERTS_V2_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0-alpha/context.json'
 BLOCKCERTS_V2_ALPHA_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0-alpha/schema.json'
 BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
 BLOCKCERTS_V2_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0/schema.json'
 BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
-BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/v2#'
+
+BLOCKCERTS_V2_1_CONTEXT = 'https://w3id.org/blockcerts/schema/2.1/context.json'
+BLOCKCERTS_V2_1_SCHEMA = 'https://w3id.org/blockcerts/schema/2.1/schema.json'
+BLOCKCERTS_V2_1_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2.1'
+
+BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/v2.1#'
+
 JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
 
 
@@ -42,6 +50,9 @@ JSON_LD_CONTEXT_V1_2 = os.path.join(BASE_DIR, '1.2/context.json')
 JSON_LD_CONTEXT_V2_0_ALPHA = os.path.join(BASE_DIR, '2.0-alpha/context.json')
 JSON_LD_CONTEXT_V2_0 = os.path.join(BASE_DIR, '2.0/context.json')
 OBI_JSON_LD_CONTEXT_V2 = os.path.join(BASE_DIR, '2.0/obi.json')
+
+JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/context.json')
+OBI_JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/obi.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -60,6 +71,11 @@ with open(JSON_LD_CONTEXT_V2_0) as data_file:
     PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT] = bc_context
     PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT_2] = bc_context
     PRELOADED_CONTEXTS[BLOCKCERTS_V2_CANONICAL_CONTEXT] = bc_context
+
+with open(JSON_LD_CONTEXT_V2_1) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CANONICAL_CONTEXT] = bc_context
 
 
 def to_loader_response(data, url):

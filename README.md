@@ -19,7 +19,7 @@ The following is a Blockchain Certificate issued on the testnet Bitcoin network.
 {
   "@context": [
     "https://w3id.org/openbadges/v2",
-    "https://w3id.org/blockcerts/v2"
+    "https://w3id.org/blockcerts/v2.1"
   ],
   "type": "Assertion",
   "id": "urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c",
