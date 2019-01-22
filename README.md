@@ -92,7 +92,7 @@ Details on [Blockcerts extensions to Open Badges](docs/open_badge_v2_extensions.
 
 ## Publishing package to pypi
 
-- [First time info](http://peterdowns.com/posts/first-time-with-pypi.html)
+- [First time info](https://web.archive.org/web/20180501071551/http://peterdowns.com/posts/first-time-with-pypi.html)
 - Publish script: `./release_package.sh`
 
 
