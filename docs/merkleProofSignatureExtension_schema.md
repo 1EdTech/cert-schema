@@ -41,7 +41,6 @@ Chain is an optional field introduced by Blockcerts to help during verification.
 - bitcoinRegtest
 - ethereumMainnet
 - ethereumRopsten
-- ethereumTestnet
 - mockchain
 
 
