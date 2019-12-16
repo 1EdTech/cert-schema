@@ -37,3 +37,8 @@ class TestJsonldHelpers(unittest.TestCase):
         with open('../examples/2.1/tampered_unmapped_fields_vocab.json') as data_f:
             certificate = json.load(data_f)
             normalize_jsonld(certificate, detect_unmapped_fields=True)
+
+    def test_v3_alpha_preloaded_loader(self):
+        with open('../examples/3.0-alpha/bbba8553-8ec1-445f-82c9-a57251dd731c.json') as data_f:
+            certificate = json.load(data_f)
+            normalize_jsonld(certificate, detect_unmapped_fields=True)

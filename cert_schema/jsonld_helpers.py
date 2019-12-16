@@ -32,7 +32,11 @@ BLOCKCERTS_V2_1_CONTEXT = 'https://w3id.org/blockcerts/schema/2.1/context.json'
 BLOCKCERTS_V2_1_SCHEMA = 'https://w3id.org/blockcerts/schema/2.1/schema.json'
 BLOCKCERTS_V2_1_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2.1'
 
-BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/v2.1#'
+BLOCKCERTS_V3_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-alpha/context.json'
+BLOCKCERTS_V3_ALPHA_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0-alpha/schema.json'
+BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-alpha'
+
+BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/v3.0-alpha#'
 
 JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
 
@@ -40,6 +44,7 @@ JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
 # Nonstandard contexts
 BLOCKCERTS_V2_ALPHA_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
 BLOCKCERTS_V2_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0/context.json'
+BLOCKCERTS_V3_ALPHA_CONTEXT_2 = 'https://www.blockcerts.org/schema/3.0-alpha/context.json'
 
 FALLBACK_VOCAB = 'http://fallback.org/'
 FALLBACK_CONTEXT = {'@vocab': FALLBACK_VOCAB}
@@ -53,6 +58,8 @@ OBI_JSON_LD_CONTEXT_V2 = os.path.join(BASE_DIR, '2.0/obi.json')
 
 JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/context.json')
 OBI_JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/obi.json')
+
+JSON_LD_CONTEXT_V3_0_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/context.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -76,6 +83,12 @@ with open(JSON_LD_CONTEXT_V2_1) as data_file:
     bc_context = json.load(data_file)
     PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CONTEXT] = bc_context
     PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CANONICAL_CONTEXT] = bc_context
+
+with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT_2] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT] = bc_context
 
 
 def to_loader_response(data, url):

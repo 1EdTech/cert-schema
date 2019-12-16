@@ -10,6 +10,7 @@ from cert_schema.errors import BlockcertValidationError
 
 V2_SCHEMA_LOCAL_PATH = '2.0/schema.json'
 V2_1_SCHEMA_LOCAL_PATH = '2.0/schema.json'
+V3_ALPHA_SCHEMA_LOCAL_PATH = '3.0-alpha/schema.json'
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SCHEMA_FILE_V1_1 = os.path.join(BASE_DIR, '1.1/certificate-schema-v1-1.json')
@@ -17,6 +18,7 @@ SCHEMA_FILE_V1_2 = os.path.join(BASE_DIR, '1.2/blockchain-certificate-1.2.json')
 SCHEMA_FILE_V2_0_ALPHA = os.path.join(BASE_DIR, '2.0-alpha/schema.json')
 SCHEMA_FILE_V2_0 = os.path.join(BASE_DIR, V2_SCHEMA_LOCAL_PATH)
 SCHEMA_FILE_V2_1 = os.path.join(BASE_DIR, V2_1_SCHEMA_LOCAL_PATH)
+SCHEMA_FILE_V3_ALPHA = os.path.join(BASE_DIR, V3_ALPHA_SCHEMA_LOCAL_PATH)
 
 SCHEMA_UNSIGNED_FILE_V1_2 = os.path.join(BASE_DIR, '1.2/certificate-document-1.2.json')
 
@@ -76,6 +78,12 @@ def validate_unsigned_v1_2(certificate_json):
             logging.error('certificate is hashed but has no salt')
             raise jsonschema.exceptions.ValidationError('certificate is hashed but has no salt')
 
+        return validate_json(certificate_json, schema_json)
+
+
+def validate_v3_alpha(certificate_json):
+    with open(SCHEMA_FILE_V3_ALPHA) as schema_f:
+        schema_json = json.load(schema_f)
         return validate_json(certificate_json, schema_json)
 
 
