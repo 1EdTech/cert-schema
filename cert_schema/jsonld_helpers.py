@@ -22,6 +22,12 @@ SECURITY_CONTEXT_URL = 'https://w3id.org/security/v1'
 OPEN_BADGES_V2_CONTEXT = 'https://openbadgespec.org/v2/context.json'
 OPEN_BADGES_V2_CANONICAL_CONTEXT = 'https://w3id.org/openbadges/v2'
 
+VERIFIABLE_CREDENTIAL_V1_CONTEXT = 'https://www.w3.org/2018/credentials/v1'
+EXAMPLE_CREDENTIAL_V1_CONTEXT = 'https://www.w3.org/2018/credentials/examples/v1'
+GREETING_CARD_V1_CONTEXT = 'https://transmute-industries.github.io/vc-greeting-card/context/vc-greeting-card-v0.0.jsonld'
+MERKLE_PROOF_2019_V1_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-alpha/merkleProof2019Schema.json'
+MERKLE_PROOF_2019_V1_CONTEXT_TEST = 'https://raw.githubusercontent.com/AnthonyRonning/https-github.com-labnol-files/master/merkleProof2019Schema.json'
+
 BLOCKCERTS_V2_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0-alpha/context.json'
 BLOCKCERTS_V2_ALPHA_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0-alpha/schema.json'
 BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
@@ -60,6 +66,10 @@ JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/context.json')
 OBI_JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/obi.json')
 
 JSON_LD_CONTEXT_V3_0_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/context.json')
+CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0-alpha/credential.json')
+EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0-alpha/exampleCredential.json')
+GREETING_CARD_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0-alpha/greetingCard.json')
+MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0-alpha/merkleProof2019Schema.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -67,6 +77,23 @@ with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
     obi_context = json.load(data_file)
     PRELOADED_CONTEXTS[OPEN_BADGES_V2_CONTEXT] = obi_context
     PRELOADED_CONTEXTS[OPEN_BADGES_V2_CANONICAL_CONTEXT] = obi_context
+
+with open(CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
+    cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
+
+with open(EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
+    example_cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS[EXAMPLE_CREDENTIAL_V1_CONTEXT] = example_cred_context
+
+with open(GREETING_CARD_JSON_LD_CONTEXT_V1) as data_file:
+    example_greeting_context = json.load(data_file)
+    PRELOADED_CONTEXTS[GREETING_CARD_V1_CONTEXT] = example_greeting_context
+
+with open(MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1) as data_file:
+    merkle2019_context = json.load(data_file)
+    PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT] = merkle2019_context
+    PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT_TEST] = merkle2019_context
 
 with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
     bc_context = json.load(data_file)

@@ -74,3 +74,9 @@ class TestSchemaValidator(unittest.TestCase):
             valid = validate_v3_alpha(certificate)
             self.assertTrue(valid)
 
+    def test_v3_alpha(self):
+        with open('../examples/3.0-alpha/bbba8553-8ec1-445f-82c9-a57251dd731c.json') as data_f:
+            certificate = json.load(data_f)
+            valid = validate_v3_alpha(certificate)
+            self.assertTrue(valid)
+

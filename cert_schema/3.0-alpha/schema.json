@@ -52,77 +52,6 @@
       "pattern": "^sha256\\$[a-fA-F0-9]{64}$"
 
     },
-    "IdentityObject": {
-      "title": "Badge Identity Object",
-      "description": "From https://w3id.org/openbadges#IdentityObject.",
-      "type": "object",
-      "properties": {
-        "identity": {
-          "description": "Defined by `identity` property of https://w3id.org/openbadges#IdentityObject",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/HashString"
-            },
-            {
-              "type": "string",
-              "format": "email"
-            }
-          ]
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "email"
-          ],
-          "description": "Defined by `type` property of https://w3id.org/openbadges#IdentityObject"
-        },
-        "hashed": {
-          "type": "boolean",
-          "description": "Defined by `hashed` property of https://w3id.org/openbadges#IdentityObject"
-        },
-        "salt": {
-          "description": "Defined by `salt` property of https://w3id.org/openbadges#IdentityObject",
-          "anyOf": [ 
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "required": [
-        "identity",
-        "type",
-        "hashed"
-      ]
-    },
-    "VerificationObject": {
-      "description": "From https://w3id.org/openbadges#VerificationObject, with extensions for Blockcerts verification",
-      "type": "object",
-      "properties": {
-        "type": {
-          "$ref": "#/definitions/JsonLdType",
-          "description": "Defined by `type` property of https://w3id.org/openbadges#VerificationObject. Blockcerts extension: this should contain the entry `MerkleProofVerification2017`"
-        },
-        "publicKey": {
-          "type": "string",
-          "anyOf": [{
-            "type": "string",
-            "pattern": "^ecdsa-koblitz-pubkey:",
-            "description": "Issuer public key or blockchain address with `<scheme>:` prefix. For Bitcoin transactions, this would be the issuer public address prefixed with `ecdsa-koblitz-pubkey:`. Example: `ecdsa-koblitz-pubkey:14RZvYazz9H2DC2skBfpPVxax54g4yabxe`"
-          }, {
-            "type": "string"
-          }
-          ],
-          "description": "Blockcerts extension: the expected blockchain address for the signer of the transaction containing the merkle proof. In Blockcerts `publicKey`s are typically represented with a `<scheme>:` prefix. For Bitcoin transactions, this would be the issuer public Bitcoin address prefixed with `ecdsa-koblitz-pubkey:`; e.g. `ecdsa-koblitz-pubkey:14RZvYazz9H2DC2skBfpPVxax54g4yabxe`"
-        }
-      },
-      "required": [
-        "type"
-      ]
-    },
     "ImageUri": {
       "description": "An image representative of the entity. In Blockcerts this is typically a data URI (https://en.wikipedia.org/wiki/Data_URI_scheme) embedded as a base-64 encoded PNG image, but it may also be a URI where the image may be found.",
       "type": "string",
@@ -137,121 +66,11 @@
         }
       ]
     },
-    "AlignmentObject": {
-      "description": "From https://w3id.org/openbadges#AlignmentObject",
-      "type": "object",
-      "properties": {
-        "targetName": {
-          "type": "string",
-          "description": "Defined by `targetName` property of https://w3id.org/openbadges#AlignmentObject"
-        },
-        "targetUrl": {
-          "type": "string",
-          "format": "uri",
-          "description": "Defined by `targetUrl` property of https://w3id.org/openbadges#AlignmentObject"
-        },
-        "targetDescription": {
-          "type": "string",
-          "description": "Defined by `targetDescription` property of https://w3id.org/openbadges#AlignmentObject"
-        }
-      },
-      "required": [
-        "targetName",
-        "targetUrl"
-      ]
-    },
-    "AlignmentArray": {
-      "description": "List of objects describing which objectives or educational standards this badge aligns to, if any.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/AlignmentObject"
-      }
-    },
-    "TagsArray": {
-      "description": "List of tags that describe the type of achievement.",
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
-    },
-    "SignatureLine": {
-      "$ref": "https://w3id.org/blockcerts/schema/2.0/signatureLineSchema.json"
-    },
-    "RecipientProfile": {
-      "$ref": "https://w3id.org/blockcerts/schema/2.0/recipientSchema.json"
-    },
     "MerkleProof2017": {
       "$ref": "https://w3id.org/blockcerts/schema/2.0/merkleProof2017Schema.json"
     },
-    "BadgeClass": {
-      "description": "From https://w3id.org/openbadges#BadgeClass",
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "uri",
-          "description": "Defined by `id` property of https://w3id.org/openbadges#BadgeClass. This field is now required in V2. This may be an HTTP IRI, but only if the issuer plans to host the BadgeClass definitions on a long-term basis, or (at least) until expiration of certificates referencing this BadgeClass. Otherwise it is recommended to use a `urn:uuid:<UUID>`-formatted IRI."
-        },
-        "type": {
-          "$ref": "#/definitions/JsonLdType",
-          "description": "Defined by `type` property of https://w3id.org/openbadges#BadgeClass"
-        },
-        "name": {
-          "type": "string",
-          "description": "Defined by `name` property of https://w3id.org/openbadges#BadgeClass"
-        },
-        "subtitle": {
-          "type": "string",
-          "description": "Blockcerts extension: optional subtitle of the certificate"
-        },
-        "description": {
-          "type": "string",
-          "description": "Defined by `description` property of https://w3id.org/openbadges#BadgeClass"
-        },
-        "image": {
-          "$ref": "#/definitions/ImageUri",
-          "description": "Defined by `image` property of https://w3id.org/openbadges#BadgeClass"
-        },
-        "criteria": {
-          "type": "object",
-          "description": "Defined by `criteria` property of https://w3id.org/openbadges#BadgeClass. This field is required in Open Badges. If migrating from an earlier version, a quick change is to reuse the `description` field"
-        },
-        "issuer": {
-          "$ref": "https://w3id.org/blockcerts/schema/2.0/issuerSchema.json",
-          "description": "Defined by `issuer` property of https://w3id.org/openbadges#BadgeClass, with Blockcerts extensions for blockchain verification of badges."
-        },
-        "alignment": {
-          "$ref": "#/definitions/AlignmentArray",
-          "description": "Defined by `alignment` property of https://w3id.org/openbadges#BadgeClass"
-        },
-        "tags": {
-          "$ref": "#/definitions/TagsArray",
-          "description": "Defined by `tags` property of https://w3id.org/openbadges#BadgeClass"
-        },
-        "signatureLines": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/SignatureLine"
-            },
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/SignatureLine"
-              }
-            }
-          ],
-          "description": "Blockcerts extension: array of signature lines for display."
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "description",
-        "image",
-        "issuer",
-        "criteria"
-      ]
+    "MerkleProof2019": {
+      "$ref": "https://raw.githubusercontent.com/AnthonyRonning/https-github.com-labnol-files/master/merkleProof2019Schema.json"
     }
   },
   "properties": {
@@ -273,53 +92,24 @@
       "$ref": "#/definitions/JsonLdType",
       "description": "Defined by `type` property of https://w3id.org/openbadges#Assertion"
     },
-    "recipient": {
-      "$ref": "#/definitions/IdentityObject",
-      "description": "Defined by `recipient` property of https://w3id.org/openbadges#Assertion, with Blockcerts extensions for recipient proof of ownership."
-    },
-    "badge": {
-      "$ref": "#/definitions/BadgeClass",
-      "description": "Defined by `badge` property of https://w3id.org/openbadges#Assertion, with Blockcerts extensions for (display) signature images."
-    },
-    "verification": {
-      "$ref": "#/definitions/VerificationObject",
-      "description": "Defined by `verification` property of https://w3id.org/openbadges#Assertion, with Blockcerts extensions for verification of badges on a blockchain."
-    },
-    "issuedOn": {
-      "$ref": "#/definitions/DateTime",
-      "description": "Defined by `issuedOn` property of https://w3id.org/openbadges#Assertion"
-    },
     "image": {
       "$ref": "#/definitions/ImageUri",
       "description": "Defined by `image` property of https://w3id.org/openbadges#Assertion"
-    },
-    "evidence": {
-      "type": "string",
-      "format": "uri",
-      "description": "Defined by `evidence` property of https://w3id.org/openbadges#Assertion"
-    },
-    "narrative": {
-      "type": "string",
-      "description": "Defined by `narrative` property of https://w3id.org/openbadges#Assertion"
     },
     "expires": {
       "$ref": "#/definitions/DateTime",
       "description": "Defined by `expires` property of https://w3id.org/openbadges#Assertion"
     },
-    "recipientProfile": {
-      "$ref": "#/definitions/RecipientProfile"
-    },
     "signature": {
       "$ref": "#/definitions/MerkleProof2017"
+    },
+    "proof": {
+      "$ref": "#/definitions/MerkleProof2019"
     }
   },
   "required": [
     "id",
-    "type",
-    "recipient",
-    "badge",
-    "verification",
-    "issuedOn"
+    "type"
   ],
   "additionalProperties": true
 }
