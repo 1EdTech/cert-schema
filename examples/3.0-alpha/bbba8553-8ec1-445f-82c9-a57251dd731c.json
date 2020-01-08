@@ -8,6 +8,12 @@
   "type": ["VerifiableCredential"],
   "issuer": "did:example:23adb1f712ebc6f1c276eba4dfa",
   "issuanceDate": "2010-01-01T19:73:24Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "alumniOf": {
+      "id": "did:example:c276e12ec21ebfeb1f712ebc6f1"
+    }
+  },
   "proof": {
     "type": "MerkleProof2019",
     "creator": "did:example:abcdefghij0123456789",

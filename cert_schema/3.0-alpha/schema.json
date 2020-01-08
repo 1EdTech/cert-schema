@@ -42,40 +42,13 @@
         }
       ]
     },
-    "DateTime": {
-      "description": "Open Badges must express timestamps as strings compatible with ISO 8601 guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, 2016-12-31T23:59:59+00:00 is a valid ISO 8601 timestamp. It contains the year, month, day, T separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the Z designator for UTC).",
-      "type": "string"
-    },
-    "HashString": {
-      "type": "string",
-      "description": "Open Badges SHA-256 Hash",
-      "pattern": "^sha256\\$[a-fA-F0-9]{64}$"
-
-    },
-    "ImageUri": {
-      "description": "An image representative of the entity. In Blockcerts this is typically a data URI (https://en.wikipedia.org/wiki/Data_URI_scheme) embedded as a base-64 encoded PNG image, but it may also be a URI where the image may be found.",
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "pattern": "^data:"
-        },
-        {
-          "type": "string",
-          "format": "uri"
-        }
-      ]
-    },
-    "MerkleProof2017": {
-      "$ref": "https://w3id.org/blockcerts/schema/2.0/merkleProof2017Schema.json"
-    },
     "MerkleProof2019": {
       "$ref": "https://raw.githubusercontent.com/AnthonyRonning/https-github.com-labnol-files/master/merkleProof2019Schema.json"
     }
   },
   "properties": {
     "id": {
-      "description": "Defined by `id` property in https://w3id.org/openbadges#Assertion. This may be an HTTP IRI, but only if the issuer plans to host the assertions on a long-term basis, or (at least) until their expiration. Otherwise it is recommended to use a `urn:uuid:<UUID>`-formatted IRI.",
+      "description": "Defined by `id` property in https://www.w3.org/TR/vc-data-model/#identifiers.",
       "type": "string",
       "anyOf": [
         {
@@ -90,26 +63,33 @@
     },
     "type": {
       "$ref": "#/definitions/JsonLdType",
-      "description": "Defined by `type` property of https://w3id.org/openbadges#Assertion"
+      "description": "Defined by `type` property of https://www.w3.org/TR/vc-data-model/#types"
     },
-    "image": {
-      "$ref": "#/definitions/ImageUri",
-      "description": "Defined by `image` property of https://w3id.org/openbadges#Assertion"
+    "issuer": {
+      "@id": "cred:issuer",
+      "@type": "@id"
     },
-    "expires": {
-      "$ref": "#/definitions/DateTime",
-      "description": "Defined by `expires` property of https://w3id.org/openbadges#Assertion"
+    "issuanceDate": {
+      "@id": "cred:issuanceDate",
+      "@type": "xsd:dateTime"
     },
-    "signature": {
-      "$ref": "#/definitions/MerkleProof2017"
+    "credentialSubject": {
+      "@id": "cred:credentialSubject",
+      "@type": "@id"
     },
     "proof": {
-      "$ref": "#/definitions/MerkleProof2019"
+      "@id": "sec:proof",
+      "@type": "@id",
+      "@container": "@graph"
     }
   },
   "required": [
     "id",
-    "type"
+    "type",
+    "issuer",
+    "issuanceDate",
+    "credentialSubject",
+    "proof"
   ],
   "additionalProperties": true
 }

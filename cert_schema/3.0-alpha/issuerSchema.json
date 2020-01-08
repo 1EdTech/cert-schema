@@ -84,6 +84,52 @@
         "created"
       ]
     },
+    "PublicKey": {
+      "description": "Defined by https://www.w3.org/TR/did-core/#public-keys",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Unique ID representing a specific public key. Example: `did:method:123#key-1`"
+        },
+        "type": {
+          "type": "string"
+        },
+        "controller": {
+          "type": "string",
+          "format": "uri"
+        },
+        "revoked": {
+          "$ref": "#/definitions/DateTime"
+        },
+        "publicKeyPem": {
+          "type": "string"
+        },
+        "publicKeyJwk": {
+          "type": "string"
+        },
+        "publicKeyHex": {
+          "type": "string"
+        },
+        "publicKeyBase64": {
+          "type": "string"
+        },
+        "publicKeyBase58": {
+          "type": "string"
+        },
+        "publicKeyMultibase": {
+          "type": "string"
+        },
+        "ethereumAddress": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "controller"
+      ]
+    },
     "Profile": {
       "$id": "#profile",
       "description": "Defined by https://w3id.org/openbadges#Profile. This type is used in certificates, and in the issuer-hosted identification page. The minimal set of properties required in the certificate are `id` and `type`. In this case, additional issuer-identification properties are assumed to be available at the issuer-hosted identification page.",
@@ -158,6 +204,9 @@
           },
           {
             "$ref": "#/definitions/CryptographicKey"
+          },
+          {
+            "$ref": "#/definitions/PublicKey"
           }
         ]
       }

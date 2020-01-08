@@ -8,31 +8,11 @@
     "sec": "https://w3id.org/security#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     
-    "MerkleProof2017": "sec:MerkleProof2017",
     "MerkleProof2019": "sec:MerkleProof2019",
-    
-    "RecipientProfile": "bc:RecipientProfile",
-    "SignatureLine": "bc:SignatureLine",
-    "MerkleProofVerification2017": "bc:MerkleProofVerification2017",
-    
-    "recipientProfile": "bc:recipientProfile",
-    "signatureLines": "bc:signatureLines",
-    "introductionUrl": { "@id": "bc:introductionUrl", "@type": "@id" },
-    
-    "subtitle": "bc:subtitle",
-    
-    "jobTitle": "schema:jobTitle",
 
-    "expires": {
-      "@id": "sec:expiration",
-      "@type": "xsd:dateTime"
-    },
+    "introductionUrl": { "@id": "bc:introductionUrl", "@type": "@id" },
+
     "CryptographicKey": "sec:Key",
-    "signature": "sec:signature",
-    "publicKey": {
-      "@id": "sec:publicKey",
-      "@type": "@id"
-    },
 
     "BTCOpReturn": "cp:BTCOpReturn",
     "targetHash": "cp:targetHash",
@@ -49,7 +29,6 @@
     "nonce": "sec:nonce",
     "proofValue": "sec:proofValue",
 
-    "BadgeClass": "bc:BadgeClass",
     "name": {
       "@id": "schema:name"
     }
