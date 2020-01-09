@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Assertion schema",
-  "description": "Blockcerts 2.0 Assertion schema. Extends Open Badges v2.0 schema: https://w3id.org/openbadges#Assertion",
+  "title": "Blockcerts Credential schema",
+  "description": "Blockcerts 3.0 Credential schema. Implements Verifiable Credential v1.0 schema: https://www.w3.org/TR/vc-data-model/",
   "type": "object",
   "definitions": {
     "JsonLdContext": {
@@ -58,7 +58,8 @@
       ]
     },
     "MerkleProof2019": {
-      "$ref": "https://raw.githubusercontent.com/AnthonyRonning/https-github.com-labnol-files/master/merkleProof2019Schema.json"
+      "$ref": "https://raw.githubusercontent.com/blockchain-certificates/cert-schema/v3/cert_schema/3.0-alpha/merkleProof2019Schema.json",
+      "description": "Defined by https://w3c-dvcg.github.io/lds-merkle-proof-2019/"
     }
   },
   "properties": {
