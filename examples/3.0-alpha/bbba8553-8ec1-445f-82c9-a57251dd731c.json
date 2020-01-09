@@ -20,6 +20,8 @@
     "created": "2017-09-23T20:21:34Z",
     "domain": "example.org",
     "nonce": "2bbgh3dgjg2302d-d2b3gi423d42",
-    "proofValue": "z76WGJzY2rXtSiZ8BDwU4VgcLqcMEm2dXdgVVS1QCZQUptZ5P8n5YCcnbuMUASYhVNihae7m8VeYvfViYf 2KqTMVEH1B"
+    "proofValue": "z76WGJzY2rXtSiZ8BDwU4VgcLqcMEm2dXdgVVS1QCZQUptZ5P8n5YCcnbuMUASYhVNihae7m8VeYvfViYf 2KqTMVEH1B",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:123456#key1"
   }
 }

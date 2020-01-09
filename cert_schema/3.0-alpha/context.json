@@ -28,6 +28,8 @@
     "domain": "sec:domain",
     "nonce": "sec:nonce",
     "proofValue": "sec:proofValue",
+    "proofPurpose": "sec:proofPurpose",
+    "verificationMethod": "sec:verificationMethod",
 
     "name": {
       "@id": "schema:name"

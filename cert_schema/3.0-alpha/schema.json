@@ -78,9 +78,7 @@
       "@type": "@id"
     },
     "proof": {
-      "@id": "sec:proof",
-      "@type": "@id",
-      "@container": "@graph"
+      "$ref": "#/definitions/MerkleProof2019"
     }
   },
   "required": [
