@@ -42,6 +42,21 @@
         }
       ]
     },
+    "DateTime": {
+      "description": "Verifiable Credentials must express timestamps as strings compatible with ISO 8601 guidelines, including the time and a time zone indicator. It is recommended to publish all timestamps in UTC. Previous versions of Open Badges allowed Unix timestamps as integers. Open Badges v2.0 requires string ISO 8601 values with time zone indicators. For example, 2016-12-31T23:59:59+00:00 is a valid ISO 8601 timestamp. It contains the year, month, day, T separator, hour number 0-23, minute, optional seconds and decimal microsecond, and a time zone indicator (+/- an offset from UTC or the Z designator for UTC).",
+      "type": "string"
+    },
+    "Issuer": {
+      "description": "The value of the issuer property MUST be either a URI or an object containing an id property. It is RECOMMENDED that the URI in the issuer or its id be one which, if dereferenced, results in a document containing machine-readable information about the issuer that can be used to verify the information expressed in the credential.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
     "MerkleProof2019": {
       "$ref": "https://raw.githubusercontent.com/AnthonyRonning/https-github.com-labnol-files/master/merkleProof2019Schema.json"
     }
@@ -66,19 +81,20 @@
       "description": "Defined by `type` property of https://www.w3.org/TR/vc-data-model/#types"
     },
     "issuer": {
-      "@id": "cred:issuer",
-      "@type": "@id"
+      "$ref": "#/definitions/Issuer",
+      "description": "Defined by `issuer` property of https://www.w3.org/TR/vc-data-model/#issuer."
     },
     "issuanceDate": {
-      "@id": "cred:issuanceDate",
-      "@type": "xsd:dateTime"
+      "$ref": "#/definitions/DateTime",
+      "description": "Defined by `issuanceDate` property of https://www.w3.org/TR/vc-data-model/#issuance-date."
     },
     "credentialSubject": {
-      "@id": "cred:credentialSubject",
-      "@type": "@id"
+      "type": "object",
+      "description": "Defined by `credentialSubject` property of https://www.w3.org/TR/vc-data-model/#credential-subject."
     },
     "proof": {
-      "$ref": "#/definitions/MerkleProof2019"
+      "$ref": "#/definitions/MerkleProof2019",
+      "description": "Defined by `proof` property of https://www.w3.org/TR/vc-data-model/#proofs-signatures."
     }
   },
   "required": [
