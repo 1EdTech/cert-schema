@@ -1,0 +1,226 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "IssuerProfile schema",
+  "description": "Blockcerts 3.0-alpha Issuer Identification (Profile) schema. Based on https://w3id.org/openbadges#Profile & https://www.w3.org/TR/did-core/. Blockcerts specializes the Issuer Profile type into one that is to be hosted at an issuer URI (URL or DID based), to support blockchain verification of claims. The Issuer Profile is used in the Blockcerts verification process to look up the current list of public keys claimed by the issuer. This also defines an `introductionURL` which may be used by recipients (or software agents) to submit an introduction to the issuer. ",
+  "type": "object",
+  "definitions": {
+    "JsonLdContext": {
+      "description": "A link to a valid JSON-LD context, or array of JSON-LD contexts",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "JsonLdType": {
+      "description": "A type or an array of types defined in a referenced JSON-LD context.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "ImageUri": {
+      "description": "An image representative of the entity. In Blockcerts this is typically a data URI embedded as a base-64 encoded PNG image, but it may also be a URI where the image may be found.",
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^data:"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ]
+    },
+    "DateTime": {
+      "description":  "ISO 8601 datetime",
+      "type": "string"
+    },
+    "CryptographicKey": {
+      "description": "Defined by https://web-payments.org/vocabs/security#Key",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ecdsa-koblitz-pubkey:",
+          "description": "Issuer public key or blockchain address IRI with `<scheme>:` prefix. For Bitcoin transactions, this would be the issuer public address prefixed with `ecdsa-koblitz-pubkey:`; e.g. `ecdsa-koblitz-pubkey:14RZvYazz9H2DC2skBfpPVxax54g4yabxe`"
+        },
+        "created": {
+          "$ref": "#/definitions/DateTime"
+        },
+        "expires": {
+          "$ref": "#/definitions/DateTime"
+        },
+        "revoked": {
+          "$ref": "#/definitions/DateTime"
+        }
+      },
+      "required": [
+        "id",
+        "created"
+      ]
+    },
+    "PublicKey": {
+      "description": "Defined by https://www.w3.org/TR/did-core/#public-keys",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Unique ID representing a specific public key. Example: `did:method:123#key-1`"
+        },
+        "type": {
+          "type": "string"
+        },
+        "controller": {
+          "type": "string",
+          "format": "uri"
+        },
+        "revoked": {
+          "$ref": "#/definitions/DateTime"
+        },
+        "publicKeyPem": {
+          "type": "string"
+        },
+        "publicKeyJwk": {
+          "type": "string"
+        },
+        "publicKeyHex": {
+          "type": "string"
+        },
+        "publicKeyBase64": {
+          "type": "string"
+        },
+        "publicKeyBase58": {
+          "type": "string"
+        },
+        "publicKeyMultibase": {
+          "type": "string"
+        },
+        "ethereumAddress": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "controller"
+      ]
+    },
+    "Profile": {
+      "$id": "#profile",
+      "description": "Defined by https://w3id.org/openbadges#Profile. This type is used in certificates, and in the issuer-hosted identification page. The minimal set of properties required in the certificate are `id` and `type`. In this case, additional issuer-identification properties are assumed to be available at the issuer-hosted identification page.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Defined by `id` property of https://w3id.org/openbadges#Profile"
+        },
+        "type": {
+          "$ref": "#/definitions/JsonLdType",
+          "description": "Defined by `type` property of https://w3id.org/openbadges#Profile"
+        },
+        "name": {
+          "type": "string",
+          "description": "Defined by `name` property of https://w3id.org/openbadges#Profile"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Defined by `url` property of https://w3id.org/openbadges#Profile"
+        },
+        "telephone": {
+          "type": "string",
+          "description": "Defined by `telephone` property of https://w3id.org/openbadges#Profile"
+        },
+        "description": {
+          "type": "string",
+          "description": "Defined by `description` property of https://w3id.org/openbadges#Profile"
+        },
+        "image": {
+          "$ref": "#/definitions/ImageUri",
+          "description": "Defined by `image` property of https://w3id.org/openbadges#Profile"
+        },
+        "email": {
+          "type": "string",
+          "description": "Defined by `email` property of https://w3id.org/openbadges#Profile"
+        },
+        "revocationList": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Defined by `revocationList` property of https://w3id.org/openbadges#Profile. If embedded in a Blockcert and the issuer-hosted Profile, the value in the Blockcert should take preference."
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/definitions/Profile"
+    }
+  ],
+  "properties": {
+    "publicKey": {
+      "type": "array",
+      "description": "Array of CryptographicKey (https://web-payments.org/vocabs/security#Key) references or objects. Entries may be dereferencable URIs of a document describing a CryptographicKey, or an embedded description of a CryptographicKey.",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string",
+            "description": "Cryptographic key"
+          },
+          {
+            "$ref": "#/definitions/CryptographicKey"
+          },
+          {
+            "$ref": "#/definitions/PublicKey"
+          }
+        ]
+      }
+    },
+    "introductionURL": {
+      "type": "string",
+      "format": "uri",
+      "description": "Blockcerts extension: URI where potential recipients (or their agents) should submit introductions, including recipient public key. If the issuer supports certificate wallet introductions, this field should specify the endpoint for use by certificate wallets. Otherwise, it can represent a URI enabling some other form of introduction; for example an HTTP IRI for a web form that to be filled out by the recipient."
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "name",
+    "url"
+  ]
+}

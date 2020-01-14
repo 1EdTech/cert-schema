@@ -3,15 +3,17 @@
 
 # cert-schema
 
-Blockchain Certificate schemas extend those of [Open Badges](https://openbadgespec.org/). As with Open Badges, we've provided both a JSON-LD context and JSON schema. The purpose of the JSON-LD context is to map types to Internationalized Resource Identifiers (IRIs), providing semantic context for data. The JSON Schema is used for syntactic validation.
+Blockchain Certificate schemas implement those of [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/). As with Verifiable Credentials, we've provided both a JSON-LD context and JSON schema. The purpose of the JSON-LD context is to map types to Internationalized Resource Identifiers (IRIs), providing semantic context for data. The JSON Schema is used for syntactic validation.
 
 This python package allows verification of a Blockchain Certificate against the JSON
 schemas as a convenience. This is not the same as verifying the contents of a certificate against what is stored
 on the blockchain. See the [cert-verifier-js](https://github.com/blockchain-certificates/cert-verifier-js) project.
 
-*   [Blockcerts JSON Schema](docs/schema-2.md)
+*   [Blockcerts JSON Schema](docs/schema-3.0-alpha.md)
 
 ## Example
+
+TODO update for V3 once cert-issuer issues one
 
 The following is a Blockchain Certificate issued on the testnet Bitcoin network.
 
@@ -85,10 +87,6 @@ The following is a Blockchain Certificate issued on the testnet Bitcoin network.
 }
 
 ```
-
-## Open Badge Extensions
-
-Details on [Blockcerts extensions to Open Badges](docs/open_badge_v2_extensions.md)
 
 ## Publishing package to pypi
 

@@ -7,6 +7,7 @@ from cert_schema import validate_unsigned_v1_2
 from cert_schema import validate_v1_2
 from cert_schema import validate_v2
 from cert_schema import validate_v2_1
+from cert_schema import validate_v3_alpha
 from cert_schema.schema_validator import validate_v2_alpha
 
 
@@ -65,5 +66,11 @@ class TestSchemaValidator(unittest.TestCase):
         with open('../examples/2.1/sample_valid.json') as data_f:
             certificate = json.load(data_f)
             valid = validate_v2_1(certificate)
+            self.assertTrue(valid)
+
+    def test_v3_alpha(self):
+        with open('../examples/3.0-alpha/bbba8553-8ec1-445f-82c9-a57251dd731c.json') as data_f:
+            certificate = json.load(data_f)
+            valid = validate_v3_alpha(certificate)
             self.assertTrue(valid)
 

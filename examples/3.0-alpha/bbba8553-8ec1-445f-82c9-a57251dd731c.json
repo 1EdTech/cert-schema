@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/blockcerts/v3.0-alpha",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c",
+  "type": ["VerifiableCredential"],
+  "issuer": "did:example:23adb1f712ebc6f1c276eba4dfa",
+  "issuanceDate": "2010-01-01T19:73:24Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "alumniOf": {
+      "id": "did:example:c276e12ec21ebfeb1f712ebc6f1"
+    }
+  },
+  "proof": {
+    "type": "MerkleProof2019",
+    "creator": "did:example:abcdefghij0123456789",
+    "created": "2017-09-23T20:21:34Z",
+    "domain": "example.org",
+    "nonce": "2bbgh3dgjg2302d-d2b3gi423d42",
+    "proofValue": "z76WGJzY2rXtSiZ8BDwU4VgcLqcMEm2dXdgVVS1QCZQUptZ5P8n5YCcnbuMUASYhVNihae7m8VeYvfViYf 2KqTMVEH1B",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:123456#key1"
+  }
+}
