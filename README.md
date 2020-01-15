@@ -13,7 +13,7 @@ on the blockchain. See the [cert-verifier-js](https://github.com/blockchain-cert
 
 ## Example
 
-TODO update for V3
+TODO update for V3 once cert-issuer issues one
 
 The following is a Blockchain Certificate issued on the testnet Bitcoin network.
 
