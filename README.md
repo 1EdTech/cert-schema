@@ -20,72 +20,30 @@ The following is a Blockchain Certificate issued on the testnet Bitcoin network.
 ```json
 {
   "@context": [
-    "https://w3id.org/openbadges/v2",
-    "https://w3id.org/blockcerts/v2.1"
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.blockcerts.org/schema/3.0-alpha/context.json",
+    "https://www.w3.org/2018/credentials/examples/v1"
   ],
-  "type": "Assertion",
   "id": "urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c",
-  "badge": {
-    "id": "urn:uuid:82a4c9f2-3588-457b-80ea-da695571b8fc",
-    "type": "BadgeClass",
-    "name": "Certificate of Accomplishment",
-    "image": "data:image/png;base64,...",
-    "description": "Lorem ipsum dolor sit amet, mei docendi concludaturque ad, cu nec partem graece. Est aperiam consetetur cu, expetenda moderatius neglegentur ei nam, suas dolor laudem eam an.",
-    "criteria": {
-      "narrative": "Nibh iriure ei nam, modo ridens neglegentur mel eu. At his cibo mucius."
-    },
-    "issuer": {
-      "id": "https://www.blockcerts.org/samples/2.0/issuer-testnet.json",
-      "type": "Profile",
-      "name": "University of Learning",
-      "url": "https://www.issuer.org",
-      "email": "contact@issuer.org",
-      "revocationList": "https://www.blockcerts.org/samples/2.0/revocation-list-testnet.json",
-      "image": "data:image/png;..."
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": "did:example:23adb1f712ebc6f1c276eba4dfa",
+  "issuanceDate": "2010-01-01T19:73:24Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "alumniOf": {
+      "id": "did:example:c276e12ec21ebfeb1f712ebc6f1"
     }
   },
-  "recipient": {
-    "hashed": false,
-    "identity": "eularia@landroth.org",
-    "type": "email"
-  },
-  "recipientProfile": {
-    "type": [
-      "RecipientProfile",
-      "Extension"
-    ],
-    "publicKey": "ecdsa-koblitz-pubkey:mtr98kany9G1XYNU74pRnfBQmaCg2FZLmc",
-    "name": "Eularia Landroth"
-  },
-  "issuedOn": "2017-06-29T14:58:57.461422+00:00",
-  "verification": {
-    "publicKey": "ecdsa-koblitz-pubkey:msBCHdwaQ7N2ypBYupkp6uNxtr9Pg76imj",
-    "type": [
-      "MerkleProofVerification2017",
-      "Extension"
-    ]
-  },
   "signature": {
-    "type": [
-      "MerkleProof2017",
-      "Extension"
-    ],
-    "targetHash": "637ec732fa4b7b56f4c15a6a12680519a17a9e9eade09f5b424a48eb0e6f5ad0",
-    "merkleRoot": "f029b45bb1a7b1f0b970f6de35344b73cccd16177b4c037acbc2541c7fc27078",
-    "anchors": [
-      {
-        "sourceId": "d75b7a5bdb3d5244b753e6b84e987267cfa4ffa7a532a2ed49ad3848be1d82f8",
-        "type": "BTCOpReturn"
-      }
-    ],
-    "proof": [
-      {
-        "right": "11174e220fe74de907d1107e2a357e41434123f2948fc6b946fbfd7e3e3eecd1"
-      }
-    ]
+    "type": "MerkleProof2019",
+    "created": "2020-01-21T12:32:11.693759",
+    "proofValue": "z2LuLBVSfnVzaQtvzuA7EaPQsGEgYWeaMTH1p3uqAG3ESx9HYyFzFFrYsyPkZSbn1Ji5LN76jw6HBr3oiaa8KsQenCPqKk7dJvxEXsDnYvhuDHtsrSRbzHdJKd66jAowkzPxPFi3ivyAv7WRK1WV2VhegYVQEnCBTrGJWFUMFFXunTcus7ZyedQvS4sr61X2y8QuJ57ycB5JMEHvUgAVq3qh2g3ucehg2ERKLo98jmqTcsh9HThkECG3BTNYRD3QL7AHWPjxRbQNSA83QNYXcCNA7NaZnCWyjC17ZBj3xszp76XvqFRrLjQbRSbzjVTPtBSV8QjhxThT3KTfgwjRn5JeeXhYvebsTT9YGL3W4ufzFRDpH79n5KPiaj1BPbEUfUq7vf2dg26QWeZBi7ME56",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "ecdsa-koblitz-pubkey:0x7e30a37763e6Ba1fFeDE1750bBeFB4c60b17a1B3"
   }
 }
-
 ```
 
 ## Publishing package to pypi
