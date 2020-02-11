@@ -14,15 +14,6 @@
 
     "CryptographicKey": "sec:Key",
 
-    "BTCOpReturn": "cp:BTCOpReturn",
-    "targetHash": "cp:targetHash",
-    "merkleRoot": "cp:merkleRoot",
-    "proof": "cp:proof",
-    "anchors": "cp:anchors",
-    "sourceId": "cp:sourceId",
-    "right": "cp:right",
-    "left": "cp:left",
-
     "created": "sec:created",
     "creator": "sec:creator",
     "domain": "sec:domain",
