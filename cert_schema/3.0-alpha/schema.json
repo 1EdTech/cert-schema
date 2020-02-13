@@ -58,7 +58,7 @@
       ]
     },
     "MerkleProof2019": {
-      "$ref": "https://raw.githubusercontent.com/blockchain-certificates/cert-schema/v3/cert_schema/3.0-alpha/merkleProof2019Schema.json",
+      "$ref": "https://raw.githubusercontent.com/blockchain-certificates/cert-schema/master/cert_schema/3.0-alpha/merkleProof2019Schema.json",
       "description": "Defined by https://w3c-dvcg.github.io/lds-merkle-proof-2019/"
     }
   },
