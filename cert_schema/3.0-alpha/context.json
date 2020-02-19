@@ -10,6 +10,7 @@
     
     "MerkleProof2019": "sec:MerkleProof2019",
 
+    "BlockcertsCredential": "bc:BlockcertsCredential",
     "introductionUrl": { "@id": "bc:introductionUrl", "@type": "@id" },
 
     "CryptographicKey": "sec:Key",
