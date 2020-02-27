@@ -7,7 +7,7 @@
     "schema": "http://schema.org/",
     "sec": "https://w3id.org/security#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    
+
     "MerkleProof2019": "sec:MerkleProof2019",
 
     "BlockcertsCredential": "bc:BlockcertsCredential",
@@ -15,13 +15,13 @@
 
     "CryptographicKey": "sec:Key",
 
-    "created": "sec:created",
-    "creator": "sec:creator",
     "domain": "sec:domain",
     "nonce": "sec:nonce",
     "proofValue": "sec:proofValue",
-    "proofPurpose": "sec:proofPurpose",
-    "verificationMethod": "sec:verificationMethod",
+    "assertionMethod": {"@id": "sec:assertionMethod", "@type": "@id", "@container": "@set"},
+    "proofPurpose": {"@id": "sec:proofPurpose", "@type": "@vocab"},
+    "verificationMethod": {"@id": "sec:verificationMethod", "@type": "@id"},
+    "created": {"@id": "bc:created", "@type": "xsd:dateTime"},
 
     "name": {
       "@id": "schema:name"
