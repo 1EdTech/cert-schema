@@ -81,9 +81,11 @@ def validate_unsigned_v1_2(certificate_json):
         return validate_json(certificate_json, schema_json)
 
 
-def validate_v3_alpha(certificate_json):
+def validate_v3_alpha(certificate_json, ignore_proof=False):
     with open(SCHEMA_FILE_V3_ALPHA) as schema_f:
         schema_json = json.load(schema_f)
+        if ignore_proof:
+            schema_json['required'].remove('proof')
         return validate_json(certificate_json, schema_json)
 
 

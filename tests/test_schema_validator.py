@@ -74,3 +74,8 @@ class TestSchemaValidator(unittest.TestCase):
             valid = validate_v3_alpha(certificate)
             self.assertTrue(valid)
 
+        with open('../examples/3.0-alpha/cert-no-proof.json') as data_f:
+            certificate = json.load(data_f)
+            valid = validate_v3_alpha(certificate, True)
+            self.assertTrue(valid)
+
