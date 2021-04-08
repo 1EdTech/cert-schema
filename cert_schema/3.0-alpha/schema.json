@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Blockcerts Credential schema",
-  "description": "Blockcerts 3.0 Credential schema. Implements Verifiable Credential v1.0 schema: https://www.w3.org/TR/vc-data-model/",
+  "description": "Blockcerts 3.0-alpha Credential schema. Implements Verifiable Credential v1.0 schema: https://www.w3.org/TR/vc-data-model/",
   "type": "object",
   "definitions": {
     "JsonLdContext": {
