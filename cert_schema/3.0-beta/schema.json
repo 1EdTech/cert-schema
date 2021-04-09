@@ -58,11 +58,11 @@
       ]
     },
     "MerkleProof2019": {
-      "$ref": "https://raw.githubusercontent.com/blockchain-certificates/cert-schema/master/cert_schema/3.0-alpha/merkleProof2019Schema.json",
+      "$ref": "https://w3id.org/blockcerts/v3.0-beta/merkleProof2019Schema.json",
       "description": "Defined by https://w3c-ccg.github.io/lds-merkle-proof-2019/"
     },
     "Display": {
-      "$ref": "https://w3id.org/blockcerts/schema/3.0-beta/displaySchema.json"
+      "$ref": "https://w3id.org/blockcerts/v3.0-beta/displaySchema.json"
     }
   },
   "properties": {
