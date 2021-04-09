@@ -100,6 +100,10 @@
       "$ref": "#/definitions/Display",
       "description": "Blockcerts extension for content display."
     },
+    "metadata": {
+      "$ref": "#/definitions/Metadata",
+      "description": "Blockcerts extension for optional metadata."
+    },
     "proof": {
       "$ref": "#/definitions/MerkleProof2019",
       "description": "Defined by `proof` property of https://www.w3.org/TR/vc-data-model/#proofs-signatures."
