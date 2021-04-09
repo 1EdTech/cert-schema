@@ -12,6 +12,7 @@
 
     "BlockcertsCredential": "bc:BlockcertsCredential",
     "introductionUrl": { "@id": "bc:introductionUrl", "@type": "@id" },
+    "display": "bc:display",
 
     "CryptographicKey": "sec:Key",
 
