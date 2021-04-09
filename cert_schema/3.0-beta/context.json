@@ -4,7 +4,7 @@
     "type": "@type",
     "bc": "https://w3id.org/blockcerts#",
     "cp": "https://w3id.org/chainpoint#",
-    "schema": "http://schema.org/",
+    "schema": "https://schema.org/",
     "sec": "https://w3id.org/security#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
 
@@ -23,7 +23,7 @@
     "authentication": {"@id": "sec:authenticationMethod", "@type": "@id", "@container": "@set"},
     "proofPurpose": {"@id": "sec:proofPurpose", "@type": "@vocab"},
     "verificationMethod": {"@id": "sec:verificationMethod", "@type": "@id"},
-    "created": {"@id": "http://purl.org/dc/terms/created", "@type": "xsd:dateTime"},
+    "created": {"@id": "https://purl.org/dc/terms/created", "@type": "xsd:dateTime"},
     "challenge": "sec:challenge",
     "expires": {"@id": "sec:expiration", "@type": "xsd:dateTime"},
 
