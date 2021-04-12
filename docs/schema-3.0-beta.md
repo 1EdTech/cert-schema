@@ -37,6 +37,11 @@ The schema defines the following additional types:
 ## `display` (object)
 An optional object that sets a display for the Blockcerts document.
 
+If defined, the object takes three properties:
+* `contentMediaType`: the type of data to be displayed ([https://schema.org/encodingFormat](https://schema.org/encodingFormat)). Ex. `text-html`
+* `contentEncoding`: the encoding used to store the content to be displayed. Optional. Ex. `base64`
+* `content`: the content to display. Must be encoded following the `contentEncoding` property if set.
+
 ## `JsonLdContext` (undefined)
 
 A link to a valid JSON-LD context, or array of JSON-LD contexts

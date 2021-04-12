@@ -62,7 +62,8 @@
       "description": "Defined by https://w3c-ccg.github.io/lds-merkle-proof-2019/"
     },
     "Display": {
-      "$ref": "https://w3id.org/blockcerts/v3.0-beta/displaySchema.json"
+      "$ref": "https://w3id.org/blockcerts/v3.0-beta/displaySchema.json",
+      "description": "An optional object that sets a display for the Blockcerts document."
     },
     "Metadata": {
       "description": "A set of extra information about that issuer deems fit to add to the document",
