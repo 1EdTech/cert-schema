@@ -13,18 +13,11 @@
 
     "BlockcertsCredential": "bc:BlockcertsCredential",
     "introductionUrl": { "@id": "bc:introductionUrl", "@type": "@id" },
-    "metadata": { "@id": "bc:metadata", "@type": "@id" },
+    "metadata": "bc:metadata",
     "display": "bc:display",
 
     "CryptographicKey": "sec:Key",
 
-    "credentialSubject": {
-      "@id": "vc:credentialSubject",
-      "@type": "@id",
-      "@context": {
-        "metadata": "bc:metadata"
-      }
-    },
     "domain": "sec:domain",
     "nonce": "sec:nonce",
     "proofValue": "sec:proofValue",

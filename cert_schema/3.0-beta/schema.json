@@ -63,6 +63,10 @@
     },
     "Display": {
       "$ref": "https://w3id.org/blockcerts/v3.0-beta/displaySchema.json"
+    },
+    "Metadata": {
+      "description": "A set of extra information about that issuer deems fit to add to the document",
+      "type": "object"
     }
   },
   "properties": {
