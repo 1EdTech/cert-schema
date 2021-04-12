@@ -13,7 +13,7 @@
 
     "BlockcertsCredential": "bc:BlockcertsCredential",
     "introductionUrl": { "@id": "bc:introductionUrl", "@type": "@id" },
-    "metadata": { "@id": "bc:introductionUrl", "@type": "@id" },
+    "metadata": { "@id": "bc:metadata", "@type": "@id" },
     "display": "bc:display",
 
     "CryptographicKey": "sec:Key",
