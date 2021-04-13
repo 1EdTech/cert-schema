@@ -61,11 +61,13 @@ def validate_v2_alpha(certificate_json):
         result = validate_json(certificate_json, schema_v2)
         return result
 
+
 def validate_v2_1(certificate_json):
     with open(SCHEMA_FILE_V2_1) as blockcerts_schema:
         schema_v2_1 = json.load(blockcerts_schema)
         result = validate_json(certificate_json, schema_v2_1)
         return result
+
 
 def validate_unsigned_v1_2(certificate_json):
     """
@@ -89,6 +91,7 @@ def validate_v3_alpha(certificate_json, ignore_proof=False):
         if ignore_proof:
             schema_json['required'].remove('proof')
         return validate_json(certificate_json, schema_json)
+
 
 def validate_v3_beta(certificate_json, ignore_proof=False):
     with open(SCHEMA_FILE_V3_BETA) as schema_f:
