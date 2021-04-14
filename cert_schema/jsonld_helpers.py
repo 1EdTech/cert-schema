@@ -40,6 +40,10 @@ BLOCKCERTS_V3_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-alpha/cont
 BLOCKCERTS_V3_ALPHA_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0-alpha/schema.json'
 BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-alpha'
 
+BLOCKCERTS_V3_BETA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-beta/context.json'
+BLOCKCERTS_V3_BETA_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0-beta/schema.json'
+BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-beta'
+
 BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/v3.0-alpha#'
 
 JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
@@ -49,6 +53,7 @@ JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
 BLOCKCERTS_V2_ALPHA_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
 BLOCKCERTS_V2_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0/context.json'
 BLOCKCERTS_V3_ALPHA_CONTEXT_2 = 'https://www.blockcerts.org/schema/3.0-alpha/context.json'
+BLOCKCERTS_V3_BETA_CONTEXT_2 = 'https://www.blockcerts.org/schema/3.0-beta/context.json'
 
 FALLBACK_VOCAB = 'http://fallback.org/'
 FALLBACK_CONTEXT = {'@vocab': FALLBACK_VOCAB}
@@ -67,6 +72,8 @@ JSON_LD_CONTEXT_V3_0_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/context.json')
 CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0-alpha/credential.json')
 EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0-alpha/exampleCredential.json')
 MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0-alpha/merkleProof2019Context.json')
+
+JSON_LD_CONTEXT_V3_0_BETA = os.path.join(BASE_DIR, '3.0-beta/context.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -108,6 +115,11 @@ with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
     PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT] = bc_context
     PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT_2] = bc_context
     PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT] = bc_context
+
+with open(JSON_LD_CONTEXT_V3_0_BETA) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT_2] = bc_context
 
 
 def to_loader_response(data, url):
