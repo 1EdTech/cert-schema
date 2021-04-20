@@ -1,5 +1,5 @@
 {
-  "@id": "https://w3id.org/blockcerts/schema/3.0-alpha/merkleProof2019Schema.json",
+  "@id": "https://w3id.org/blockcerts/schema/3.0-beta/merkleProof2019Schema.json",
   "@context": {
     "@version": 1.1,
     "challenge": "sec:challenge",

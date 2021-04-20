@@ -14,7 +14,16 @@
     "BlockcertsCredential": "bc:BlockcertsCredential",
     "introductionUrl": { "@id": "bc:introductionUrl", "@type": "@id" },
     "metadata": "bc:metadata",
-    "display": "bc:display",
+    "display": {
+      "@id": "bc:display",
+      "@context": {
+        "id": "@id",
+        "type": "@type",
+        "contentMediaType": {"@id": "bc:contentMediaType", "@type": "@id"},
+        "contentEncoding": {"@id": "bc:contentEncoding", "@type": "@id"},
+        "content": {"@id": "bc:content", "@type": "@id"}
+      }
+    },
 
     "CryptographicKey": "sec:Key",
 
