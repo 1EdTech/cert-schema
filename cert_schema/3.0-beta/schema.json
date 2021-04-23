@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Blockcerts Credential schema",
-  "description": "Blockcerts 3.0-alpha Credential schema. Implements Verifiable Credential v1.0 schema: https://www.w3.org/TR/vc-data-model/",
+  "description": "Blockcerts 3.0-beta Credential schema. Implements Verifiable Credential v1.0 schema: https://www.w3.org/TR/vc-data-model/",
   "type": "object",
   "definitions": {
     "JsonLdContext": {
@@ -58,8 +58,16 @@
       ]
     },
     "MerkleProof2019": {
-      "$ref": "https://raw.githubusercontent.com/blockchain-certificates/cert-schema/master/cert_schema/3.0-alpha/merkleProof2019Schema.json",
+      "$ref": "https://w3id.org/blockcerts/v3.0-beta/merkleProof2019Schema.json",
       "description": "Defined by https://w3c-ccg.github.io/lds-merkle-proof-2019/"
+    },
+    "Display": {
+      "$ref": "https://w3id.org/blockcerts/v3.0-beta/displaySchema.json",
+      "description": "An optional object that sets a display for the Blockcerts document."
+    },
+    "Metadata": {
+      "description": "A set of extra information about that issuer deems fit to add to the document",
+      "type": "object"
     }
   },
   "properties": {
@@ -92,6 +100,14 @@
     "credentialSubject": {
       "type": "object",
       "description": "Defined by `credentialSubject` property of https://www.w3.org/TR/vc-data-model/#credential-subject."
+    },
+    "display": {
+      "$ref": "#/definitions/Display",
+      "description": "Blockcerts extension for content display."
+    },
+    "metadata": {
+      "$ref": "#/definitions/Metadata",
+      "description": "Blockcerts extension for optional metadata."
     },
     "proof": {
       "$ref": "#/definitions/MerkleProof2019",

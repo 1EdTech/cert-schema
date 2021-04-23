@@ -1,0 +1,23 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Display schema",
+	"description": "An extension that allows issuers to add a visual representation to a Blockcerts.",
+	"type": "object",
+	"properties": {
+		"contentMediaType": {
+			"type": "string",
+			"description": "The type of data to be displayed, https://schema.org/encodingFormat",
+			"examples": ["text/html", "image/png"]
+		},
+		"contentEncoding": {
+			"type": "string",
+			"description": "The encoding used to store the content to be displayed. Optional.",
+			"examples": ["base64"]
+		},
+		"content": {
+			"type": "string",
+			"description": "The content to display. Must be encoded following the contentEncoding property."
+		}
+	},
+	"required": ["contentMediaType", "content"]
+}

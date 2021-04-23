@@ -8,6 +8,7 @@ from cert_schema import validate_v1_2
 from cert_schema import validate_v2
 from cert_schema import validate_v2_1
 from cert_schema import validate_v3_alpha
+from cert_schema import validate_v3_beta
 from cert_schema.schema_validator import validate_v2_alpha
 
 
@@ -79,3 +80,13 @@ class TestSchemaValidator(unittest.TestCase):
             valid = validate_v3_alpha(certificate, True)
             self.assertTrue(valid)
 
+    def test_v3_beta(self):
+        with open('../examples/3.0-beta/bbba8553-8ec1-445f-82c9-a57251dd731c.json') as data_f:
+            certificate = json.load(data_f)
+            valid = validate_v3_beta(certificate)
+            self.assertTrue(valid)
+
+        with open('../examples/3.0-beta/cert-no-proof.json') as data_f:
+            certificate = json.load(data_f)
+            valid = validate_v3_beta(certificate, True)
+            self.assertTrue(valid)
