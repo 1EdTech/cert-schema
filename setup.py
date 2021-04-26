@@ -13,7 +13,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='3.0.0a9',
+    version='3.0.0b3',
     description='Blockchain certificates JSON-LD context and JSON schemas',
     author='info@blockcerts.org',
     url='https://github.com/blockchain-certificates/cert-schema',
@@ -22,6 +22,6 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
-    package_data={"cert_schema": ["1.1/*.json", "1.2/*.json", "2.0-alpha/*.json", "2.0/*.json", "2.1/*.json", "3.0-alpha/*.json"]},
+    package_data={"cert_schema": ["1.1/*.json", "1.2/*.json", "2.0-alpha/*.json", "2.0/*.json", "2.1/*.json", "3.0-alpha/*.json", "3.0-beta/*.json"]},
     install_requires=reqs
 )
