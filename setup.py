@@ -13,7 +13,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='3.0.0b3',
+    version='3.0.0b4',
     description='Blockchain certificates JSON-LD context and JSON schemas',
     author='info@blockcerts.org',
     url='https://github.com/blockchain-certificates/cert-schema',
