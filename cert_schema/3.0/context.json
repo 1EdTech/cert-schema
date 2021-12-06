@@ -45,7 +45,6 @@
     "url": { "@id": "schema:url", "@type": "@id" },
     "image": { "@id": "schema:image", "@type": "@id" },
     "criteria": { "@id": "schema:criteria", "@type": "@id" },
-    "hashed": { "@id": "schema:hashed", "@type": "@id" },
-    "claim": { "@id": "schema:claim", "@type": "@id" },
+    "claim": { "@id": "schema:claim", "@type": "@id" }
   }
 }
