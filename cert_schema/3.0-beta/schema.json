@@ -58,11 +58,11 @@
       ]
     },
     "MerkleProof2019": {
-      "$ref": "https://w3id.org/blockcerts/v3.0-beta/merkleProof2019Schema.json",
+      "$ref": "https://w3id.org/blockcerts/schema/3.0-beta/merkleProof2019Schema.json",
       "description": "Defined by https://w3c-ccg.github.io/lds-merkle-proof-2019/"
     },
     "Display": {
-      "$ref": "https://w3id.org/blockcerts/v3.0-beta/displaySchema.json",
+      "$ref": "https://w3id.org/blockcerts/schema/3.0-beta/displaySchema.json",
       "description": "An optional object that sets a display for the Blockcerts document."
     },
     "Metadata": {

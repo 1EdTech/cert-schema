@@ -1,8 +1,7 @@
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://www.blockcerts.org/schema/3.0/context.json",
-    "https://www.w3.org/2018/credentials/examples/v1"
+    "https://www.blockcerts.org/schema/3.0/context.json"
   ],
   "id": "urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c",
   "type": [
@@ -11,10 +10,8 @@
   ],
   "issuer": "did:example:23adb1f712ebc6f1c276eba4dfa",
   "issuanceDate": "2010-01-01T19:33:24Z",
+  "nonce": "",
   "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "alumniOf": {
-      "id": "did:example:c276e12ec21ebfeb1f712ebc6f1"
-    }
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
   }
 }
