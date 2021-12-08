@@ -58,15 +58,15 @@
       ]
     },
     "CredentialSubject": {
-      "$ref": "https://w3id.org/blockcerts/v3.0/credentialSubjectSchema.json",
+      "$ref": "https://w3id.org/blockcerts/schema/3.0/credentialSubjectSchema.json",
       "description": "As defined by `credentialSubject` property of https://www.w3.org/TR/vc-data-model/#credential-subject, and quickly described more precisely in Blockcerts context."
     },
     "MerkleProof2019": {
-      "$ref": "https://w3id.org/blockcerts/v3.0/merkleProof2019Schema.json",
+      "$ref": "https://w3id.org/blockcerts/schema/3.0/merkleProof2019Schema.json",
       "description": "Defined by https://w3c-ccg.github.io/lds-merkle-proof-2019/"
     },
     "Display": {
-      "$ref": "https://w3id.org/blockcerts/v3.0/displaySchema.json",
+      "$ref": "https://w3id.org/blockcerts/schema/3.0/displaySchema.json",
       "description": "An optional object that sets a display for the Blockcerts document."
     },
     "Metadata": {
@@ -106,7 +106,7 @@
       "description": "Defined by `issuanceDate` property of https://www.w3.org/TR/vc-data-model/#issuance-date."
     },
     "credentialSubject": {
-      "type": "#/definitions/CredentialSubject",
+      "$ref": "#/definitions/CredentialSubject",
       "description": "Defined by `credentialSubject` property of https://www.w3.org/TR/vc-data-model/#credential-subject."
     },
     "display": {
