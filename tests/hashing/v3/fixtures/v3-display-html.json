@@ -1,0 +1,32 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/blockcerts/v3"
+  ],
+  "id": "urn:uuid:f30f3951-b6dc-4aef-86d8-390901df18eb",
+  "type": [
+    "VerifiableCredential",
+    "BlockcertsCredential"
+  ],
+  "issuer": "did:ion:EiA_Z6LQILbB2zj_eVrqfQ2xDm4HNqeJUw5Kj2Z7bFOOeQ",
+  "issuanceDate": "2022-03-18T10:47:25Z",
+  "expirationDate": "2022-09-18T10:47:24Z",
+  "credentialSubject": {
+    "name": "Sandy Beach",
+    "email": "sandy@beach.com",
+    "publicKey": "1EDGxptycdQC8kNsDHUAvPRQ6aQUThxUU",
+    "id": "recipients-id",
+    "claim": {
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABRwAAAFdCAYAAABhKaGrAAAACXBIWXMAAC4j",
+      "description": "This is a description",
+      "criteria": "this was a given",
+      "url": "https://www.beach.com"
+    }
+  },
+  "nonce": "F8fyDvUh5Vc2Y1XaezwE-8Rdl9m625kgjuQrL4iLy",
+  "metadata": "{\"key\":\"value\"}",
+  "display": {
+    "contentMediaType": "text/html",
+    "content": "<div>Hello world!</div>"
+  }
+}

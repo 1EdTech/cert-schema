@@ -250,6 +250,7 @@ def normalize_jsonld(json_ld_to_normalize, document_loader=preloaded_context_doc
             json_ld['@context'] = prev_context
 
     normalized = jsonld.normalize(json_ld, options=options)
+    print(normalized)
 
     if detect_unmapped_fields and FALLBACK_VOCAB in normalized:
         unmapped_fields = []
