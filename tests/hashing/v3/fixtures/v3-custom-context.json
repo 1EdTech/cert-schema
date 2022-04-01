@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    {
+      "degree": {
+        "@id": "https://schema.org/Text"
+      },
+      "collegeName": {
+        "@id": "https://schema.org/Text"
+      },
+      "yearsOfAttendance": {
+        "@id": "https://schema.org/Text"
+      },
+      "certificateNumber": {
+        "@id": "https://schema.org/Text"
+      },
+      "value": {
+        "@id": "https://schema.org/Text"
+      },
+      "Transcript": {
+        "@id": "bc:Transcript",
+        "@type": "@id"
+      }
+    },
+    "https://w3id.org/blockcerts/v3"
+  ],
+  "id": "urn:uuid:f30f3951-b6dc-4aef-86d8-390901df18eb",
+  "type": [
+    "VerifiableCredential",
+    "BlockcertsCredential"
+  ],
+  "issuer": "did:ion:EiA_Z6LQILbB2zj_eVrqfQ2xDm4HNqeJUw5Kj2Z7bFOOeQ",
+  "issuanceDate": "2022-03-18T10:47:25Z",
+  "expirationDate": "2022-09-18T10:47:24Z",
+  "credentialSubject": {
+    "type": "Holder",
+    "name": "Sandy Beach",
+    "publicKey": "",
+    "id": "recipients-id",
+    "claim": {
+      "type": "Transcript",
+      "degree": "Masters of Puppets",
+      "collegeName": "Learning Machine University",
+      "yearsOfAttendance": "2018-2022",
+      "certificateNumber": "06-072-19",
+      "value": "{\"this\":\"is the full transcript as available\"}"
+    }
+  },
+  "metadata": "{\"key\":\"value\"}",
+  "display": {
+    "contentMediaType": "text/html",
+    "content": "<div>Hello world!</div>"
+  }
+}

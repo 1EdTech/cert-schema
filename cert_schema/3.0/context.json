@@ -41,10 +41,10 @@
     "name": { "@id": "schema:name" },
     "description": { "@id": "schema:description" },
     "email": { "@id": "schema:email" },
-    "publicKey": { "@id": "sec:publicKey", "@type": "@id" },
-    "url": { "@id": "schema:url", "@type": "@id" },
-    "image": { "@id": "schema:image", "@type": "@id" },
-    "criteria": { "@id": "schema:criteria", "@type": "@id" },
-    "claim": { "@id": "schema:claim", "@type": "@id" }
+    "publicKey": { "@id": "sec:publicKey" },
+    "url": { "@id": "schema:url" },
+    "image": { "@id": "schema:image" },
+    "criteria": { "@id": "schema:criteria" },
+    "claim": { "@id": "schema:claim" }
   }
 }
