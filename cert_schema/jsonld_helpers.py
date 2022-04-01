@@ -89,69 +89,71 @@ MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/merkleProof20
 
 PRELOADED_CONTEXTS = {}
 
-with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
-    obi_context = json.load(data_file)
-    PRELOADED_CONTEXTS[OPEN_BADGES_V2_CONTEXT] = obi_context
-    PRELOADED_CONTEXTS[OPEN_BADGES_V2_CANONICAL_CONTEXT] = obi_context
+with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data:
+    CONTEXT_URLS = json.load(context_data)
 
-with open(CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
-    cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
+    with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
+        obi_context = json.load(data_file)
+        PRELOADED_CONTEXTS[OPEN_BADGES_V2_CONTEXT] = obi_context
+        PRELOADED_CONTEXTS[OPEN_BADGES_V2_CANONICAL_CONTEXT] = obi_context
 
-with open(EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
-    example_cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS[EXAMPLE_CREDENTIAL_V1_CONTEXT] = example_cred_context
+    with open(CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
+        cred_context = json.load(data_file)
+        PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
 
-with open(MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
-    merkle2019_context = json.load(data_file)
-    PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT] = merkle2019_context
+    with open(EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
+        example_cred_context = json.load(data_file)
+        PRELOADED_CONTEXTS[EXAMPLE_CREDENTIAL_V1_CONTEXT] = example_cred_context
 
+    with open(MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
+        merkle2019_context = json.load(data_file)
+        PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT] = merkle2019_context
 
-with open(CREDENTIAL_JSON_LD_CONTEXT_V1_BETA) as data_file:
-    cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
+    with open(CREDENTIAL_JSON_LD_CONTEXT_V1_BETA) as data_file:
+        cred_context = json.load(data_file)
+        PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
 
-with open(EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_BETA) as data_file:
-    example_cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS[EXAMPLE_CREDENTIAL_V1_CONTEXT] = example_cred_context
+    with open(EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_BETA) as data_file:
+        example_cred_context = json.load(data_file)
+        PRELOADED_CONTEXTS[EXAMPLE_CREDENTIAL_V1_CONTEXT] = example_cred_context
 
-with open(MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_BETA) as data_file:
-    merkle2019_context = json.load(data_file)
-    PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT] = merkle2019_context
+    with open(MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_BETA) as data_file:
+        merkle2019_context = json.load(data_file)
+        PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT] = merkle2019_context
 
-with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
-    bc_context = json.load(data_file)
-    PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT_2] = bc_context
+    with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
+        bc_context = json.load(data_file)
+        PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT_2] = bc_context
 
-with open(JSON_LD_CONTEXT_V2_0) as data_file:
-    bc_context = json.load(data_file)
-    PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT_2] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V2_CANONICAL_CONTEXT] = bc_context
+    with open(JSON_LD_CONTEXT_V2_0) as data_file:
+        bc_context = json.load(data_file)
+        PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT_2] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V2_CANONICAL_CONTEXT] = bc_context
 
-with open(JSON_LD_CONTEXT_V2_1) as data_file:
-    bc_context = json.load(data_file)
-    PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CONTEXT] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CANONICAL_CONTEXT] = bc_context
+    with open(JSON_LD_CONTEXT_V2_1) as data_file:
+        bc_context = json.load(data_file)
+        PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CONTEXT] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CANONICAL_CONTEXT] = bc_context
 
-with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
-    bc_context = json.load(data_file)
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT_2] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT] = bc_context
+    with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
+        bc_context = json.load(data_file)
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT_2] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT] = bc_context
 
-with open(JSON_LD_CONTEXT_V3_0_BETA) as data_file:
-    bc_context = json.load(data_file)
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT_2] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT] = bc_context
+    with open(JSON_LD_CONTEXT_V3_0_BETA) as data_file:
+        bc_context = json.load(data_file)
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT_2] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT] = bc_context
 
-with open(JSON_LD_CONTEXT_V3_0) as data_file:
-    bc_context = json.load(data_file)
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_CONTEXT] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_CONTEXT_2] = bc_context
-    PRELOADED_CONTEXTS[BLOCKCERTS_V3_CANONICAL_CONTEXT] = bc_context
+    with open(JSON_LD_CONTEXT_V3_0) as data_file:
+        bc_context = json.load(data_file)
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CONTEXT']] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CONTEXT_2']] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CANONICAL_CONTEXT']] = bc_context
 
 
 def to_loader_response(data, url):
@@ -189,6 +191,7 @@ def jsonld_document_loader(url):
 
 def preloaded_context_document_loader(url, override_cache=False):
     if url in PRELOADED_CONTEXTS:
+        print('found context with url {}'.format(url))
         context = PRELOADED_CONTEXTS[url]
         return to_loader_response(context, url)
     else:
@@ -250,7 +253,6 @@ def normalize_jsonld(json_ld_to_normalize, document_loader=preloaded_context_doc
             json_ld['@context'] = prev_context
 
     normalized = jsonld.normalize(json_ld, options=options)
-    print(normalized)
 
     if detect_unmapped_fields and FALLBACK_VOCAB in normalized:
         unmapped_fields = []
