@@ -33,6 +33,7 @@ BLOCKCERTS_V2_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0/schema.json'
 BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
 
 BLOCKCERTS_V2_1_CONTEXT = 'https://w3id.org/blockcerts/schema/2.1/context.json'
+BLOCKCERTS_ORG_V2_1_CONTEXT = 'https://www.blockcerts.org/schema/2.1/context.json'
 BLOCKCERTS_V2_1_SCHEMA = 'https://w3id.org/blockcerts/schema/2.1/schema.json'
 BLOCKCERTS_V2_1_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2.1'
 
@@ -44,7 +45,7 @@ BLOCKCERTS_V3_BETA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-beta/contex
 BLOCKCERTS_V3_BETA_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0-beta/schema.json'
 BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-beta'
 
-BLOCKCERTS_V3_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0/context.json'
+BLOCKCERTS_V3_CONTEXT = 'https://www.blockcerts.org/schema/3.0/context.json'
 BLOCKCERTS_V3_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0/schema.json'
 BLOCKCERTS_V3_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3'
 
@@ -133,6 +134,7 @@ with open(JSON_LD_CONTEXT_V2_0) as data_file:
 with open(JSON_LD_CONTEXT_V2_1) as data_file:
     bc_context = json.load(data_file)
     PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_ORG_V2_1_CONTEXT] = bc_context
     PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CANONICAL_CONTEXT] = bc_context
 
 with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
