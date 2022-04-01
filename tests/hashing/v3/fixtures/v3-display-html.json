@@ -15,7 +15,7 @@
     "name": "Sandy Beach",
     "email": "sandy@beach.com",
     "publicKey": "1EDGxptycdQC8kNsDHUAvPRQ6aQUThxUU",
-    "id": "recipients-id",
+    "id": "urn:uuid:recipients-id",
     "claim": {
       "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABRwAAAFdCAYAAABhKaGrAAAACXBIWXMAAC4j",
       "description": "This is a description",
