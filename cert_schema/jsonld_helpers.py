@@ -76,8 +76,8 @@ with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data
 
     with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
         obi_context = json.load(data_file)
-        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CONTEXT'] = obi_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CANONICAL_CONTEXT'] = obi_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CONTEXT']] = obi_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CANONICAL_CONTEXT']] = obi_context
 
     with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
         cred_context = json.load(data_file)
