@@ -22,3 +22,4 @@ conf.ini
 ~
 
 npm/schemas
+npm/node_modules

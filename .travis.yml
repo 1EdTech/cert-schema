@@ -7,5 +7,6 @@ before_script:
   - tox
 script:
   - cd npm
+  - npm ci
   - npm run copy:schemas
   - npm run semantic-release

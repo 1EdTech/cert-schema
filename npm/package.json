@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "copy:schemas": "rm -rf ./schemas && cp -r ../cert_schema/ ./schemas && rm schemas/*.py",
-    "semantic-release": "npx semantic-release"
+    "semantic-release": "semantic-release"
   },
   "publishConfig": {
     "access": "public"
@@ -18,5 +18,8 @@
     "credentials"
   ],
   "author": "Julien Fraichot",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "semantic-release": "^19.0.2"
+  }
 }
