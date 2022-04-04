@@ -153,7 +153,6 @@ def jsonld_document_loader(url):
 
 def preloaded_context_document_loader(url, override_cache=False):
     if url in PRELOADED_CONTEXTS:
-        print('found context with url {}'.format(url))
         context = PRELOADED_CONTEXTS[url]
         return to_loader_response(context, url)
     else:
