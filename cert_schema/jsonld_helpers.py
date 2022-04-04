@@ -67,7 +67,7 @@ JSON_LD_CONTEXT_V3_0_BETA = os.path.join(BASE_DIR, '3.0-beta/context.json')
 
 JSON_LD_CONTEXT_V3_0 = os.path.join(BASE_DIR, '3.0/context.json')
 
-CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
+VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -76,12 +76,12 @@ with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data
 
     with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
         obi_context = json.load(data_file)
-        PRELOADED_CONTEXTS[OPEN_BADGES_V2_CONTEXT] = obi_context
-        PRELOADED_CONTEXTS[OPEN_BADGES_V2_CANONICAL_CONTEXT] = obi_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CONTEXT'] = obi_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CANONICAL_CONTEXT'] = obi_context
 
-    with open(CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
+    with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
         cred_context = json.load(data_file)
-        PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['VERIFIABLE_CREDENTIAL_V1_CONTEXT']] = cred_context
 
     with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
         bc_context = json.load(data_file)
@@ -90,15 +90,15 @@ with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data
 
     with open(JSON_LD_CONTEXT_V2_0) as data_file:
         bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_ORG_V2_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V2_CANONICAL_CONTEXT] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_CONTEXT']] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_ORG_V2_CONTEXT']] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_CANONICAL_CONTEXT']] = bc_context
 
     with open(JSON_LD_CONTEXT_V2_1) as data_file:
         bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_ORG_V2_1_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V2_1_CANONICAL_CONTEXT] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_1_CONTEXT']] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_ORG_V2_1_CONTEXT']] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_1_CANONICAL_CONTEXT']] = bc_context
 
     with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
         bc_context = json.load(data_file)
@@ -115,7 +115,7 @@ with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data
     with open(JSON_LD_CONTEXT_V3_0) as data_file:
         bc_context = json.load(data_file)
         PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CONTEXT']] = bc_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CONTEXT_2']] = bc_context
+        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_ORG_V3_CONTEXT']] = bc_context
         PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CANONICAL_CONTEXT']] = bc_context
 
 def to_loader_response(data, url):

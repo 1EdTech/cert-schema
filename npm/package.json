@@ -1,12 +1,15 @@
 {
   "name": "@blockcerts/schemas",
   "version": "0.0.0-dev",
-  "repository": "https://github.com/blockchain-certificates/cert-schema",
+  "repository": "https://github.com/blockchain-certificates/cert-schema/npm",
   "description": "One source of truth for Blockcerts schemas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "copy:schemas": "rm -rf ./schemas && cp -r ../cert_schema/ ./schemas && rm schemas/*.py"
+    "copy:schemas": "rm -rf ./schemas && cp -r ../cert_schema/ ./schemas && rm schemas/*.py",
+    "semantic-release": "npx semantic-release"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "blockcerts",
