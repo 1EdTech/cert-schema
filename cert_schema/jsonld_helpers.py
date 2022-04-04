@@ -71,7 +71,7 @@ VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credentia
 
 PRELOADED_CONTEXTS = {}
 
-with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data:
+with open(os.path.join(BASE_DIR, 'context_urls.json')) as context_data:
     CONTEXT_URLS = json.load(context_data)
 
     with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
@@ -103,13 +103,13 @@ with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data
     with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
         bc_context = json.load(data_file)
         PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT_2] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ORG_ALPHA_CONTEXT] = bc_context
         PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT] = bc_context
 
     with open(JSON_LD_CONTEXT_V3_0_BETA) as data_file:
         bc_context = json.load(data_file)
         PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT_2] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ORG_BETA_CONTEXT] = bc_context
         PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT] = bc_context
 
     with open(JSON_LD_CONTEXT_V3_0) as data_file:
