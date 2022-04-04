@@ -20,3 +20,5 @@ conf.ini
 *.egg-info*
 ~
 ~
+
+npm/schemas

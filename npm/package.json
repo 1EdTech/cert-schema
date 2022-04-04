@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cp -r ../cert_schema/schemas ./"
+    "copy:schemas": "rm -rf ./schemas && cp -r ../cert_schema/ ./schemas && rm schemas/*.py"
   },
   "keywords": [
     "blockcerts",

@@ -1,0 +1,14 @@
+{
+  "OPEN_BADGES_V2_CONTEXT": "https://openbadgespec.org/v2/context.json",
+  "OPEN_BADGES_V2_CANONICAL_CONTEXT": "https://w3id.org/openbadges/v2",
+  "VERIFIABLE_CREDENTIAL_V1_CONTEXT": "https://www.w3.org/2018/credentials/v1",
+  "BLOCKCERTS_V2_CONTEXT": "https://w3id.org/blockcerts/schema/2.0/context.json",
+  "BLOCKCERTS_V2_CANONICAL_CONTEXT": "https://w3id.org/blockcerts/v2",
+  "BLOCKCERTS_ORG_V2_CONTEXT": "https://www.blockcerts.org/schema/2.0/context.json",
+  "BLOCKCERTS_V2_1_CONTEXT": "https://w3id.org/blockcerts/schema/2.1/context.json",
+  "BLOCKCERTS_V2_1_CANONICAL_CONTEXT": "https://w3id.org/blockcerts/v2.1",
+  "BLOCKCERTS_ORG_V2_1_CONTEXT": "https://www.blockcerts.org/schema/2.1/context.json",
+  "BLOCKCERTS_V3_CONTEXT": "https://w3id.org/blockcerts/schema/3.0/context.json",
+  "BLOCKCERTS_V3_CANONICAL_CONTEXT": "https://w3id.org/blockcerts/v3",
+  "BLOCKCERTS_ORG_V3_CONTEXT": "https://www.blockcerts.org/schema/3.0/context.json"
+}

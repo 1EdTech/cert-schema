@@ -1,6 +1,0 @@
-{
-  "BLOCKCERTS_V3_CONTEXT": "https://w3id.org/blockcerts/schema/3.0/context.json",
-  "BLOCKCERTS_V3_SCHEMA": "https://w3id.org/blockcerts/schema/3.0/schema.json",
-  "BLOCKCERTS_V3_CANONICAL_CONTEXT": "https://w3id.org/blockcerts/v3",
-  "BLOCKCERTS_V3_CONTEXT_2": "https://www.blockcerts.org/schema/3.0/context.json"
-}

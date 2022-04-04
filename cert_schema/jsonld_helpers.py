@@ -16,50 +16,37 @@ try:
 except ImportError:
     from urllib2 import urlopen
 
-
-SECURITY_CONTEXT_URL = 'https://w3id.org/security/v1'
-
 OPEN_BADGES_V2_CONTEXT = 'https://openbadgespec.org/v2/context.json'
 OPEN_BADGES_V2_CANONICAL_CONTEXT = 'https://w3id.org/openbadges/v2'
 
 VERIFIABLE_CREDENTIAL_V1_CONTEXT = 'https://www.w3.org/2018/credentials/v1'
-EXAMPLE_CREDENTIAL_V1_CONTEXT = 'https://www.w3.org/2018/credentials/examples/v1'
-MERKLE_PROOF_2019_V1_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-alpha/merkleProof2019Context.json'
 
 BLOCKCERTS_V2_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0-alpha/context.json'
-BLOCKCERTS_V2_ALPHA_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0-alpha/schema.json'
+BLOCKCERTS_ORG_V2_ALPHA_CONTEXT = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
+
 BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
-BLOCKCERTS_V2_SCHEMA = 'https://w3id.org/blockcerts/schema/2.0/schema.json'
+BLOCKCERTS_ORG_V2_CONTEXT = 'https://www.blockcerts.org/schema/2.0/context.json'
 BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
 
 BLOCKCERTS_V2_1_CONTEXT = 'https://w3id.org/blockcerts/schema/2.1/context.json'
 BLOCKCERTS_ORG_V2_1_CONTEXT = 'https://www.blockcerts.org/schema/2.1/context.json'
-BLOCKCERTS_V2_1_SCHEMA = 'https://w3id.org/blockcerts/schema/2.1/schema.json'
 BLOCKCERTS_V2_1_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2.1'
 
 BLOCKCERTS_V3_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-alpha/context.json'
-BLOCKCERTS_V3_ALPHA_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0-alpha/schema.json'
+BLOCKCERTS_V3_ORG_ALPHA_CONTEXT = 'https://www.blockcerts.org/schema/3.0-alpha/context.json'
 BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-alpha'
 
 BLOCKCERTS_V3_BETA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-beta/context.json'
-BLOCKCERTS_V3_BETA_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0-beta/schema.json'
+BLOCKCERTS_V3_ORG_BETA_CONTEXT = 'https://www.blockcerts.org/schema/3.0-beta/context.json'
 BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-beta'
 
-BLOCKCERTS_V3_CONTEXT = 'https://www.blockcerts.org/schema/3.0/context.json'
-BLOCKCERTS_V3_SCHEMA = 'https://w3id.org/blockcerts/schema/3.0/schema.json'
+BLOCKCERTS_V3_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0/context.json'
+BLOCKCERTS__ORG_V3_CONTEXT = 'https://www.blockcerts.org/schema/3.0/context.json'
 BLOCKCERTS_V3_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3'
 
 BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/3.0#'
 
 JSONLD_OPTIONS = {'algorithm': 'URDNA2015', 'format': 'application/nquads'}
-
-
-# Nonstandard contexts
-BLOCKCERTS_V2_ALPHA_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
-BLOCKCERTS_V2_CONTEXT_2 = 'https://www.blockcerts.org/schema/2.0/context.json'
-BLOCKCERTS_V3_ALPHA_CONTEXT_2 = 'https://www.blockcerts.org/schema/3.0-alpha/context.json'
-BLOCKCERTS_V3_BETA_CONTEXT_2 = 'https://www.blockcerts.org/schema/3.0-beta/context.json'
-BLOCKCERTS_V3_CONTEXT_2 = 'https://www.blockcerts.org/schema/3.0/context.json'
 
 FALLBACK_VOCAB = 'http://fallback.org/'
 FALLBACK_CONTEXT = {'@vocab': FALLBACK_VOCAB}
@@ -75,18 +62,12 @@ JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/context.json')
 OBI_JSON_LD_CONTEXT_V2_1 = os.path.join(BASE_DIR, '2.1/obi.json')
 
 JSON_LD_CONTEXT_V3_0_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/context.json')
-CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/credential.json')
-EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/exampleCredential.json')
-MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/merkleProof2019Context.json')
 
 JSON_LD_CONTEXT_V3_0_BETA = os.path.join(BASE_DIR, '3.0-beta/context.json')
-CREDENTIAL_JSON_LD_CONTEXT_V1_BETA = os.path.join(BASE_DIR, '3.0-beta/credential.json')
-EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_BETA = os.path.join(BASE_DIR, '3.0-beta/exampleCredential.json')
-MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_BETA = os.path.join(BASE_DIR, '3.0-beta/merkleProof2019Context.json')
 
 JSON_LD_CONTEXT_V3_0 = os.path.join(BASE_DIR, '3.0/context.json')
+
 CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
-MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/merkleProof2019Context.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -98,39 +79,19 @@ with open(os.path.join(BASE_DIR, './schemas/context_urls.json')) as context_data
         PRELOADED_CONTEXTS[OPEN_BADGES_V2_CONTEXT] = obi_context
         PRELOADED_CONTEXTS[OPEN_BADGES_V2_CANONICAL_CONTEXT] = obi_context
 
-    with open(CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
+    with open(CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
         cred_context = json.load(data_file)
         PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
-
-    with open(EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
-        example_cred_context = json.load(data_file)
-        PRELOADED_CONTEXTS[EXAMPLE_CREDENTIAL_V1_CONTEXT] = example_cred_context
-
-    with open(MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_ALPHA) as data_file:
-        merkle2019_context = json.load(data_file)
-        PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT] = merkle2019_context
-
-    with open(CREDENTIAL_JSON_LD_CONTEXT_V1_BETA) as data_file:
-        cred_context = json.load(data_file)
-        PRELOADED_CONTEXTS[VERIFIABLE_CREDENTIAL_V1_CONTEXT] = cred_context
-
-    with open(EXAMPLE_CREDENTIAL_JSON_LD_CONTEXT_V1_BETA) as data_file:
-        example_cred_context = json.load(data_file)
-        PRELOADED_CONTEXTS[EXAMPLE_CREDENTIAL_V1_CONTEXT] = example_cred_context
-
-    with open(MERKLE_PROOF_2019_JSON_LD_CONTEXT_V1_BETA) as data_file:
-        merkle2019_context = json.load(data_file)
-        PRELOADED_CONTEXTS[MERKLE_PROOF_2019_V1_CONTEXT] = merkle2019_context
 
     with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
         bc_context = json.load(data_file)
         PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT_2] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_ORG_V2_ALPHA_CONTEXT] = bc_context
 
     with open(JSON_LD_CONTEXT_V2_0) as data_file:
         bc_context = json.load(data_file)
         PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V2_CONTEXT_2] = bc_context
+        PRELOADED_CONTEXTS[BLOCKCERTS_ORG_V2_CONTEXT] = bc_context
         PRELOADED_CONTEXTS[BLOCKCERTS_V2_CANONICAL_CONTEXT] = bc_context
 
     with open(JSON_LD_CONTEXT_V2_1) as data_file:
