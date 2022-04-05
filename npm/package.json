@@ -1,7 +1,7 @@
 {
   "name": "@blockcerts/schemas",
   "version": "0.0.0-dev",
-  "repository": "https://github.com/blockchain-certificates/cert-schema/npm",
+  "repository": "https://github.com/blockchain-certificates/cert-schema",
   "description": "One source of truth for Blockcerts schemas",
   "main": "index.js",
   "scripts": {
