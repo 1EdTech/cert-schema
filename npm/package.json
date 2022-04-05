@@ -1,0 +1,25 @@
+{
+  "name": "@blockcerts/schemas",
+  "version": "0.0.0-dev",
+  "repository": "https://github.com/blockchain-certificates/cert-schema",
+  "description": "One source of truth for Blockcerts schemas",
+  "main": "index.js",
+  "scripts": {
+    "copy:schemas": "rm -rf ./schemas && cp -r ../cert_schema/ ./schemas && rm schemas/*.py",
+    "semantic-release": "semantic-release"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "blockcerts",
+    "schema",
+    "verifiable",
+    "credentials"
+  ],
+  "author": "Julien Fraichot",
+  "license": "MIT",
+  "devDependencies": {
+    "semantic-release": "^19.0.2"
+  }
+}
