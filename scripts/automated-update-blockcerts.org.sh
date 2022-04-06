@@ -26,7 +26,7 @@ git remote add origin https://$GITHUB_USER:$BOTCERTS_PR_GITHUB_TOKEN@$GIT_REPO
 #  "base": "master"
 #}
 
-curl --data '{"head":"'${WORK_BRANCH}'", "base":"master", "title": "updatee Blockcerts Schemas", "body": "Please review and merge @lemoustachiste @raiseandfall"}' -H "Authorization: token ${BOTCERTS_PR_GITHUB_TOKEN}" https://api.github.com/repos/$BLOCKCERTS_GITHUB_REPO/pulls -v
+curl --data '{"head":"'${WORK_BRANCH}'", "base":"master", "title": "update Blockcerts Schemas", "body": "Please review and merge @lemoustachiste @raiseandfall"}' -H "Authorization: token ${BOTCERTS_PR_GITHUB_TOKEN}" https://api.github.com/repos/$BLOCKCERTS_GITHUB_REPO/pulls -v
 
 # clean after use
 cd ..
