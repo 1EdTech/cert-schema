@@ -16,21 +16,21 @@ try:
 except ImportError:
     from urllib2 import urlopen
 
-OPEN_BADGES_V2_CONTEXT = 'https://openbadgespec.org/v2/context.json'
-OPEN_BADGES_V2_CANONICAL_CONTEXT = 'https://w3id.org/openbadges/v2'
-
-VERIFIABLE_CREDENTIAL_V1_CONTEXT = 'https://www.w3.org/2018/credentials/v1'
+# OPEN_BADGES_V2_CONTEXT = 'https://openbadgespec.org/v2/context.json'
+# OPEN_BADGES_V2_CANONICAL_CONTEXT = 'https://w3id.org/openbadges/v2'
+#
+# VERIFIABLE_CREDENTIAL_V1_CONTEXT = 'https://www.w3.org/2018/credentials/v1'
 
 BLOCKCERTS_V2_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0-alpha/context.json'
 BLOCKCERTS_ORG_V2_ALPHA_CONTEXT = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
 
-BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
-BLOCKCERTS_ORG_V2_CONTEXT = 'https://www.blockcerts.org/schema/2.0/context.json'
-BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
-
-BLOCKCERTS_V2_1_CONTEXT = 'https://w3id.org/blockcerts/schema/2.1/context.json'
-BLOCKCERTS_ORG_V2_1_CONTEXT = 'https://www.blockcerts.org/schema/2.1/context.json'
-BLOCKCERTS_V2_1_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2.1'
+# BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
+# BLOCKCERTS_ORG_V2_CONTEXT = 'https://www.blockcerts.org/schema/2.0/context.json'
+# BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
+#
+# BLOCKCERTS_V2_1_CONTEXT = 'https://w3id.org/blockcerts/schema/2.1/context.json'
+# BLOCKCERTS_ORG_V2_1_CONTEXT = 'https://www.blockcerts.org/schema/2.1/context.json'
+# BLOCKCERTS_V2_1_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2.1'
 
 BLOCKCERTS_V3_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-alpha/context.json'
 BLOCKCERTS_V3_ORG_ALPHA_CONTEXT = 'https://www.blockcerts.org/schema/3.0-alpha/context.json'
@@ -40,9 +40,9 @@ BLOCKCERTS_V3_BETA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-beta/contex
 BLOCKCERTS_V3_ORG_BETA_CONTEXT = 'https://www.blockcerts.org/schema/3.0-beta/context.json'
 BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-beta'
 
-BLOCKCERTS_V3_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0/context.json'
-BLOCKCERTS__ORG_V3_CONTEXT = 'https://www.blockcerts.org/schema/3.0/context.json'
-BLOCKCERTS_V3_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3'
+# BLOCKCERTS_V3_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0/context.json'
+# BLOCKCERTS__ORG_V3_CONTEXT = 'https://www.blockcerts.org/schema/3.0/context.json'
+# BLOCKCERTS_V3_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3'
 
 BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/3.0#'
 
