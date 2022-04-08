@@ -10,27 +10,30 @@ from pyld.jsonld import JsonLdProcessor
 import validators
 
 from cert_schema.errors import *
+from cert_schema.context_urls import ContextUrls
 
 try:
     from urllib.request import urlopen
 except ImportError:
     from urllib2 import urlopen
 
-# OPEN_BADGES_V2_CONTEXT = 'https://openbadgespec.org/v2/context.json'
-# OPEN_BADGES_V2_CANONICAL_CONTEXT = 'https://w3id.org/openbadges/v2'
-#
-# VERIFIABLE_CREDENTIAL_V1_CONTEXT = 'https://www.w3.org/2018/credentials/v1'
+ContextUrlsInstance = ContextUrls()
+
+OPEN_BADGES_V2_CONTEXT = ContextUrlsInstance.open_badge()
+OPEN_BADGES_V2_CANONICAL_CONTEXT = ContextUrlsInstance.open_badge_canonical()
+
+VERIFIABLE_CREDENTIAL_V1_CONTEXT = ContextUrlsInstance.verifiable_credential()
 
 BLOCKCERTS_V2_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0-alpha/context.json'
 BLOCKCERTS_ORG_V2_ALPHA_CONTEXT = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
 
-# BLOCKCERTS_V2_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0/context.json'
-# BLOCKCERTS_ORG_V2_CONTEXT = 'https://www.blockcerts.org/schema/2.0/context.json'
-# BLOCKCERTS_V2_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2'
-#
-# BLOCKCERTS_V2_1_CONTEXT = 'https://w3id.org/blockcerts/schema/2.1/context.json'
-# BLOCKCERTS_ORG_V2_1_CONTEXT = 'https://www.blockcerts.org/schema/2.1/context.json'
-# BLOCKCERTS_V2_1_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v2.1'
+BLOCKCERTS_V2_CONTEXT = ContextUrlsInstance.v2()
+BLOCKCERTS_ORG_V2_CONTEXT = ContextUrlsInstance.v2_blockcerts_org()
+BLOCKCERTS_V2_CANONICAL_CONTEXT = ContextUrlsInstance.v2_canonical()
+
+BLOCKCERTS_V2_1_CONTEXT = ContextUrlsInstance.v2_1()
+BLOCKCERTS_ORG_V2_1_CONTEXT = ContextUrlsInstance.v2_1_blockcerts_org()
+BLOCKCERTS_V2_1_CANONICAL_CONTEXT = ContextUrlsInstance.v2_1_canonical()
 
 BLOCKCERTS_V3_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-alpha/context.json'
 BLOCKCERTS_V3_ORG_ALPHA_CONTEXT = 'https://www.blockcerts.org/schema/3.0-alpha/context.json'
@@ -40,9 +43,9 @@ BLOCKCERTS_V3_BETA_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0-beta/contex
 BLOCKCERTS_V3_ORG_BETA_CONTEXT = 'https://www.blockcerts.org/schema/3.0-beta/context.json'
 BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3.0-beta'
 
-# BLOCKCERTS_V3_CONTEXT = 'https://w3id.org/blockcerts/schema/3.0/context.json'
-# BLOCKCERTS__ORG_V3_CONTEXT = 'https://www.blockcerts.org/schema/3.0/context.json'
-# BLOCKCERTS_V3_CANONICAL_CONTEXT = 'https://w3id.org/blockcerts/v3'
+BLOCKCERTS_V3_CONTEXT = ContextUrlsInstance.v3()
+BLOCKCERTS__ORG_V3_CONTEXT = ContextUrlsInstance.v3_blockcerts_org()
+BLOCKCERTS_V3_CANONICAL_CONTEXT = ContextUrlsInstance.v3_canonical()
 
 BLOCKCERTS_VOCAB = 'https://w3id.org/blockcerts/3.0#'
 
@@ -71,52 +74,49 @@ VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credentia
 
 PRELOADED_CONTEXTS = {}
 
-with open(os.path.join(BASE_DIR, 'context_urls.json')) as context_data:
-    CONTEXT_URLS = json.load(context_data)
-
-    with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
+with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
         obi_context = json.load(data_file)
-        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CONTEXT']] = obi_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['OPEN_BADGES_V2_CANONICAL_CONTEXT']] = obi_context
+        PRELOADED_CONTEXTS[ContextUrlsInstance.open_badge()] = obi_context
+        PRELOADED_CONTEXTS[ContextUrlsInstance.open_badge_canonical()] = obi_context
 
-    with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
-        cred_context = json.load(data_file)
-        PRELOADED_CONTEXTS[CONTEXT_URLS['VERIFIABLE_CREDENTIAL_V1_CONTEXT']] = cred_context
+with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
+    cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS[ContextUrlsInstance.verifiable_credential()] = cred_context
 
-    with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
-        bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_ORG_V2_ALPHA_CONTEXT] = bc_context
+with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[BLOCKCERTS_V2_ALPHA_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_ORG_V2_ALPHA_CONTEXT] = bc_context
 
-    with open(JSON_LD_CONTEXT_V2_0) as data_file:
-        bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_CONTEXT']] = bc_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_ORG_V2_CONTEXT']] = bc_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_CANONICAL_CONTEXT']] = bc_context
+with open(JSON_LD_CONTEXT_V2_0) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v2()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v2_blockcerts_org()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v2_canonical()] = bc_context
 
-    with open(JSON_LD_CONTEXT_V2_1) as data_file:
-        bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_1_CONTEXT']] = bc_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_ORG_V2_1_CONTEXT']] = bc_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V2_1_CANONICAL_CONTEXT']] = bc_context
+with open(JSON_LD_CONTEXT_V2_1) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v2_1()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v2_1_blockcerts_org()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v2_1_canonical()] = bc_context
 
-    with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
-        bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ORG_ALPHA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT] = bc_context
+with open(JSON_LD_CONTEXT_V3_0_ALPHA) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ORG_ALPHA_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ALPHA_CANONICAL_CONTEXT] = bc_context
 
-    with open(JSON_LD_CONTEXT_V3_0_BETA) as data_file:
-        bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_ORG_BETA_CONTEXT] = bc_context
-        PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT] = bc_context
+with open(JSON_LD_CONTEXT_V3_0_BETA) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_ORG_BETA_CONTEXT] = bc_context
+    PRELOADED_CONTEXTS[BLOCKCERTS_V3_BETA_CANONICAL_CONTEXT] = bc_context
 
-    with open(JSON_LD_CONTEXT_V3_0) as data_file:
-        bc_context = json.load(data_file)
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CONTEXT']] = bc_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_ORG_V3_CONTEXT']] = bc_context
-        PRELOADED_CONTEXTS[CONTEXT_URLS['BLOCKCERTS_V3_CANONICAL_CONTEXT']] = bc_context
+with open(JSON_LD_CONTEXT_V3_0) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v3()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v3_canonical()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v3_blockcerts_org()] = bc_context
 
 def to_loader_response(data, url):
     return {
