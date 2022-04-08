@@ -24,5 +24,45 @@ class TestContextUrls(unittest.TestCase):
         self.assertEqual(output, [
             'https://w3id.org/blockcerts/schema/2.0/context.json',
             'https://w3id.org/blockcerts/v2',
+            'https://www.blockcerts.org/schema/2.0/context.json'
+        ])
+
+    def test_v2_1(self):
+        output = self.instance.v2_1()
+        self.assertTrue(output == 'https://w3id.org/blockcerts/schema/2.1/context.json')
+
+    def test_v2_1_canonical(self):
+        output = self.instance.v2_1_canonical()
+        self.assertTrue(output == 'https://w3id.org/blockcerts/v2.1')
+
+    def test_v2_1_blockcerts_org(self):
+        output = self.instance.v2_1_blockcerts_org()
+        self.assertTrue(output == 'https://www.blockcerts.org/schema/2.1/context.json')
+
+    def test_v2_1_all(self):
+        output = self.instance.v2_1_all()
+        self.assertEqual(output, [
+            'https://w3id.org/blockcerts/schema/2.1/context.json',
+            'https://w3id.org/blockcerts/v2.1',
+            'https://www.blockcerts.org/schema/2.1/context.json'
+        ])
+
+    def test_v3(self):
+        output = self.instance.v3()
+        self.assertTrue(output == 'https://w3id.org/blockcerts/schema/3.0/context.json')
+
+    def test_v3_canonical(self):
+        output = self.instance.v3_canonical()
+        self.assertTrue(output == 'https://w3id.org/blockcerts/v3')
+
+    def test_v3_blockcerts_org(self):
+        output = self.instance.v3_blockcerts_org()
+        self.assertTrue(output == 'https://www.blockcerts.org/schema/3.0/context.json')
+
+    def test_v3_all(self):
+        output = self.instance.v3_all()
+        self.assertEqual(output, [
+            'https://w3id.org/blockcerts/schema/3.0/context.json',
+            'https://w3id.org/blockcerts/v3',
             'https://www.blockcerts.org/schema/3.0/context.json'
         ])

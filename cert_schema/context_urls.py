@@ -22,3 +22,35 @@ class ContextUrls:
             self.v2_canonical(),
             self.v2_blockcerts_org()
         ]
+
+    def v2_1(self):
+        return self.CONTEXT_URLS['BLOCKCERTS_V2_1_CONTEXT']
+
+    def v2_1_canonical(self):
+        return self.CONTEXT_URLS['BLOCKCERTS_V2_1_CANONICAL_CONTEXT']
+
+    def v2_1_blockcerts_org(self):
+        return self.CONTEXT_URLS['BLOCKCERTS_ORG_V2_1_CONTEXT']
+
+    def v2_1_all(self):
+        return [
+            self.v2_1(),
+            self.v2_1_canonical(),
+            self.v2_1_blockcerts_org()
+        ]
+
+    def v3(self):
+        return self.CONTEXT_URLS['BLOCKCERTS_V3_CONTEXT']
+
+    def v3_canonical(self):
+        return self.CONTEXT_URLS['BLOCKCERTS_V3_CANONICAL_CONTEXT']
+
+    def v3_blockcerts_org(self):
+        return self.CONTEXT_URLS['BLOCKCERTS_ORG_V3_CONTEXT']
+
+    def v3_all(self):
+        return [
+            self.v3(),
+            self.v3_canonical(),
+            self.v3_blockcerts_org()
+        ]
