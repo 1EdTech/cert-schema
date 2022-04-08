@@ -54,3 +54,12 @@ class ContextUrls:
             self.v3_canonical(),
             self.v3_blockcerts_org()
         ]
+
+    def open_badge(self):
+        return self.CONTEXT_URLS['OPEN_BADGES_V2_CONTEXT']
+
+    def open_badge_canonical(self):
+        return self.CONTEXT_URLS['OPEN_BADGES_V2_CANONICAL_CONTEXT']
+
+    def verifiable_credential(self):
+        return self.CONTEXT_URLS['VERIFIABLE_CREDENTIAL_V1_CONTEXT']

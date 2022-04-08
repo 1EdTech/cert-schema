@@ -66,3 +66,15 @@ class TestContextUrls(unittest.TestCase):
             'https://w3id.org/blockcerts/v3',
             'https://www.blockcerts.org/schema/3.0/context.json'
         ])
+
+    def test_open_badge(self):
+        output = self.instance.open_badge()
+        self.assertTrue(output == 'https://openbadgespec.org/v2/context.json')
+
+    def test_open_badge_canonical(self):
+        output = self.instance.open_badge_canonical()
+        self.assertTrue(output == 'https://w3id.org/openbadges/v2')
+
+    def test_verifiable_credentials(self):
+        output = self.instance.verifiable_credential()
+        self.assertTrue(output == 'https://www.w3.org/2018/credentials/v1')
