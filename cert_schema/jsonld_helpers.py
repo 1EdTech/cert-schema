@@ -69,8 +69,11 @@ JSON_LD_CONTEXT_V3_0_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/context.json')
 JSON_LD_CONTEXT_V3_0_BETA = os.path.join(BASE_DIR, '3.0-beta/context.json')
 
 JSON_LD_CONTEXT_V3_0 = os.path.join(BASE_DIR, '3.0/context.json')
+MERKLE_PROOF_2019_LD_CONTEXT = os.path.join(BASE_DIR, '3.0/merkleProof2019Context.json')
+CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.0/chainedProof2021Context.json')
 
 VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
+ED25519_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/ed25519Context.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -82,6 +85,18 @@ with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
 with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
     cred_context = json.load(data_file)
     PRELOADED_CONTEXTS[ContextUrlsInstance.verifiable_credential()] = cred_context
+
+with open(ED25519_JSON_LD_CONTEXT_V1) as data_file:
+    cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS['https://w3id.org/security/suites/ed25519-2020/v1'] = cred_context
+
+with open(MERKLE_PROOF_2019_LD_CONTEXT) as data_file:
+    cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS['https://w3id.org/security/suites/merkle-2019/v1'] = cred_context
+
+with open(CHAINED_PROOF_2021_LD_CONTEXT) as data_file:
+    cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS['https://w3id.org/security/suites/chained-2021/v1'] = cred_context
 
 with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
     bc_context = json.load(data_file)
