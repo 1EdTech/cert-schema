@@ -40,5 +40,8 @@ class TestJsonldHelpers(unittest.TestCase):
 
     def test_v3_preloaded_loader(self):
         with open('../examples/3.0/bbba8553-8ec1-445f-82c9-a57251dd731c.json') as data_f:
-            certificate = json.load(data_f)
-            normalize_jsonld(certificate, detect_unmapped_fields=True)
+            with open('./assertions/normalized-bbba8553-8ec1-445f-82c9-a57251dd731c.txt') as assertionFile:
+                assertion = assertionFile.read()
+                certificate = json.load(data_f)
+                normalized = normalize_jsonld(certificate, detect_unmapped_fields=True)
+                self.assertEqual(normalized, assertion)
