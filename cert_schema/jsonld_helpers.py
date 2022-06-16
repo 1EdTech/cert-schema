@@ -69,11 +69,12 @@ JSON_LD_CONTEXT_V3_0_ALPHA = os.path.join(BASE_DIR, '3.0-alpha/context.json')
 JSON_LD_CONTEXT_V3_0_BETA = os.path.join(BASE_DIR, '3.0-beta/context.json')
 
 JSON_LD_CONTEXT_V3_0 = os.path.join(BASE_DIR, '3.0/context.json')
-MERKLE_PROOF_2019_LD_CONTEXT = os.path.join(BASE_DIR, '3.0/merkleProof2019Context.json')
-CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.0/chainedProof2021Context.json')
+JSON_LD_CONTEXT_V3_1 = os.path.join(BASE_DIR, '3.1/context.json')
+MERKLE_PROOF_2019_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/merkleProof2019Context.json')
+CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/chainedProof2021Context.json')
 
 VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
-ED25519_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/ed25519Context.json')
+ED25519_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.1/ed25519Context.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -132,6 +133,12 @@ with open(JSON_LD_CONTEXT_V3_0) as data_file:
     PRELOADED_CONTEXTS[ContextUrlsInstance.v3()] = bc_context
     PRELOADED_CONTEXTS[ContextUrlsInstance.v3_canonical()] = bc_context
     PRELOADED_CONTEXTS[ContextUrlsInstance.v3_blockcerts_org()] = bc_context
+
+with open(JSON_LD_CONTEXT_V3_1) as data_file:
+    bc_context = json.load(data_file)
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v3_1()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v3_1_canonical()] = bc_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.v3_1_blockcerts_org()] = bc_context
 
 def to_loader_response(data, url):
     return {

@@ -10,5 +10,8 @@
   "BLOCKCERTS_ORG_V2_1_CONTEXT": "https://www.blockcerts.org/schema/2.1/context.json",
   "BLOCKCERTS_V3_CONTEXT": "https://w3id.org/blockcerts/schema/3.0/context.json",
   "BLOCKCERTS_V3_CANONICAL_CONTEXT": "https://w3id.org/blockcerts/v3",
-  "BLOCKCERTS_ORG_V3_CONTEXT": "https://www.blockcerts.org/schema/3.0/context.json"
+  "BLOCKCERTS_ORG_V3_CONTEXT": "https://www.blockcerts.org/schema/3.0/context.json",
+  "BLOCKCERTS_V3_1_CONTEXT": "https://w3id.org/blockcerts/schema/3.1/context.json",
+  "BLOCKCERTS_V3_1_CANONICAL_CONTEXT": "https://w3id.org/blockcerts/v3.1",
+  "BLOCKCERTS_ORG_V3_1_CONTEXT": "https://www.blockcerts.org/schema/3.1/context.json"
 }
