@@ -74,7 +74,6 @@ MERKLE_PROOF_2019_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/merkleProof2019Contex
 CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/chainedProof2021Context.json')
 
 VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
-ED25519_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.1/ed25519Context.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -86,10 +85,6 @@ with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
 with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
     cred_context = json.load(data_file)
     PRELOADED_CONTEXTS[ContextUrlsInstance.verifiable_credential()] = cred_context
-
-with open(ED25519_JSON_LD_CONTEXT_V1) as data_file:
-    cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS['https://w3id.org/security/suites/ed25519-2020/v1'] = cred_context
 
 with open(MERKLE_PROOF_2019_LD_CONTEXT) as data_file:
     cred_context = json.load(data_file)
@@ -172,6 +167,10 @@ def jsonld_document_loader(url):
     data = load_document(url)
     return to_loader_response(data, url)
 
+# use this method prior to calling normalize_jsonld if you need to pass a specific context for normalization
+def extend_preloaded_context(url, context):
+    PRELOADED_CONTEXTS[url] = context
+    pass
 
 def preloaded_context_document_loader(url, override_cache=False):
     if url in PRELOADED_CONTEXTS:

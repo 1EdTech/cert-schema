@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/security/suites/ed25519-2020/v1",
+    "https://w3id.org/security/suites/merkle-2019/v1",
+    "https://w3id.org/security/suites/chained-2021/v1",
+    "https://w3id.org/blockcerts/v3.1"
+  ],
+  "id": "urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c",
+  "type": [
+    "VerifiableCredential",
+    "BlockcertsCredential"
+  ],
+  "issuer": "did:key:z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs",
+  "issuanceDate": "2022-05-02T16:36:22.915Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "name": "Julien Fraichot",
+    "email": "julien.fraichot@hyland.com",
+    "publicKey": "ecdsa-koblitz-pubkey:1BPQXndcz5Uf3qZQkgnvJC87LUD5n7a2mC",
+    "claim": {
+      "name": "Master of Puppets",
+      "description": "Awarded to those who rock"
+    }
+  },
+  "metadata": "{\"classOf\":\"2021\"}",
+  "display": {
+    "contentMediaType": "text/html",
+    "content": "<div style=\"background-color:transparent;padding:6px;display:inline-flex;align-items:center;flex-direction:column\"><style>*{line-height:initial}</style><div>Yo</div></div>"
+  },
+  "proof": [
+    {
+      "type": "Ed25519Signature2020",
+      "created": "2022-05-02T16:36:22.933Z",
+      "verificationMethod": "did:key:z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs#z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zAvFt59599JweBZ4zPP6Ge8LhKgECtBvDRmjG5VQbgEkPCiyMcM9QAPanJgSCs6RRGcKu96qNpfmpe9eTygpFZP6"
+    },
+    {
+      "type": "ChainedProof2021",
+      "verificationMethod": "did:ion:EiA_Z6LQILbB2zj_eVrqfQ2xDm4HNqeJUw5Kj2Z7bFOOeQ#key-1",
+      "chainedProofType": "MerkleProof2019",
+      "created": "2022-05-25T09:20:07.829848",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z4zvrPUULnHmaio2VmTAC4B3CgVeYWgfdjZWjBdFyUZHcsdM9RPa6c8X8RGSJqGEG73kt4sYSwm5gsUnttW3svgwrJ1M63wY5L8Cpt1VXaqcyfDXjbpScKf1PKuojjDiFttHW3SsEFwbKo4WfWzWfKYzrya7d7gKY2Uz9gB7YwCKpr6DqMYMRYUmpsY3FkWKBseyBEDZLA14SxFLWxUh7Dnh4ZqQwC9y6asSr6azBTMPm7VRogXncD5s7wwaCFfCYiSL8iJGYPBuFvVjw3rZWBqbk79BxRhfY9FEgpMVWSfysiSvVk2eatvowpVf9XSbjZ8rgFfWGJ4HA2K8bsioXzoc3mdCHkZDoMQRh5fJXx1UsC9nVgqpYkLbi9HxHFqk9yDFiyW4E5Y4tEW6NoA",
+      "previousProof": {
+        "type": "Ed25519Signature2020",
+        "created": "2022-05-02T16:36:22.933Z",
+        "verificationMethod": "did:key:z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs#z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "zAvFt59599JweBZ4zPP6Ge8LhKgECtBvDRmjG5VQbgEkPCiyMcM9QAPanJgSCs6RRGcKu96qNpfmpe9eTygpFZP6"
+      }
+    }
+  ]
+}
