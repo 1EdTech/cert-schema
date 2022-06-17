@@ -88,11 +88,11 @@ with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
 
 with open(MERKLE_PROOF_2019_LD_CONTEXT) as data_file:
     cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS['https://w3id.org/security/suites/merkle-2019/v1'] = cred_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.merkle_proof_2019()] = cred_context
 
 with open(CHAINED_PROOF_2021_LD_CONTEXT) as data_file:
     cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS['https://w3id.org/security/suites/chained-2021/v1'] = cred_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.chained_proof_2021()] = cred_context
 
 with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
     bc_context = json.load(data_file)
