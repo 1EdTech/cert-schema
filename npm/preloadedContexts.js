@@ -6,6 +6,9 @@ import VERIFIABLE_CREDENTIALS_CONTEXT from './schemas/3.0/credential.json';
 import V2_CONTEXT from './schemas/2.0/context.json';
 import V2_1_CONTEXT from './schemas/2.1/context.json';
 import V3_CONTEXT from './schemas/3.0/context.json';
+import V3_1_CONTEXT from './schemas/3.1/context.json';
+import MERKLE_PROOF_2019_CONTEXT from './schemas/3.1/merkleProof2019Context.json';
+import CHAINED_PROOF_2021_CONTEXT from './schemas/3.1/chainedProof2021Context.json';
 
 const preloadedContexts = {};
 
@@ -25,5 +28,11 @@ preloadedContexts[CONTEXT_URLS.BLOCKCERTS_V2_1_CANONICAL_CONTEXT] = V2_1_CONTEXT
 preloadedContexts[CONTEXT_URLS.BLOCKCERTS_V3_CONTEXT] = V3_CONTEXT;
 preloadedContexts[CONTEXT_URLS.BLOCKCERTS_ORG_V3_CONTEXT] = V3_CONTEXT;
 preloadedContexts[CONTEXT_URLS.BLOCKCERTS_V3_CANONICAL_CONTEXT] = V3_CONTEXT;
+
+preloadedContexts[CONTEXT_URLS.BLOCKCERTS_V3_1_CONTEXT] = V3_1_CONTEXT;
+preloadedContexts[CONTEXT_URLS.BLOCKCERTS_ORG_V3_1_CONTEXT] = V3_1_CONTEXT;
+preloadedContexts[CONTEXT_URLS.BLOCKCERTS_V3_1_CANONICAL_CONTEXT] = V3_1_CONTEXT;
+preloadedContexts[CONTEXT_URLS.MERKLE_PROOF_2019_CONTEXT] = MERKLE_PROOF_2019_CONTEXT;
+preloadedContexts[CONTEXT_URLS.CHAINED_PROOF_2021_CONTEXT] = CHAINED_PROOF_2021_CONTEXT;
 
 export default preloadedContexts;
