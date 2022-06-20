@@ -1,5 +1,5 @@
 
-from cert_schema.jsonld_helpers import jsonld_document_loader, normalize_jsonld
+from cert_schema.jsonld_helpers import jsonld_document_loader, normalize_jsonld, extend_preloaded_context
 from cert_schema.schema_validator import validate_unsigned_v1_2, validate_v1_2, validate_v2, validate_v2_1,\
     validate_v3
 from cert_schema.context_urls import ContextUrls

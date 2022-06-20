@@ -1,0 +1,33 @@
+<did:example:ebfeb1f712ebc6f1c276e12ec21> <https://schema.org/claim> _:c14n5 .
+<did:example:ebfeb1f712ebc6f1c276e12ec21> <https://schema.org/email> "julien.fraichot@hyland.com" .
+<did:example:ebfeb1f712ebc6f1c276e12ec21> <https://schema.org/name> "Julien Fraichot" .
+<did:example:ebfeb1f712ebc6f1c276e12ec21> <https://w3id.org/security#publicKey> "ecdsa-koblitz-pubkey:1BPQXndcz5Uf3qZQkgnvJC87LUD5n7a2mC" .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/blockcerts#BlockcertsCredential> .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/2018/credentials#VerifiableCredential> .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <https://w3id.org/blockcerts#display> _:c14n4 .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <https://w3id.org/blockcerts#metadata> "{\"classOf\":\"2021\"}" .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <https://w3id.org/security#proof> _:c14n0 .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <https://w3id.org/security#proof> _:c14n1 .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <https://www.w3.org/2018/credentials#credentialSubject> <did:example:ebfeb1f712ebc6f1c276e12ec21> .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <https://www.w3.org/2018/credentials#issuanceDate> "2022-05-02T16:36:22.915Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<urn:uuid:bbba8553-8ec1-445f-82c9-a57251dd731c> <https://www.w3.org/2018/credentials#issuer> <did:key:z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs> .
+_:c14n2 <http://purl.org/dc/terms/created> "2022-05-25T09:20:07.829848"^^<http://www.w3.org/2001/XMLSchema#dateTime> _:c14n1 .
+_:c14n2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/security#ChainedProof2021> _:c14n1 .
+_:c14n2 <https://w3id.org/security#previousProof> _:c14n3 _:c14n1 .
+_:c14n2 <https://w3id.org/security#proofPurpose> <https://w3id.org/security#assertionMethod> _:c14n1 .
+_:c14n2 <https://w3id.org/security#proofValue> "z4zvrPUULnHmaio2VmTAC4B3CgVeYWgfdjZWjBdFyUZHcsdM9RPa6c8X8RGSJqGEG73kt4sYSwm5gsUnttW3svgwrJ1M63wY5L8Cpt1VXaqcyfDXjbpScKf1PKuojjDiFttHW3SsEFwbKo4WfWzWfKYzrya7d7gKY2Uz9gB7YwCKpr6DqMYMRYUmpsY3FkWKBseyBEDZLA14SxFLWxUh7Dnh4ZqQwC9y6asSr6azBTMPm7VRogXncD5s7wwaCFfCYiSL8iJGYPBuFvVjw3rZWBqbk79BxRhfY9FEgpMVWSfysiSvVk2eatvowpVf9XSbjZ8rgFfWGJ4HA2K8bsioXzoc3mdCHkZDoMQRh5fJXx1UsC9nVgqpYkLbi9HxHFqk9yDFiyW4E5Y4tEW6NoA"^^<https://w3id.org/security#multibase> _:c14n1 .
+_:c14n2 <https://w3id.org/security#verificationMethod> <did:ion:EiA_Z6LQILbB2zj_eVrqfQ2xDm4HNqeJUw5Kj2Z7bFOOeQ#key-1> _:c14n1 .
+_:c14n3 <http://purl.org/dc/terms/created> "2022-05-02T16:36:22.933Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> _:c14n1 .
+_:c14n3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/security#Ed25519Signature2020> _:c14n1 .
+_:c14n3 <https://w3id.org/security#proofPurpose> <https://w3id.org/security#assertionMethod> _:c14n1 .
+_:c14n3 <https://w3id.org/security#proofValue> "zAvFt59599JweBZ4zPP6Ge8LhKgECtBvDRmjG5VQbgEkPCiyMcM9QAPanJgSCs6RRGcKu96qNpfmpe9eTygpFZP6"^^<https://w3id.org/security#multibase> _:c14n1 .
+_:c14n3 <https://w3id.org/security#verificationMethod> <did:key:z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs#z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs> _:c14n1 .
+_:c14n4 <https://w3id.org/blockcerts#content> "<div style=\"background-color:transparent;padding:6px;display:inline-flex;align-items:center;flex-direction:column\"><style>*{line-height:initial}</style><div>Yo</div></div>" .
+_:c14n4 <https://w3id.org/blockcerts#contentMediaType> "text/html" .
+_:c14n5 <https://schema.org/description> "Awarded to those who rock" .
+_:c14n5 <https://schema.org/name> "Master of Puppets" .
+_:c14n6 <http://purl.org/dc/terms/created> "2022-05-02T16:36:22.933Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> _:c14n0 .
+_:c14n6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/security#Ed25519Signature2020> _:c14n0 .
+_:c14n6 <https://w3id.org/security#proofPurpose> <https://w3id.org/security#assertionMethod> _:c14n0 .
+_:c14n6 <https://w3id.org/security#proofValue> "zAvFt59599JweBZ4zPP6Ge8LhKgECtBvDRmjG5VQbgEkPCiyMcM9QAPanJgSCs6RRGcKu96qNpfmpe9eTygpFZP6"^^<https://w3id.org/security#multibase> _:c14n0 .
+_:c14n6 <https://w3id.org/security#verificationMethod> <did:key:z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs#z6MkjHnntGvtLjwfAMHWTAXXGJHhVL3DPtaT9BHmyTjWpjqs> _:c14n0 .

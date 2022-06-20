@@ -1,0 +1,30 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Claim schema",
+	"description": "Define how claims are associated with credentialSubject in Blockcerts.",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"description": "What is the nature of the claim",
+			"examples": ["Diploma", "Id Card"]
+		},
+		"id": {
+			"type": "string",
+			"description": "unique identifier of the claim"
+		},
+		"name": {
+			"type": "string",
+			"description": "name of the claim"
+		},
+		"description": {
+			"type": "string",
+			"description": "description of the claim"
+		},
+		"criteria": {
+			"type": "string",
+			"description": "criteria to obtain the claim"
+		}
+	},
+	"required": []
+}
