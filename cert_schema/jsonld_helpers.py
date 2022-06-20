@@ -70,8 +70,8 @@ JSON_LD_CONTEXT_V3_0_BETA = os.path.join(BASE_DIR, '3.0-beta/context.json')
 
 JSON_LD_CONTEXT_V3_0 = os.path.join(BASE_DIR, '3.0/context.json')
 JSON_LD_CONTEXT_V3_1 = os.path.join(BASE_DIR, '3.1/context.json')
-MERKLE_PROOF_2019_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/merkleProof2019Context.json')
-CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/chainedProof2021Context.json')
+MERKLE_PROOF_2019_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/merkleProof2019Context.jsonld')
+CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/chainedProof2021Context.jsonld')
 
 VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
 
