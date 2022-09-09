@@ -6,7 +6,9 @@ before_install:
   - nvm install $NODE_VERSION
 python:
   - "3.8"
-install: pip install tox-travis
+install:
+  - pip install -r requirements.txt
+  - pip install tox-travis
 before_script:
   - tox
 script:
