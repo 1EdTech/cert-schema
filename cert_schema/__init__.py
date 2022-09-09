@@ -12,3 +12,5 @@ from cert_schema.jsonld_helpers import BLOCKCERTS_V3_CANONICAL_CONTEXT, BLOCKCER
     BLOCKCERTS_V2_1_CONTEXT, BLOCKCERTS_V2_1_CANONICAL_CONTEXT
 
 from cert_schema.errors import *
+
+__version__ = '0.0.0'

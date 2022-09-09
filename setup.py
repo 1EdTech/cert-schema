@@ -2,6 +2,9 @@ import os
 
 from setuptools import setup, find_packages
 
+from cert_schema import __version__
+
+
 here = os.path.abspath(os.path.dirname(__file__))
 
 with open('requirements.txt') as f:
@@ -13,7 +16,7 @@ with open(os.path.join(here, 'README.md')) as fp:
 
 setup(
     name='cert-schema',
-    version='3.2.1',
+    version=__version__,
     description='Blockchain certificates JSON-LD context and JSON schemas',
     author='info@blockcerts.org',
     url='https://github.com/blockchain-certificates/cert-schema',

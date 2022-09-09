@@ -15,3 +15,8 @@ script:
   - npm run copy:schemas
   - npm run semantic-release
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then sh ../scripts/automated-update-blockcerts.org.sh; fi' # if no changes (aka npm release), no commit then no PR
+after_success:
+  - pip install python-semantic-release
+  - git config user.name botcerts
+  - git config user.email botcerts@learningmachine.com
+  - semantic-release publish --noop --verbosity=DEBUG
