@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-from cert_schema import __version__
+from cert_schema.__version__ import __version__
 
 
 here = os.path.abspath(os.path.dirname(__file__))
