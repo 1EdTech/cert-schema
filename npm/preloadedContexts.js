@@ -9,6 +9,7 @@ import V3_CONTEXT from './schemas/3.0/context.json';
 import V3_1_CONTEXT from './schemas/3.1/context.json';
 import MERKLE_PROOF_2019_CONTEXT from './schemas/3.1/merkleProof2019Context.json';
 import CHAINED_PROOF_2021_CONTEXT from './schemas/3.1/chainedProof2021Context.json';
+import STATUS_LIST_2021_CONTEXT from './schemas/3.1/statusList2021.json';
 
 const preloadedContexts = {};
 
@@ -34,5 +35,6 @@ preloadedContexts[CONTEXT_URLS.BLOCKCERTS_ORG_V3_1_CONTEXT] = V3_1_CONTEXT;
 preloadedContexts[CONTEXT_URLS.BLOCKCERTS_V3_1_CANONICAL_CONTEXT] = V3_1_CONTEXT;
 preloadedContexts[CONTEXT_URLS.MERKLE_PROOF_2019_CONTEXT] = MERKLE_PROOF_2019_CONTEXT;
 preloadedContexts[CONTEXT_URLS.CHAINED_PROOF_2021_CONTEXT] = CHAINED_PROOF_2021_CONTEXT;
+preloadedContexts[CONTEXT_URLS.STATUS_LIST_2021_CONTEXT] = STATUS_LIST_2021_CONTEXT;
 
 export default preloadedContexts;

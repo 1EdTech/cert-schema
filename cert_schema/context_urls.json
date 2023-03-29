@@ -15,5 +15,6 @@
   "BLOCKCERTS_V3_1_CANONICAL_CONTEXT": "https://w3id.org/blockcerts/v3.1",
   "BLOCKCERTS_ORG_V3_1_CONTEXT": "https://www.blockcerts.org/schema/3.1/context.json",
   "MERKLE_PROOF_2019_CONTEXT": "https://w3id.org/security/suites/merkle-2019/v1",
-  "CHAINED_PROOF_2021_CONTEXT": "https://w3id.org/security/suites/chained-2021/v1"
+  "CHAINED_PROOF_2021_CONTEXT": "https://w3id.org/security/suites/chained-2021/v1",
+  "STATUS_LIST_2021_CONTEXT": "https://w3id.org/vc/status-list/2021/v1"
 }

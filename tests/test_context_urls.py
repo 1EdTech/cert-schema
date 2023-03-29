@@ -106,3 +106,7 @@ class TestContextUrls(unittest.TestCase):
     def test_chained_proof_2021(self):
         output = self.instance.chained_proof_2021()
         self.assertTrue(output == 'https://w3id.org/security/suites/chained-2021/v1')
+
+    def test_status_list_2021(self):
+        output = self.instance.status_list_2021()
+        self.assertTrue(output == 'https://w3id.org/vc/status-list/2021/v1')

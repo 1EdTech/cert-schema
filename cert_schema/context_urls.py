@@ -80,6 +80,9 @@ class ContextUrls:
     def verifiable_credential(self):
         return self.CONTEXT_URLS['VERIFIABLE_CREDENTIAL_V1_CONTEXT']
 
+    def status_list_2021(self):
+        return self.CONTEXT_URLS['STATUS_LIST_2021_CONTEXT']
+
     def merkle_proof_2019(self):
         return self.CONTEXT_URLS['MERKLE_PROOF_2019_CONTEXT']
 
