@@ -9,7 +9,7 @@ import V3_CONTEXT from './schemas/3.0/context.json';
 import V3_1_CONTEXT from './schemas/3.1/context.json';
 import MERKLE_PROOF_2019_CONTEXT from './schemas/3.1/merkleProof2019Context.json';
 import CHAINED_PROOF_2021_CONTEXT from './schemas/3.1/chainedProof2021Context.json';
-import STATUS_LIST_2021_CONTEXT from './schemas/3.1/statusList2021.json';
+import STATUS_LIST_2021_CONTEXT from './schemas/3.1/statusList2021Context.json';
 
 const preloadedContexts = {};
 
