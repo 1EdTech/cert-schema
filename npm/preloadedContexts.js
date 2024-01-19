@@ -1,15 +1,15 @@
-import CONTEXT_URLS from './schemas/context_urls.json';
+import CONTEXT_URLS from './schemas/context_urls.json' assert { type: 'json' };
 
-import OPEN_BADGES_V2_CONTEXT from './schemas/2.1/obi.json';
-import VERIFIABLE_CREDENTIALS_CONTEXT from './schemas/3.0/credential.json';
+import OPEN_BADGES_V2_CONTEXT from './schemas/2.1/obi.json' assert { type: 'json' };
+import VERIFIABLE_CREDENTIALS_CONTEXT from './schemas/3.0/credential.json' assert { type: 'json' };
 
-import V2_CONTEXT from './schemas/2.0/context.json';
-import V2_1_CONTEXT from './schemas/2.1/context.json';
-import V3_CONTEXT from './schemas/3.0/context.json';
-import V3_1_CONTEXT from './schemas/3.1/context.json';
-import MERKLE_PROOF_2019_CONTEXT from './schemas/3.1/merkleProof2019Context.json';
-import CHAINED_PROOF_2021_CONTEXT from './schemas/3.1/chainedProof2021Context.json';
-import STATUS_LIST_2021_CONTEXT from './schemas/3.1/statusList2021Context.json';
+import V2_CONTEXT from './schemas/2.0/context.json' assert { type: 'json' };
+import V2_1_CONTEXT from './schemas/2.1/context.json' assert { type: 'json' };
+import V3_CONTEXT from './schemas/3.0/context.json' assert { type: 'json' };
+import V3_1_CONTEXT from './schemas/3.1/context.json' assert { type: 'json' };
+import MERKLE_PROOF_2019_CONTEXT from './schemas/3.1/merkleProof2019Context.json' assert { type: 'json' };
+import CHAINED_PROOF_2021_CONTEXT from './schemas/3.1/chainedProof2021Context.json' assert { type: 'json' };
+import STATUS_LIST_2021_CONTEXT from './schemas/3.1/statusList2021Context.json' assert { type: 'json' };
 
 const preloadedContexts = {};
 
