@@ -80,6 +80,12 @@ class ContextUrls:
     def verifiable_credential(self):
         return self.CONTEXT_URLS['VERIFIABLE_CREDENTIAL_V1_CONTEXT']
 
+    def verifiable_credential_v1(self):
+        return self.CONTEXT_URLS['VERIFIABLE_CREDENTIAL_V1_CONTEXT']
+
+    def verifiable_credential_v2(self):
+        return self.CONTEXT_URLS['VERIFIABLE_CREDENTIAL_V2_CONTEXT']
+
     def status_list_2021(self):
         return self.CONTEXT_URLS['STATUS_LIST_2021_CONTEXT']
 

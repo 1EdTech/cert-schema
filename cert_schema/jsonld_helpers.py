@@ -75,6 +75,7 @@ CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/chainedProof2021Cont
 STATUS_LIST_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/statusList2021Context.json')
 
 VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
+VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V2 = os.path.join(BASE_DIR, '3.0/credential_v2.json')
 
 PRELOADED_CONTEXTS = {}
 

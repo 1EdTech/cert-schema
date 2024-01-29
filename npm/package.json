@@ -4,6 +4,7 @@
   "repository": "https://github.com/blockchain-certificates/cert-schema",
   "description": "One source of truth for Blockcerts schemas",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "copy:schemas": "rm -rf ./schemas && cp -r ../cert_schema/ ./schemas && rm schemas/*.py",
     "semantic-release": "semantic-release"
