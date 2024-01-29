@@ -99,6 +99,14 @@ class TestContextUrls(unittest.TestCase):
         output = self.instance.verifiable_credential()
         self.assertTrue(output == 'https://www.w3.org/2018/credentials/v1')
 
+    def test_verifiable_credentials_1(self):
+        output = self.instance.verifiable_credential_v1()
+        self.assertTrue(output == 'https://www.w3.org/2018/credentials/v1')
+
+    def test_verifiable_credentials_v2(self):
+        output = self.instance.verifiable_credential_v2()
+        self.assertTrue(output == 'https://www.w3.org/ns/credentials/v2')
+
     def test_merkle_proof_2019(self):
         output = self.instance.merkle_proof_2019()
         self.assertTrue(output == 'https://w3id.org/security/suites/merkle-2019/v1')

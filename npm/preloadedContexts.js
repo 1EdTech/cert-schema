@@ -2,6 +2,7 @@ import CONTEXT_URLS from './schemas/context_urls.json' assert { type: 'json' };
 
 import OPEN_BADGES_V2_CONTEXT from './schemas/2.1/obi.json' assert { type: 'json' };
 import VERIFIABLE_CREDENTIALS_CONTEXT from './schemas/3.0/credential.json' assert { type: 'json' };
+import VERIFIABLE_CREDENTIALS_V2_CONTEXT from './schemas/3.0/credential_v2.json' assert { type: 'json' };
 
 import V2_CONTEXT from './schemas/2.0/context.json' assert { type: 'json' };
 import V2_1_CONTEXT from './schemas/2.1/context.json' assert { type: 'json' };
@@ -17,6 +18,7 @@ preloadedContexts[CONTEXT_URLS.OPEN_BADGES_V2_CANONICAL_CONTEXT] = OPEN_BADGES_V
 preloadedContexts[CONTEXT_URLS.OPEN_BADGES_V2_CONTEXT] = OPEN_BADGES_V2_CONTEXT;
 
 preloadedContexts[CONTEXT_URLS.VERIFIABLE_CREDENTIAL_V1_CONTEXT] = VERIFIABLE_CREDENTIALS_CONTEXT;
+preloadedContexts[CONTEXT_URLS.VERIFIABLE_CREDENTIAL_V2_CONTEXT] = VERIFIABLE_CREDENTIALS_V2_CONTEXT;
 
 preloadedContexts[CONTEXT_URLS.BLOCKCERTS_V2_CONTEXT] = V2_CONTEXT;
 preloadedContexts[CONTEXT_URLS.BLOCKCERTS_ORG_V2_CONTEXT] = V2_CONTEXT;
