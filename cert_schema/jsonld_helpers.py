@@ -22,7 +22,8 @@ ContextUrlsInstance = ContextUrls()
 OPEN_BADGES_V2_CONTEXT = ContextUrlsInstance.open_badge()
 OPEN_BADGES_V2_CANONICAL_CONTEXT = ContextUrlsInstance.open_badge_canonical()
 
-VERIFIABLE_CREDENTIAL_V1_CONTEXT = ContextUrlsInstance.verifiable_credential()
+VERIFIABLE_CREDENTIAL_V1_CONTEXT = ContextUrlsInstance.verifiable_credential_v1()
+VERIFIABLE_CREDENTIAL_V2_CONTEXT = ContextUrlsInstance.verifiable_credential_v2()
 
 BLOCKCERTS_V2_ALPHA_CONTEXT = 'https://w3id.org/blockcerts/schema/2.0-alpha/context.json'
 BLOCKCERTS_ORG_V2_ALPHA_CONTEXT = 'https://www.blockcerts.org/schema/2.0-alpha/context.json'
@@ -86,7 +87,11 @@ with open(OBI_JSON_LD_CONTEXT_V2) as data_file:
 
 with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1) as data_file:
     cred_context = json.load(data_file)
-    PRELOADED_CONTEXTS[ContextUrlsInstance.verifiable_credential()] = cred_context
+    PRELOADED_CONTEXTS[ContextUrlsInstance.verifiable_credential_v1()] = cred_context
+
+with open(VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V2) as data_file:
+    cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS[ContextUrlsInstance.verifiable_credential_v2()] = cred_context
 
 with open(MERKLE_PROOF_2019_LD_CONTEXT) as data_file:
     cred_context = json.load(data_file)
