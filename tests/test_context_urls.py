@@ -118,3 +118,7 @@ class TestContextUrls(unittest.TestCase):
     def test_status_list_2021(self):
         output = self.instance.status_list_2021()
         self.assertTrue(output == 'https://w3id.org/vc/status-list/2021/v1')
+
+    def test_data_integrity_proof_v2(self):
+        output = self.instance.data_integrity_proof_v2()
+        self.assertTrue(output == 'https://w3id.org/security/data-integrity/v2')

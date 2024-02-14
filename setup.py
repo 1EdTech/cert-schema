@@ -25,6 +25,6 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
-    package_data={"cert_schema": ["1.1/*.json", "1.2/*.json", "2.0-alpha/*.json", "2.0/*.json", "2.1/*.json", "3.0-alpha/*.json", "3.0-beta/*.json", "3.0/*.json", "3.1/*.json", "context_urls.json"]},
+    package_data={"cert_schema": ["1.1/*.json", "1.2/*.json", "2.0-alpha/*.json", "2.0/*.json", "2.1/*.json", "3.0-alpha/*.json", "3.0-beta/*.json", "3.0/*.json", "3.1/*.json", "3.2/*.json", "context_urls.json"]},
     install_requires=reqs
 )

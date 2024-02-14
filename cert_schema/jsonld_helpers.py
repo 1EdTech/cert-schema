@@ -74,9 +74,10 @@ JSON_LD_CONTEXT_V3_1 = os.path.join(BASE_DIR, '3.1/context.json')
 MERKLE_PROOF_2019_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/merkleProof2019Context.json')
 CHAINED_PROOF_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/chainedProof2021Context.json')
 STATUS_LIST_2021_LD_CONTEXT = os.path.join(BASE_DIR, '3.1/statusList2021Context.json')
+DATA_INTEGRITY_PROOF_LD_CONTEXT = os.path.join(BASE_DIR, '3.2/dataIntegrityProof.json')
 
 VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V1 = os.path.join(BASE_DIR, '3.0/credential.json')
-VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V2 = os.path.join(BASE_DIR, '3.0/credential_v2.json')
+VERIFIABLE_CREDENTIAL_JSON_LD_CONTEXT_V2 = os.path.join(BASE_DIR, '3.2/credential_v2.json')
 
 PRELOADED_CONTEXTS = {}
 
@@ -104,6 +105,10 @@ with open(CHAINED_PROOF_2021_LD_CONTEXT) as data_file:
 with open(STATUS_LIST_2021_LD_CONTEXT) as data_file:
     cred_context = json.load(data_file)
     PRELOADED_CONTEXTS[ContextUrlsInstance.status_list_2021()] = cred_context
+
+with open(DATA_INTEGRITY_PROOF_LD_CONTEXT) as data_file:
+    cred_context = json.load(data_file)
+    PRELOADED_CONTEXTS[ContextUrlsInstance.data_integrity_proof_v2()] = cred_context
 
 with open(JSON_LD_CONTEXT_V2_0_ALPHA) as data_file:
     bc_context = json.load(data_file)
