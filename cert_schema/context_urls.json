@@ -18,5 +18,5 @@
   "MERKLE_PROOF_2019_CONTEXT": "https://w3id.org/security/suites/merkle-2019/v1",
   "CHAINED_PROOF_2021_CONTEXT": "https://w3id.org/security/suites/chained-2021/v1",
   "STATUS_LIST_2021_CONTEXT": "https://w3id.org/vc/status-list/2021/v1",
-  "DATA_INTEGRITY_PROOF_CONTEXT": "https://w3id.org/security/data-integrity/v2"
+  "DATA_INTEGRITY_PROOF_V2_CONTEXT": "https://w3id.org/security/data-integrity/v2"
 }
