@@ -2,7 +2,7 @@ import CONTEXT_URLS from './schemas/context_urls.json' assert { type: 'json' };
 
 import OPEN_BADGES_V2_CONTEXT from './schemas/2.1/obi.json' assert { type: 'json' };
 import VERIFIABLE_CREDENTIALS_CONTEXT from './schemas/3.0/credential.json' assert { type: 'json' };
-import VERIFIABLE_CREDENTIALS_V2_CONTEXT from './schemas/3.0/credential_v2.json' assert { type: 'json' };
+import VERIFIABLE_CREDENTIALS_V2_CONTEXT from './schemas/3.2/credential_v2.json' assert { type: 'json' };
 
 import V2_CONTEXT from './schemas/2.0/context.json' assert { type: 'json' };
 import V2_1_CONTEXT from './schemas/2.1/context.json' assert { type: 'json' };
